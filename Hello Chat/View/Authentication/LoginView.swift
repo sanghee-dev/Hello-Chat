@@ -29,10 +29,17 @@ struct LoginView: View {
                 .padding(.leading)
                 
                 VStack(spacing: 20) {
-                    TextField("Email", text: $email)
-                    SecureField("Password", text: $password)
+                    CustomTextField(imageName: "envelope",
+                                    placeholder: "Email",
+                                    isSecureField: false,
+                                    text: $email)
+                    
+                    CustomTextField(imageName: "lock",
+                                    placeholder: "Password",
+                                    isSecureField: true,
+                                    text: $password)
                 }
-                .padding([.top, .horizontal], 32)
+                .padding([.top, .leading, .trailing], 32)
                 
                 HStack {
                     Spacer()
@@ -41,7 +48,7 @@ struct LoginView: View {
                         destination: Text("Reset password..."),
                         label: {
                             Text("Forgot Password?")
-                                .font(.system(size: 13, weight: .semibold))
+                                .font(.system(size: 14, weight: .semibold))
                                 .foregroundColor(.blue)
                                 .padding(.top)
                                 .padding(.trailing, 32)
@@ -85,4 +92,3 @@ struct LoginView_Previews: PreviewProvider {
         LoginView()
     }
 }
-
