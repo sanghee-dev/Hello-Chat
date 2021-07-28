@@ -19,8 +19,9 @@ struct CustomTextField: View {
                 Image(systemName: imageName)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 20, height: 20)
+                    .frame(width: 16, height: 16)
                     .foregroundColor(Color(.systemGray4))
+                    .padding(.trailing, 8)
                 
                 if isSecureField {
                     SecureField(placeholder, text: $text)
@@ -30,7 +31,7 @@ struct CustomTextField: View {
             }
             
             Divider()
-                .background(Color(.darkGray))
+                .background(Color(.systemGray4))
         }
     }
 }

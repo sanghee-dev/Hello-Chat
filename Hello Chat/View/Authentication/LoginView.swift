@@ -14,21 +14,9 @@ struct LoginView: View {
     var body: some View {
         NavigationView {
             VStack {
-                VStack(alignment: .leading, spacing: 12) {
-                    HStack { Spacer() }
-                    
-                    Text("Hello.")
-                        .font(.largeTitle)
-                        .bold()
-                    
-                    Text("Welcome Back")
-                        .font(.largeTitle)
-                        .bold()
-                        .foregroundColor(.blue)
-                }
-                .padding(.leading)
+                IntroParagraph(title1: "Hello.", title2: "Welcome Back")
                 
-                VStack(spacing: 20) {
+                VStack(spacing: 28) {
                     CustomTextField(imageName: "envelope",
                                     placeholder: "Email",
                                     isSecureField: false,
@@ -55,28 +43,18 @@ struct LoginView: View {
                         })
                 }
                 
-                Button(action: {
-                    print("Handle sign up")
-                }, label: {
-                    Text("Sign In")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .frame(width: 330, height: 50)
-                        .background(Color.blue)
-                        .clipShape(Capsule())
-                        .padding()
-                })
-                .shadow(color: .gray, radius: 6, x: 0.0, y: 0.0)
+                CustomCapsuleButton(text: "Sign In")
                 
                 Spacer()
                 
                 NavigationLink(
-                    destination: RegistrationView(),
+                    destination: RegistrationView()
+                        .navigationBarBackButtonHidden(true),
                     label: {
                         HStack {
                             Text("Don't have an account?")
                                 .font(.system(size: 14))
-                            Text("Sign up")
+                            Text("Sign Up")
                                 .font(.system(size: 14, weight: .semibold))
                         }
                     })
@@ -92,3 +70,4 @@ struct LoginView_Previews: PreviewProvider {
         LoginView()
     }
 }
+
