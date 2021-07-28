@@ -11,6 +11,8 @@
 		5E328A5F26B156BD0027B10F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328A5E26B156BD0027B10F /* ContentView.swift */; };
 		5E328A6126B156BF0027B10F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E328A6026B156BF0027B10F /* Assets.xcassets */; };
 		5E328A6426B156BF0027B10F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E328A6326B156BF0027B10F /* Preview Assets.xcassets */; };
+		5E328A7326B1596F0027B10F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328A7226B1596F0027B10F /* LoginView.swift */; };
+		5E328A7526B159A30027B10F /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328A7426B159A30027B10F /* RegistrationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		5E328A6026B156BF0027B10F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5E328A6326B156BF0027B10F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5E328A6526B156BF0027B10F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5E328A7226B1596F0027B10F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		5E328A7426B159A30027B10F /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +56,11 @@
 		5E328A5B26B156BD0027B10F /* Hello Chat */ = {
 			isa = PBXGroup;
 			children = (
+				5E328A7026B158320027B10F /* Model */,
+				5E328A6F26B158300027B10F /* View */,
+				5E328A6E26B1582E0027B10F /* ViewModel */,
+				5E328A6D26B1582C0027B10F /* API */,
+				5E328A6C26B158290027B10F /* Utilities */,
 				5E328A5C26B156BD0027B10F /* Hello_ChatApp.swift */,
 				5E328A5E26B156BD0027B10F /* ContentView.swift */,
 				5E328A6026B156BF0027B10F /* Assets.xcassets */,
@@ -67,6 +76,51 @@
 				5E328A6326B156BF0027B10F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5E328A6C26B158290027B10F /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		5E328A6D26B1582C0027B10F /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		5E328A6E26B1582E0027B10F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5E328A6F26B158300027B10F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5E328A7126B1590C0027B10F /* Authentication */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5E328A7026B158320027B10F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5E328A7126B1590C0027B10F /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				5E328A7226B1596F0027B10F /* LoginView.swift */,
+				5E328A7426B159A30027B10F /* RegistrationView.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +192,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E328A7326B1596F0027B10F /* LoginView.swift in Sources */,
 				5E328A5F26B156BD0027B10F /* ContentView.swift in Sources */,
 				5E328A5D26B156BD0027B10F /* Hello_ChatApp.swift in Sources */,
+				5E328A7526B159A30027B10F /* RegistrationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
