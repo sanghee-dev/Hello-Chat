@@ -8,25 +8,22 @@
 import SwiftUI
 
 struct SettingsCell: View {
-    let imageName: String
-    let imageBgColor: Color
-    let title: String
-    
+    let viewModel: SettingsCellViewModel
     
     var body: some View {
         VStack {
             HStack {
-                Image(systemName: imageName)
+                Image(systemName: viewModel.imageName)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 20, height: 20)
                     .clipShape(Circle())
                     .padding(6)
                     .foregroundColor(.white)
-                    .background(imageBgColor)
+                    .background(viewModel.backgroundColor)
                     .cornerRadius(6)
                 
-                Text(title)
+                Text(viewModel.title)
                     .font(.system(size: 16))
                 
                 Spacer()

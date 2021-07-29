@@ -7,16 +7,16 @@
 
 import SwiftUI
 
-struct ProfileRow: View {
+struct SettingsProfile: View {
     let imageName: String
     let personName: String
-    let subText: String
+    let status: String
     
     var body: some View {
         HStack {
-            Image(systemName: imageName)
+            Image("profile")
                 .resizable()
-                .scaledToFill()
+                .scaledToFit()
                 .frame(width: 48, height: 48)
                 .clipShape(Circle())
                 .padding(.leading)
@@ -25,7 +25,7 @@ struct ProfileRow: View {
                 Text(personName)
                     .font(.system(size: 18))
                 
-                Text(subText)
+                Text(status)
                     .foregroundColor(Color(.systemGray2))
                     .font(.system(size: 14))
             }

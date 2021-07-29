@@ -14,15 +14,14 @@ struct SettingsView: View {
                 .ignoresSafeArea()
             
             VStack(spacing: 32) {
-                ProfileRow(imageName: "person", personName: "Sanghee", subText: "Available")
+                SettingsProfile(imageName: "person", personName: "Sanghee", status: "Available")
                 
                 VStack(spacing: 1) {
-                    SettingsCell(imageName: "key.fill", imageBgColor: Color.blue, title: "Account")
-                    
-                    SettingsCell(imageName: "bell.fill", imageBgColor: Color.red, title: "Notifications")
-                    
-                    SettingsCell(imageName: "star.fill", imageBgColor: Color.yellow, title: "Starred Messages")
+                    ForEach(SettingsCellViewModel.allCases, id: \.self) { viewModel in
+                        SettingsCell(viewModel: viewModel)
+                    }
                 }
+                
                 
                 Button(action: {
                     print("Log Out")
