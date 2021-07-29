@@ -35,8 +35,7 @@ struct SettingsCell: View {
             }
             .padding([.top, .horizontal])
             
-            Divider()
-                .padding(.leading, 56)
+            CustomDivider(leadingSpace: 56)
         }
         .background(Color.white)
     }

@@ -24,6 +24,8 @@
 		5E328A9D26B28B4B0027B10F /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328A9C26B28B4B0027B10F /* SettingsCell.swift */; };
 		5E328A9F26B295DC0027B10F /* SettingsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328A9E26B295DC0027B10F /* SettingsCellViewModel.swift */; };
 		5E328AA126B2AB150027B10F /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328AA026B2AB150027B10F /* EditProfileView.swift */; };
+		5E328AA326B2BC920027B10F /* EditProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328AA226B2BC920027B10F /* EditProfileCell.swift */; };
+		5E328AA526B2BCDA0027B10F /* CustomDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328AA426B2BCDA0027B10F /* CustomDivider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		5E328A9C26B28B4B0027B10F /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		5E328A9E26B295DC0027B10F /* SettingsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCellViewModel.swift; sourceTree = "<group>"; };
 		5E328AA026B2AB150027B10F /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		5E328AA226B2BC920027B10F /* EditProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileCell.swift; sourceTree = "<group>"; };
+		5E328AA426B2BCDA0027B10F /* CustomDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDivider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,7 @@
 			children = (
 				5E328A7626B198C10027B10F /* CustomTextField.swift */,
 				5E328A7A26B19D130027B10F /* CustomCapsuleButton.swift */,
+				5E328AA426B2BCDA0027B10F /* CustomDivider.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -168,6 +173,7 @@
 				5E328AA026B2AB150027B10F /* EditProfileView.swift */,
 				5E328A9A26B284E80027B10F /* SettingsProfile.swift */,
 				5E328A9C26B28B4B0027B10F /* SettingsCell.swift */,
+				5E328AA226B2BC920027B10F /* EditProfileCell.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -272,6 +278,8 @@
 				5E328A7926B19C5B0027B10F /* IntroParagraph.swift in Sources */,
 				5E328A9D26B28B4B0027B10F /* SettingsCell.swift in Sources */,
 				5E328A8326B26D820027B10F /* ChannelsView.swift in Sources */,
+				5E328AA326B2BC920027B10F /* EditProfileCell.swift in Sources */,
+				5E328AA526B2BCDA0027B10F /* CustomDivider.swift in Sources */,
 				5E328A7B26B19D130027B10F /* CustomCapsuleButton.swift in Sources */,
 				5E328A7E26B26A310027B10F /* MainTabView.swift in Sources */,
 				5E328A5D26B156BD0027B10F /* Hello_ChatApp.swift in Sources */,

@@ -33,11 +33,10 @@ struct EditProfileView: View {
                             .padding(.top)
                             
                             Text("Enter your name or change your profile photo")
-                                .foregroundColor(Color(.systemGray))
+                                .foregroundColor(Color(.systemGray2))
                         }
                         
-                        Divider()
-                            .padding(.leading, 56)
+                        CustomDivider(leadingSpace: 56)
                     }
                     
                     VStack {
@@ -49,40 +48,23 @@ struct EditProfileView: View {
                         }
                         .padding([.horizontal])
                         
-                        Divider()
-                            .padding(.leading, 56)
+                        CustomDivider(leadingSpace: 56)
                     }
                     .background(Color.white)
                 }
                 .background(Color.white)
                 
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 1) {
                     Text("Status")
                         .padding([.leading, .bottom])
                         .foregroundColor(Color(.systemGray))
                     
-                    VStack {
-                        NavigationLink(
-                            destination: Text("Edit Status"),
-                            label: {
-                                HStack {
-                                    Text("Available")
-                                        .foregroundColor(.blue)
-                                    
-                                    Spacer()
-                                    
-                                    Button(action: {}, label: {
-                                        Image(systemName: "chevron.forward")
-                                    })
-                                    .foregroundColor(Color(.systemGray4))
-                                }
-                                .padding([.top, .horizontal])
-                            })
-                        
-                        Divider()
-                            .padding(.leading, 56)
-                    }
-                    .background(Color.white)
+                    NavigationLink(
+                        destination: Text("Edit Status"),
+                        label: {
+                            EditProfileCell(text: "Available", textColor: Color.blue)
+                        }
+                    )
                 }
                 
                 Spacer()
