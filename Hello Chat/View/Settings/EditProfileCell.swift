@@ -26,7 +26,7 @@ struct EditProfileCell: View {
             }
             .padding([.top, .horizontal])
             
-            CustomDivider(leadingSpace: 56)
+            CustomDivider(leadingSpace: 16)
         }
         .background(Color.white)
     }

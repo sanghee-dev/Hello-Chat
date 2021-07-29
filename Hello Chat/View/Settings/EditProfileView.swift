@@ -36,7 +36,7 @@ struct EditProfileView: View {
                                 .foregroundColor(Color(.systemGray2))
                         }
                         
-                        CustomDivider(leadingSpace: 56)
+                        CustomDivider(leadingSpace: 16)
                     }
                     
                     VStack {
@@ -48,7 +48,7 @@ struct EditProfileView: View {
                         }
                         .padding([.horizontal])
                         
-                        CustomDivider(leadingSpace: 56)
+                        CustomDivider(leadingSpace: 16)
                     }
                     .background(Color.white)
                 }
@@ -60,7 +60,7 @@ struct EditProfileView: View {
                         .foregroundColor(Color(.systemGray))
                     
                     NavigationLink(
-                        destination: Text("Edit Status"),
+                        destination: StatusSelectorView(),
                         label: {
                             EditProfileCell(text: "Available", textColor: Color.blue)
                         }
