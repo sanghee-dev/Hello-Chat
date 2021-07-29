@@ -8,15 +8,17 @@
 import SwiftUI
 
 struct EditProfileView: View {
+    @State private var fullname = "Cat"
+    
     var body: some View {
         ZStack {
             Color(.systemGroupedBackground)
                 .ignoresSafeArea()
             
-            VStack(alignment: .leading) {
-                VStack {
+            VStack(spacing: 44) {
+                VStack(spacing: 1) {
                     VStack {
-                        HStack {
+                        HStack(spacing: 16) {
                             VStack(alignment: .center) {
                                 Image("profile")
                                     .resizable()
@@ -28,57 +30,66 @@ struct EditProfileView: View {
                                     Text("Edit")
                                 })
                             }
-                            .padding(.leading)
+                            .padding(.top)
                             
                             Text("Enter your name or change your profile photo")
+                                .foregroundColor(Color(.systemGray))
                         }
                         
                         Divider()
                             .padding(.leading, 56)
                     }
-
+                    
                     VStack {
                         HStack {
-                            Text("Block")
-                                .font(.system(size: 16))
+                            TextField("", text: $fullname)
+                                .padding(.vertical, 8)
                             
                             Spacer()
                         }
-                        .padding([.top, .horizontal])
+                        .padding([.horizontal])
                         
                         Divider()
                             .padding(.leading, 56)
                     }
                     .background(Color.white)
-                    
                 }
                 .background(Color.white)
                 
-                Text("Status")
-                
-                VStack {
-                    HStack {
-                        Text("Available")
-                            .font(.system(size: 16))
-                            .foregroundColor(.blue)
+                VStack(alignment: .leading) {
+                    Text("Status")
+                        .padding([.leading, .bottom])
+                        .foregroundColor(Color(.systemGray))
+                    
+                    VStack {
+                        NavigationLink(
+                            destination: Text("Edit Status"),
+                            label: {
+                                HStack {
+                                    Text("Available")
+                                        .foregroundColor(.blue)
+                                    
+                                    Spacer()
+                                    
+                                    Button(action: {}, label: {
+                                        Image(systemName: "chevron.forward")
+                                    })
+                                    .foregroundColor(Color(.systemGray4))
+                                }
+                                .padding([.top, .horizontal])
+                            })
                         
-                        Spacer()
-                        
-                        Button(action: {}, label: {
-                            Image(systemName: "chevron.forward")
-                        })
-                        .foregroundColor(Color(.systemGray4))
+                        Divider()
+                            .padding(.leading, 56)
                     }
-                    .padding([.top, .horizontal])
-                    
-                    Divider()
-                        .padding(.leading, 56)
+                    .background(Color.white)
                 }
-                .background(Color.white)
                 
                 Spacer()
             }
         }
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationTitle("Edit Profile")
     }
 }
 
