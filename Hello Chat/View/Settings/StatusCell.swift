@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct StatusCell: View {
-    let viewModel: StatusViewModel
+    let status: UserStatus
     
     var body: some View {
         VStack(spacing: 1) {
             HStack {
-                Text(viewModel.title)
+                Text(status.title)
                     .foregroundColor(.black)
                 
                 Spacer()

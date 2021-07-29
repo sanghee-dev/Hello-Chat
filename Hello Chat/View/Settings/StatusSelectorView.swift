@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StatusSelectorView: View {
-    @State var statusIndex: Int = 0
+    @ObservedObject var viewModel = StatusViewModel()
     
     var body: some View {
         ZStack {
@@ -23,7 +23,7 @@ struct StatusSelectorView: View {
                             .padding(.leading)
                             .foregroundColor(Color(.systemGray2))
                         
-                        StatusCell(viewModel: StatusViewModel(rawValue: statusIndex)!)
+                        StatusCell(status: viewModel.status)
                     }
                     .padding(.top, 32)
 
@@ -37,10 +37,12 @@ struct StatusSelectorView: View {
                         VStack(spacing: 1) {
                             CustomDivider(leadingSpace: 0)
                             
-                            ForEach(StatusViewModel.allCases
-                                        .filter({ $0 != .notConfigured}), id: \.self) { viewModel in
-                                Button(action: {}, label: {
-                                    StatusCell(viewModel: viewModel)
+                            ForEach(UserStatus.allCases
+                                        .filter({ $0 != .notConfigured}), id: \.self) { status in
+                                Button(action: {
+                                    viewModel.updateStatus(status)
+                                }, label: {
+                                    StatusCell(status: status)
                                 })
                             }
                         }
