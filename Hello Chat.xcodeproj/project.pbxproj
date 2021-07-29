@@ -20,6 +20,8 @@
 		5E328A8B26B26DB00027B10F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328A8A26B26DB00027B10F /* SettingsView.swift */; };
 		5E328A8F26B26E320027B10F /* ChatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328A8E26B26E320027B10F /* ChatsView.swift */; };
 		5E328A9526B26F010027B10F /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328A9426B26F010027B10F /* Conversation.swift */; };
+		5E328A9B26B284E80027B10F /* ProfileRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328A9A26B284E80027B10F /* ProfileRow.swift */; };
+		5E328A9D26B28B4B0027B10F /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328A9C26B28B4B0027B10F /* SettingsCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		5E328A8A26B26DB00027B10F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		5E328A8E26B26E320027B10F /* ChatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsView.swift; sourceTree = "<group>"; };
 		5E328A9426B26F010027B10F /* Conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
+		5E328A9A26B284E80027B10F /* ProfileRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRow.swift; sourceTree = "<group>"; };
+		5E328A9C26B28B4B0027B10F /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,8 @@
 				5E328A7626B198C10027B10F /* CustomTextField.swift */,
 				5E328A7826B19C5B0027B10F /* IntroParagraph.swift */,
 				5E328A7A26B19D130027B10F /* CustomCapsuleButton.swift */,
+				5E328A9A26B284E80027B10F /* ProfileRow.swift */,
+				5E328A9C26B28B4B0027B10F /* SettingsCell.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -257,10 +263,12 @@
 				5E328A7326B1596F0027B10F /* LoginView.swift in Sources */,
 				5E328A8F26B26E320027B10F /* ChatsView.swift in Sources */,
 				5E328A7926B19C5B0027B10F /* IntroParagraph.swift in Sources */,
+				5E328A9D26B28B4B0027B10F /* SettingsCell.swift in Sources */,
 				5E328A8326B26D820027B10F /* ChannelsView.swift in Sources */,
 				5E328A7B26B19D130027B10F /* CustomCapsuleButton.swift in Sources */,
 				5E328A7E26B26A310027B10F /* MainTabView.swift in Sources */,
 				5E328A5D26B156BD0027B10F /* Hello_ChatApp.swift in Sources */,
+				5E328A9B26B284E80027B10F /* ProfileRow.swift in Sources */,
 				5E328A7526B159A30027B10F /* RegistrationView.swift in Sources */,
 				5E328A7726B198C10027B10F /* CustomTextField.swift in Sources */,
 				5E328A8B26B26DB00027B10F /* SettingsView.swift in Sources */,

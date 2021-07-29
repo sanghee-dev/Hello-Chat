@@ -9,7 +9,35 @@ import SwiftUI
 
 struct SettingsView: View {
     var body: some View {
-        Text("Settings")
+        ZStack {
+            Color(.systemGroupedBackground)
+                .ignoresSafeArea()
+            
+            VStack(spacing: 32) {
+                ProfileRow(imageName: "person", personName: "Sanghee", subText: "Available")
+                
+                VStack(spacing: 1) {
+                    SettingsCell(imageName: "key.fill", imageBgColor: Color.blue, title: "Account")
+                    
+                    SettingsCell(imageName: "bell.fill", imageBgColor: Color.red, title: "Notifications")
+                    
+                    SettingsCell(imageName: "star.fill", imageBgColor: Color.yellow, title: "Starred Messages")
+                }
+                
+                Button(action: {
+                    print("Log Out")
+                }, label: {
+                    Text("Log Out")
+                })
+                .foregroundColor(.red)
+                .font(.system(size: 16, weight: .semibold))
+                .frame(width: UIScreen.main.bounds.width, height: 50)
+                .background(Color.white)
+                
+                Spacer()
+            }
+        }
+        
     }
 }
 
@@ -18,3 +46,4 @@ struct SettingsView_Previews: PreviewProvider {
         SettingsView()
     }
 }
+
