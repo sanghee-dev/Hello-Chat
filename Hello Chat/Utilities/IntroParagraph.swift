@@ -12,7 +12,7 @@ struct IntroParagraph: View {
     let title2: String
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
+        VStack(alignment: .leading, spacing: 8) {
             HStack { Spacer() }
             
             Text(title1)
