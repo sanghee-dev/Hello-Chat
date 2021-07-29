@@ -29,12 +29,11 @@ struct SettingsCell: View {
                 
                 Text(viewModel.title)
                     .font(.system(size: 16))
+                    .foregroundColor(.black)
                 
                 Spacer()
                 
-                Button(action: {}, label: {
-                    Image(systemName: "chevron.forward")
-                })
+                Image(systemName: "chevron.forward")
                 .foregroundColor(Color(.systemGray4))
             }
             .padding([.top, .horizontal])

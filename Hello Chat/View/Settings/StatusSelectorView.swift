@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StatusSelectorView: View {
-    @State var status: String = "Available"
+    @State var statusIndex: Int = 0
     
     var body: some View {
         ZStack {
@@ -23,19 +23,10 @@ struct StatusSelectorView: View {
                             .padding(.leading)
                             .foregroundColor(Color(.systemGray2))
                         
-                        VStack(spacing: 1) {
-                            HStack {
-                                Text("Available")
-                                
-                                Spacer()
-                            }
-                            .padding()
-                            
-                            CustomDivider(leadingSpace: 16)
-                        }
-                        .background(Color.white)
+                        StatusCell(viewModel: StatusViewModel(rawValue: statusIndex)!)
                     }
                     .padding(.top, 32)
+
                     
                     VStack(alignment: .leading) {
                         Text("SELECT YOUR STATUS")
@@ -46,20 +37,12 @@ struct StatusSelectorView: View {
                         VStack(spacing: 1) {
                             CustomDivider(leadingSpace: 0)
                             
-                            ForEach((0...10), id: \.self) { _status in
-                                VStack(spacing: 1) {
-                                    HStack {
-                                        Text("Available")
-                                        
-                                        Spacer()
-                                    }
-                                    .padding()
-                                    
-                                    CustomDivider(leadingSpace: 16)
-                                }
-                                .background(Color.white)
+                            ForEach(StatusViewModel.allCases
+                                        .filter({ $0 != .notConfigured}), id: \.self) { viewModel in
+                                Button(action: {}, label: {
+                                    StatusCell(viewModel: viewModel)
+                                })
                             }
-                            //
                         }
                     }
                     .padding(.top)
@@ -76,3 +59,4 @@ struct StatusSelectorView_Previews: PreviewProvider {
         StatusSelectorView()
     }
 }
+

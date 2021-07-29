@@ -9,13 +9,12 @@ import SwiftUI
 
 struct EditProfileCell: View {
     let text: String
-    let textColor: Color
     
     var body: some View {
         VStack {
             HStack {
                 Text(text)
-                    .foregroundColor(textColor)
+                    .foregroundColor(.black)
                 
                 Spacer()
                 

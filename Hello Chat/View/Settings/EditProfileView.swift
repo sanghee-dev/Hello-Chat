@@ -62,7 +62,7 @@ struct EditProfileView: View {
                     NavigationLink(
                         destination: StatusSelectorView(),
                         label: {
-                            EditProfileCell(text: "Available", textColor: Color.blue)
+                            EditProfileCell(text: "Available")
                         }
                     )
                 }

@@ -20,7 +20,9 @@ struct SettingsView: View {
                 
                 VStack(spacing: 1) {                    
                     ForEach(SettingsCellViewModel.allCases, id: \.self) { viewModel in
-                        SettingsCell(viewModel: viewModel)
+                        Button(action: {}, label: {
+                            SettingsCell(viewModel: viewModel)
+                        })
                     }
                 }
                 
