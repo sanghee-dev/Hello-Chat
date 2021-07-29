@@ -14,7 +14,9 @@ struct SettingsView: View {
                 .ignoresSafeArea()
             
             VStack(spacing: 32) {
-                SettingsProfile(imageName: "person", personName: "Sanghee", status: "Available")
+                NavigationLink(
+                    destination: EditProfileView(),
+                    label: { SettingsProfile(imageName: "profile", personName: "Sanghee", status: "Available") })
                 
                 VStack(spacing: 1) {
                     ForEach(SettingsCellViewModel.allCases, id: \.self) { viewModel in

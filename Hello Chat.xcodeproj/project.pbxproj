@@ -23,6 +23,7 @@
 		5E328A9B26B284E80027B10F /* SettingsProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328A9A26B284E80027B10F /* SettingsProfile.swift */; };
 		5E328A9D26B28B4B0027B10F /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328A9C26B28B4B0027B10F /* SettingsCell.swift */; };
 		5E328A9F26B295DC0027B10F /* SettingsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328A9E26B295DC0027B10F /* SettingsCellViewModel.swift */; };
+		5E328AA126B2AB150027B10F /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328AA026B2AB150027B10F /* EditProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		5E328A9A26B284E80027B10F /* SettingsProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProfile.swift; sourceTree = "<group>"; };
 		5E328A9C26B28B4B0027B10F /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		5E328A9E26B295DC0027B10F /* SettingsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCellViewModel.swift; sourceTree = "<group>"; };
+		5E328AA026B2AB150027B10F /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				5E328A8A26B26DB00027B10F /* SettingsView.swift */,
+				5E328AA026B2AB150027B10F /* EditProfileView.swift */,
 				5E328A9A26B284E80027B10F /* SettingsProfile.swift */,
 				5E328A9C26B28B4B0027B10F /* SettingsCell.swift */,
 			);
@@ -262,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E328AA126B2AB150027B10F /* EditProfileView.swift in Sources */,
 				5E328A9526B26F010027B10F /* Conversation.swift in Sources */,
 				5E328A7326B1596F0027B10F /* LoginView.swift in Sources */,
 				5E328A8F26B26E320027B10F /* ChatsView.swift in Sources */,

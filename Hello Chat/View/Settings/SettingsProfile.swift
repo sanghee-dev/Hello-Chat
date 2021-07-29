@@ -14,7 +14,7 @@ struct SettingsProfile: View {
     
     var body: some View {
         HStack {
-            Image("profile")
+            Image(imageName)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 48, height: 48)
@@ -24,10 +24,11 @@ struct SettingsProfile: View {
             VStack(alignment: .leading, spacing: 4) {
                 Text(personName)
                     .font(.system(size: 18))
+                    .foregroundColor(Color(.black))
                 
                 Text(status)
-                    .foregroundColor(Color(.systemGray2))
                     .font(.system(size: 14))
+                    .foregroundColor(Color(.systemGray2))
             }
             
             Spacer()
