@@ -29,6 +29,7 @@
 		5E328AA726B2D5C10027B10F /* StatusSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328AA626B2D5C10027B10F /* StatusSelectorView.swift */; };
 		5E328AA926B2E37A0027B10F /* StatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328AA826B2E37A0027B10F /* StatusCell.swift */; };
 		5E328AAB26B2E5EA0027B10F /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328AAA26B2E5EA0027B10F /* StatusViewModel.swift */; };
+		5E328AAD26B3BE1D0027B10F /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328AAC26B3BE1D0027B10F /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		5E328AA626B2D5C10027B10F /* StatusSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusSelectorView.swift; sourceTree = "<group>"; };
 		5E328AA826B2E37A0027B10F /* StatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCell.swift; sourceTree = "<group>"; };
 		5E328AAA26B2E5EA0027B10F /* StatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewModel.swift; sourceTree = "<group>"; };
+		5E328AAC26B3BE1D0027B10F /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				5E328A7626B198C10027B10F /* CustomTextField.swift */,
 				5E328A7A26B19D130027B10F /* CustomCapsuleButton.swift */,
 				5E328AA426B2BCDA0027B10F /* CustomDivider.swift */,
+				5E328AAC26B3BE1D0027B10F /* ImagePicker.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				5E328AA126B2AB150027B10F /* EditProfileView.swift in Sources */,
 				5E328AA726B2D5C10027B10F /* StatusSelectorView.swift in Sources */,
 				5E328A9526B26F010027B10F /* Conversation.swift in Sources */,
+				5E328AAD26B3BE1D0027B10F /* ImagePicker.swift in Sources */,
 				5E328A7326B1596F0027B10F /* LoginView.swift in Sources */,
 				5E328A8F26B26E320027B10F /* ChatsView.swift in Sources */,
 				5E328A7926B19C5B0027B10F /* IntroParagraph.swift in Sources */,
