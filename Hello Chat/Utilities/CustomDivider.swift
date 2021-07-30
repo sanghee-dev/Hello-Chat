@@ -12,6 +12,7 @@ struct CustomDivider: View {
     
     var body: some View {
         Divider()
+            .background(Color(.systemGray6))
             .padding(.leading, leadingSpace)
     }
 }

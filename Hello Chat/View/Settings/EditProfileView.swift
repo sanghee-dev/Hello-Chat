@@ -94,7 +94,6 @@ struct EditProfileView: View {
         guard let selectedImage = self.selectedImage else { return }
         profileImage = Image(uiImage: selectedImage)
     }
-    
 }
 
 struct EditProfileView_Previews: PreviewProvider {

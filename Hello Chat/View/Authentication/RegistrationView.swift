@@ -41,7 +41,7 @@ struct RegistrationView: View {
             }
             .padding([.top, .leading, .trailing], 32)
             
-            CustomCapsuleButton(text: "Sign In")
+            CustomCapsuleButton(text: "Sign Up")
             
             Spacer()
             
