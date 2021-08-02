@@ -9,7 +9,14 @@ import SwiftUI
 
 struct ConversationView: View {
     var body: some View {
-        Text("Conversation")
+        ScrollView {
+            VStack(spacing: 16) {
+                ForEach((0...5), id: \.self) { _ in
+                    ConversationCell(isFromCurrentUser: false)
+                    ConversationCell(isFromCurrentUser: true)
+                }
+            }
+        }
     }
 }
 

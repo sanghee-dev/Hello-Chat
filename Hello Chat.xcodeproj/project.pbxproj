@@ -35,6 +35,8 @@
 		5E328B0D26B7A6FF0027B10F /* NewMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328B0C26B7A6FF0027B10F /* NewMessageCell.swift */; };
 		5E328B0F26B7B4800027B10F /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328B0E26B7B4800027B10F /* SearchBar.swift */; };
 		5E328B1126B7BAB50027B10F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328B1026B7BAB50027B10F /* Extensions.swift */; };
+		5E328B2026B7C9440027B10F /* ConversationBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328B1F26B7C9440027B10F /* ConversationBubble.swift */; };
+		5E328B2226B7CBFD0027B10F /* ConversationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328B2126B7CBFD0027B10F /* ConversationCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +70,8 @@
 		5E328B0C26B7A6FF0027B10F /* NewMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageCell.swift; sourceTree = "<group>"; };
 		5E328B0E26B7B4800027B10F /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		5E328B1026B7BAB50027B10F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		5E328B1F26B7C9440027B10F /* ConversationBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationBubble.swift; sourceTree = "<group>"; };
+		5E328B2126B7CBFD0027B10F /* ConversationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +228,8 @@
 			isa = PBXGroup;
 			children = (
 				5E328B0526B7A2680027B10F /* ConversationView.swift */,
+				5E328B2126B7CBFD0027B10F /* ConversationCell.swift */,
+				5E328B1F26B7C9440027B10F /* ConversationBubble.swift */,
 			);
 			path = Conversation;
 			sourceTree = "<group>";
@@ -309,6 +315,7 @@
 				5E328AA126B2AB150027B10F /* EditProfileView.swift in Sources */,
 				5E328AA726B2D5C10027B10F /* StatusSelectorView.swift in Sources */,
 				5E328AAD26B3BE1D0027B10F /* ImagePicker.swift in Sources */,
+				5E328B2026B7C9440027B10F /* ConversationBubble.swift in Sources */,
 				5E328A7326B1596F0027B10F /* LoginView.swift in Sources */,
 				5E328A8F26B26E320027B10F /* ChatsView.swift in Sources */,
 				5E328A7926B19C5B0027B10F /* IntroParagraph.swift in Sources */,
@@ -325,6 +332,7 @@
 				5E328A9F26B295DC0027B10F /* SettingsCellViewModel.swift in Sources */,
 				5E328B0426B79F590027B10F /* ChatCell.swift in Sources */,
 				5E328B0D26B7A6FF0027B10F /* NewMessageCell.swift in Sources */,
+				5E328B2226B7CBFD0027B10F /* ConversationCell.swift in Sources */,
 				5E328A9B26B284E80027B10F /* SettingsProfile.swift in Sources */,
 				5E328AAB26B2E5EA0027B10F /* StatusViewModel.swift in Sources */,
 				5E328B1126B7BAB50027B10F /* Extensions.swift in Sources */,
