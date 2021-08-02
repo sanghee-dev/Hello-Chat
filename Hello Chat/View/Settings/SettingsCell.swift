@@ -19,7 +19,7 @@ struct SettingsCell: View {
             HStack {
                 Image(systemName: viewModel.imageName)
                     .resizable()
-                    .scaledToFit()
+                    .scaledToFill()
                     .frame(width: 20, height: 20)
                     .clipShape(Circle())
                     .padding(6)
