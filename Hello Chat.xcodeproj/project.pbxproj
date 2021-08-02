@@ -37,6 +37,7 @@
 		5E328B1126B7BAB50027B10F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328B1026B7BAB50027B10F /* Extensions.swift */; };
 		5E328B2026B7C9440027B10F /* ConversationBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328B1F26B7C9440027B10F /* ConversationBubble.swift */; };
 		5E328B2226B7CBFD0027B10F /* ConversationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328B2126B7CBFD0027B10F /* ConversationCell.swift */; };
+		5E328B2426B7DDC90027B10F /* CustomInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328B2326B7DDC90027B10F /* CustomInputView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		5E328B1026B7BAB50027B10F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5E328B1F26B7C9440027B10F /* ConversationBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationBubble.swift; sourceTree = "<group>"; };
 		5E328B2126B7CBFD0027B10F /* ConversationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationCell.swift; sourceTree = "<group>"; };
+		5E328B2326B7DDC90027B10F /* CustomInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 				5E328AAC26B3BE1D0027B10F /* ImagePicker.swift */,
 				5E328B0E26B7B4800027B10F /* SearchBar.swift */,
 				5E328B1026B7BAB50027B10F /* Extensions.swift */,
+				5E328B2326B7DDC90027B10F /* CustomInputView.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				5E328B2226B7CBFD0027B10F /* ConversationCell.swift in Sources */,
 				5E328A9B26B284E80027B10F /* SettingsProfile.swift in Sources */,
 				5E328AAB26B2E5EA0027B10F /* StatusViewModel.swift in Sources */,
+				5E328B2426B7DDC90027B10F /* CustomInputView.swift in Sources */,
 				5E328B1126B7BAB50027B10F /* Extensions.swift in Sources */,
 				5E328A7526B159A30027B10F /* RegistrationView.swift in Sources */,
 				5E328B0B26B7A6F00027B10F /* NewMessageView.swift in Sources */,

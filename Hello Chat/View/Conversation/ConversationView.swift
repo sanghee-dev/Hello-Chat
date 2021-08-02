@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ConversationView: View {
-    @State private var text = ""
+    @State private var messageText = ""
     
     var body: some View {
         VStack {
@@ -21,23 +21,16 @@ struct ConversationView: View {
                 }
             }
             
-            Divider()
-            
-            HStack {
-                TextField("Messages...", text: $text)
-                
-                Button(action: {}, label: {
-                    Image(systemName: "paperplane")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 20, height: 20)
-                })
-            }
-            .padding()
+            CustomInputView(text: $messageText, action: sendMessage)
         }
         .navigationTitle("Sanghee")
         .navigationBarTitleDisplayMode(.inline)
         .padding(.vertical)
+    }
+    
+    func sendMessage() {
+        print("Send message \(messageText)")
+        messageText = ""
     }
 }
 
