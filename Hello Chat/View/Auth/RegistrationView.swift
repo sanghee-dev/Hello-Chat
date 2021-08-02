@@ -13,6 +13,7 @@ struct RegistrationView: View {
     @State private var fullName = ""
     @State private var password = ""
     @Environment(\.presentationMode) var mode
+    @ObservedObject var viewModel = AuthViewModel()
     
     var body: some View {
         VStack {
@@ -41,7 +42,7 @@ struct RegistrationView: View {
             }
             .padding([.top, .leading, .trailing], 32)
             
-            CustomCapsuleButton(text: "Sign Up")
+            CustomCapsuleButton(text: "Sign Up", action: viewModel.register)
             
             Spacer()
             

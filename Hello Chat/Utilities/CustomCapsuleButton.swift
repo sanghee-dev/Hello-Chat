@@ -9,9 +9,10 @@ import SwiftUI
 
 struct CustomCapsuleButton: View {
     let text: String
+    let action: () -> Void
     
     var body: some View {
-        Button(action: {}, label: {
+        Button(action: action, label: {
             Text(text)
                 .font(.headline)
                 .foregroundColor(.white)
