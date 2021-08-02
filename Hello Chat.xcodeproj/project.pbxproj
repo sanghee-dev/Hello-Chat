@@ -33,6 +33,8 @@
 		5E328B0626B7A2680027B10F /* ConversationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328B0526B7A2680027B10F /* ConversationView.swift */; };
 		5E328B0B26B7A6F00027B10F /* NewMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328B0A26B7A6F00027B10F /* NewMessageView.swift */; };
 		5E328B0D26B7A6FF0027B10F /* NewMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328B0C26B7A6FF0027B10F /* NewMessageCell.swift */; };
+		5E328B0F26B7B4800027B10F /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328B0E26B7B4800027B10F /* SearchBar.swift */; };
+		5E328B1126B7BAB50027B10F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328B1026B7BAB50027B10F /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +66,8 @@
 		5E328B0526B7A2680027B10F /* ConversationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationView.swift; sourceTree = "<group>"; };
 		5E328B0A26B7A6F00027B10F /* NewMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageView.swift; sourceTree = "<group>"; };
 		5E328B0C26B7A6FF0027B10F /* NewMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageCell.swift; sourceTree = "<group>"; };
+		5E328B0E26B7B4800027B10F /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		5E328B1026B7BAB50027B10F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +128,8 @@
 				5E328A7A26B19D130027B10F /* CustomCapsuleButton.swift */,
 				5E328AA426B2BCDA0027B10F /* CustomDivider.swift */,
 				5E328AAC26B3BE1D0027B10F /* ImagePicker.swift */,
+				5E328B0E26B7B4800027B10F /* SearchBar.swift */,
+				5E328B1026B7BAB50027B10F /* Extensions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -307,6 +313,7 @@
 				5E328A8F26B26E320027B10F /* ChatsView.swift in Sources */,
 				5E328A7926B19C5B0027B10F /* IntroParagraph.swift in Sources */,
 				5E328A9D26B28B4B0027B10F /* SettingsCell.swift in Sources */,
+				5E328B0F26B7B4800027B10F /* SearchBar.swift in Sources */,
 				5E328A8326B26D820027B10F /* ChannelsView.swift in Sources */,
 				5E328AA326B2BC920027B10F /* EditProfileCell.swift in Sources */,
 				5E328B0626B7A2680027B10F /* ConversationView.swift in Sources */,
@@ -320,6 +327,7 @@
 				5E328B0D26B7A6FF0027B10F /* NewMessageCell.swift in Sources */,
 				5E328A9B26B284E80027B10F /* SettingsProfile.swift in Sources */,
 				5E328AAB26B2E5EA0027B10F /* StatusViewModel.swift in Sources */,
+				5E328B1126B7BAB50027B10F /* Extensions.swift in Sources */,
 				5E328A7526B159A30027B10F /* RegistrationView.swift in Sources */,
 				5E328B0B26B7A6F00027B10F /* NewMessageView.swift in Sources */,
 				5E328A7726B198C10027B10F /* CustomTextField.swift in Sources */,
