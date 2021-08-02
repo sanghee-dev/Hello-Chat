@@ -1,5 +1,5 @@
 //
-//  UserProfile.swift
+//  ConversationCell.swift
 //  Hello Chat
 //
 //  Created by leeesangheee on 2021/08/02.
@@ -8,35 +8,44 @@
 import SwiftUI
 
 struct ChatCell: View {
-    let imageName: String
-    let userName: String
-    let conversation: String
+    var isFromCurrentUser: Bool
+    var messageText: String
     
     var body: some View {
-        VStack(spacing: 1) {
-            HStack(spacing: 12) {
-                Image(imageName)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 56, height: 56)
-                    .clipShape(Circle())
-                    .padding(.leading)
-                
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(userName)
-                        .bold()
+        HStack {
+            if isFromCurrentUser {
+                HStack(alignment: .bottom) {
+                    Spacer()
+                    
+                    Text(messageText)
+                        .padding(12)
+                        .background(Color(.systemBlue))
+                        .font(.system(size: 14))
+                        .clipShape(ChatBubble(isFromCurrentUser: true))
+                        .foregroundColor(.white)
+                }
+                .padding(.horizontal)
+                .padding(.leading, 120)
+            } else {
+                HStack(alignment: .bottom) {
+                    Image("profile")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 24, height: 24)
+                        .clipShape(Circle())
+                    
+                    Text(messageText)
+                        .padding(12)
+                        .background(Color(.systemGroupedBackground))
+                        .font(.system(size: 14))
+                        .clipShape(ChatBubble(isFromCurrentUser: false))
                         .foregroundColor(.black)
                     
-                    Text(conversation)
-                        .foregroundColor(Color(.systemGray))
+                    Spacer()
                 }
-                
-                Spacer()
+                .padding(.horizontal)
+                .padding(.trailing, 80)
             }
-            .frame(height: 80)
-            .background(Color.white)
-            
-            CustomDivider(leadingSpace: 80)
         }
     }
 }

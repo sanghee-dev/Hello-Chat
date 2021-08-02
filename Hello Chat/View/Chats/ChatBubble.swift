@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ConversationBubble: Shape {
+struct ChatBubble: Shape {
     var isFromCurrentUser: Bool
     
     func path(in rect: CGRect) -> Path {
@@ -16,11 +16,5 @@ struct ConversationBubble: Shape {
                                 cornerRadii: CGSize(width: 16, height: 16))
         
         return Path(path.cgPath)
-    }
-}
-
-struct ConversationBubble_Previews: PreviewProvider {
-    static var previews: some View {
-        ConversationBubble(isFromCurrentUser: true)
     }
 }

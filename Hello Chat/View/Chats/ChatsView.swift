@@ -1,52 +1,36 @@
 //
-//  ChatsView.swift
+//  ConversationView.swift
 //  Hello Chat
 //
-//  Created by leeesangheee on 2021/07/29.
+//  Created by leeesangheee on 2021/08/02.
 //
 
 import SwiftUI
 
 struct ChatsView: View {
-    @State private var showMessageView = false
-    @State private var showConversationView = false
+    @State private var messageText = ""
+    @ObservedObject var viewModel = ChatViewModel()
     
     var body: some View {
-        ZStack(alignment: .bottomTrailing) {
-            NavigationLink(
-                destination: ConversationView(),
-                isActive: $showConversationView,
-                label: {})
-            
+        VStack {
             ScrollView {
-                VStack(spacing: 1) {
-                    ForEach((0...5), id: \.self) { _ in
-                        NavigationLink(
-                            destination: ConversationView(),
-                            label: {
-                                ChatCell(imageName: "profile", userName: "Sanghee", conversation: "Hello")
-                            })
+                VStack(spacing: 16) {
+                    ForEach(viewModel.messages) { message in
+                        ChatCell(isFromCurrentUser: message.isFromCurrentUser, messageText: message.messageText)
                     }
                 }
             }
             
-            Button(action: {
-                showMessageView.toggle()
-            }, label: {
-                Image(systemName: "square.and.pencil")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 18, height: 18)
-                    .padding(.all, 14)
-            })
-            .background(Color(.systemBlue))
-            .foregroundColor(.white)
-            .clipShape(Circle())
-            .padding()
-            .sheet(isPresented: $showMessageView, content: {
-                NewMessageView(showConversationView: $showConversationView)
-            })
+            CustomInputView(text: $messageText, action: sendMessage)
         }
+        .navigationTitle("Sanghee")
+        .navigationBarTitleDisplayMode(.inline)
+        .padding(.vertical)
+    }
+    
+    func sendMessage() {
+        viewModel.sendMessage(messageText)
+        messageText = ""
     }
 }
 

@@ -5,7 +5,7 @@
 //  Created by leeesangheee on 2021/07/29.
 //
 
-import SwiftUI
+import Foundation
 
 class StatusViewModel: ObservableObject {
     @Published var status: UserStatus = .notConfigured

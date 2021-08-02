@@ -22,7 +22,7 @@ struct MainTabView: View {
     var body: some View {
         NavigationView {
             TabView(selection: $selectedIndex) {
-                ChatsView()
+                ConversationsView()
                     .onTapGesture { selectedIndex = 0 }
                     .tabItem { Image(systemName: "bubble.left") }
                     .tag(0)
