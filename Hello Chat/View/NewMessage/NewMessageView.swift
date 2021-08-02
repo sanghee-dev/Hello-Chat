@@ -8,16 +8,20 @@
 import SwiftUI
 
 struct NewMessageView: View {
+    @Binding var showConversationView: Bool
+    @Environment(\.presentationMode) var mode
+    
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
             ScrollView {
                 VStack(spacing: 1) {
                     ForEach((0...5), id: \.self) { _ in
-                        NavigationLink(
-                            destination: ConversationView(),
-                            label: {
-                                NewMessageCell(imageName: "profile", userName: "Sanghee", message: "Hello")
-                            })
+                        Button(action: {
+                            showConversationView.toggle()
+                            mode.wrappedValue.dismiss()
+                        }, label: {
+                            NewMessageCell(imageName: "profile", userName: "Sanghee", message: "Hello")
+                        })
                     }
                 }
             }
@@ -27,6 +31,6 @@ struct NewMessageView: View {
 
 struct NewMessageView_Previews: PreviewProvider {
     static var previews: some View {
-        NewMessageView()
+        NewMessageView(showConversationView: .constant(true))
     }
 }

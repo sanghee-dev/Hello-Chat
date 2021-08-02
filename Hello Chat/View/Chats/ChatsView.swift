@@ -9,9 +9,15 @@ import SwiftUI
 
 struct ChatsView: View {
     @State private var showMessageView = false
+    @State private var showConversationView = false
     
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
+            NavigationLink(
+                destination: ConversationView(),
+                isActive: $showConversationView,
+                label: {})
+            
             ScrollView {
                 VStack(spacing: 1) {
                     ForEach((0...5), id: \.self) { _ in
@@ -38,7 +44,7 @@ struct ChatsView: View {
             .clipShape(Circle())
             .padding()
             .sheet(isPresented: $showMessageView, content: {
-                NewMessageView()
+                NewMessageView(showConversationView: $showConversationView)
             })
         }
     }
