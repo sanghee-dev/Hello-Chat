@@ -31,6 +31,8 @@
 		5E328AAD26B3BE1D0027B10F /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328AAC26B3BE1D0027B10F /* ImagePicker.swift */; };
 		5E328B0426B79F590027B10F /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328B0326B79F590027B10F /* ChatCell.swift */; };
 		5E328B0626B7A2680027B10F /* ConversationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328B0526B7A2680027B10F /* ConversationView.swift */; };
+		5E328B0B26B7A6F00027B10F /* NewMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328B0A26B7A6F00027B10F /* NewMessageView.swift */; };
+		5E328B0D26B7A6FF0027B10F /* NewMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328B0C26B7A6FF0027B10F /* NewMessageCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +62,8 @@
 		5E328AAC26B3BE1D0027B10F /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		5E328B0326B79F590027B10F /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 		5E328B0526B7A2680027B10F /* ConversationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationView.swift; sourceTree = "<group>"; };
+		5E328B0A26B7A6F00027B10F /* NewMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageView.swift; sourceTree = "<group>"; };
+		5E328B0C26B7A6FF0027B10F /* NewMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +150,7 @@
 				5E328A7126B1590C0027B10F /* Authentication */,
 				5E328A7C26B26A080027B10F /* Main */,
 				5E328A8126B26D5A0027B10F /* Chats */,
+				5E328B0926B7A6C40027B10F /* NewMessage */,
 				5E328A9326B26EEF0027B10F /* Conversation */,
 				5E328A8026B26D550027B10F /* Channels */,
 				5E328A7F26B26D4C0027B10F /* Settings */,
@@ -215,6 +220,15 @@
 				5E328B0526B7A2680027B10F /* ConversationView.swift */,
 			);
 			path = Conversation;
+			sourceTree = "<group>";
+		};
+		5E328B0926B7A6C40027B10F /* NewMessage */ = {
+			isa = PBXGroup;
+			children = (
+				5E328B0A26B7A6F00027B10F /* NewMessageView.swift */,
+				5E328B0C26B7A6FF0027B10F /* NewMessageCell.swift */,
+			);
+			path = NewMessage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,9 +317,11 @@
 				5E328AA926B2E37A0027B10F /* StatusCell.swift in Sources */,
 				5E328A9F26B295DC0027B10F /* SettingsCellViewModel.swift in Sources */,
 				5E328B0426B79F590027B10F /* ChatCell.swift in Sources */,
+				5E328B0D26B7A6FF0027B10F /* NewMessageCell.swift in Sources */,
 				5E328A9B26B284E80027B10F /* SettingsProfile.swift in Sources */,
 				5E328AAB26B2E5EA0027B10F /* StatusViewModel.swift in Sources */,
 				5E328A7526B159A30027B10F /* RegistrationView.swift in Sources */,
+				5E328B0B26B7A6F00027B10F /* NewMessageView.swift in Sources */,
 				5E328A7726B198C10027B10F /* CustomTextField.swift in Sources */,
 				5E328A8B26B26DB00027B10F /* SettingsView.swift in Sources */,
 			);
