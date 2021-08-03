@@ -10,7 +10,7 @@ import SwiftUI
 struct RegistrationView: View {
     @State private var email = ""
     @State private var username = ""
-    @State private var fullName = ""
+    @State private var fullname = ""
     @State private var password = ""
     @Environment(\.presentationMode) var mode
     @ObservedObject var viewModel = AuthViewModel()
@@ -33,7 +33,7 @@ struct RegistrationView: View {
                 CustomTextField(imageName: "person",
                                 placeholder: "Full Name",
                                 isSecureField: false,
-                                text: $fullName)
+                                text: $fullname)
                 
                 CustomTextField(imageName: "lock",
                                 placeholder: "Password",
@@ -43,7 +43,7 @@ struct RegistrationView: View {
             .padding([.top, .leading, .trailing], 32)
             
             Button(action: {
-                viewModel.register(withEmail: email, username: username, fullName: fullName, password: password)
+                viewModel.register(withEmail: email, username: username, fullname: fullname, password: password)
             }, label: {
                 Text("Sign Up")
                     .font(.headline)

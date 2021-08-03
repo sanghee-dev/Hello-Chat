@@ -12,13 +12,21 @@ class AuthViewModel: NSObject, ObservableObject {
         print("login \(email), \(password)")
     }
     
-    func register(withEmail email: String, username: String, fullName: String, password: String) {
+    func register(withEmail email: String, username: String, fullname: String, password: String) {
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             if let error = error {
-                print("\(error.localizedDescription)")
+                print("DEBUG: Failed to register with error \(error.localizedDescription)")
                 return
             }
-            print("Successly registered")
+            
+            guard let user = result?.user else { return }
+            let data = ["email": email,
+                        "username": username,
+                        "fullname": fullname]
+            
+            Firestore.firestore().collection("users").document(user.uid).setData(data) { _ in
+                print("DEBUG: updated user info")
+            }
         }
     }
     
