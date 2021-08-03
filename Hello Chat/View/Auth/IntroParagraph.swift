@@ -24,6 +24,6 @@ struct IntroParagraph: View {
                 .bold()
                 .foregroundColor(.blue)
         }
-        .padding(.leading)
+        .padding(.horizontal, 32)
     }
 }

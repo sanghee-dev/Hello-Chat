@@ -5,10 +5,12 @@
 //  Created by leeesangheee on 2021/08/02.
 //
 
+import UIKit
 import Firebase
 
 class AuthViewModel: NSObject, ObservableObject {
     @Published var didAuthenticateUser = false
+    private var tempCurrentUser: Firebase.User?
     
     func login(withEmail email: String, password: String) {
         print("login \(email), \(password)")
@@ -22,9 +24,11 @@ class AuthViewModel: NSObject, ObservableObject {
             }
             
             guard let user = result?.user else { return }
-            let data = ["email": email,
-                        "username": username,
-                        "fullname": fullname]
+            self.tempCurrentUser = user
+            
+            let data: [String: Any] = ["email": email,
+                                       "username": username,
+                                       "fullname": fullname]
             
             Firestore.firestore().collection("users").document(user.uid).setData(data) { _ in
                 self.didAuthenticateUser = true
@@ -32,12 +36,19 @@ class AuthViewModel: NSObject, ObservableObject {
         }
     }
     
-    func uploadProfileImage() {
-        print("uploadProfileImage")
+    func uploadProfileImage(_ image: UIImage) {
+        guard let uid = tempCurrentUser?.uid else { return }
+
+        ImageUploader.uploadImage(image: image) { imageUrl in
+            Firestore.firestore().collection("users").document(uid).updateData(["profileImageUrl" : imageUrl]) { _ in
+                
+            }
+        }
     }
     
     func signOut() {
         print("signOut")
     }
 }
+
 

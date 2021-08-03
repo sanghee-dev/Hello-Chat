@@ -11,7 +11,7 @@ struct ProfilePhotoSelectorView: View {
     @State private var imagePickerPresented = false
     @State private var selectedImage: UIImage?
     @State private var profileImage: Image?
-    @ObservedObject var viewModel = AuthViewModel()
+    @EnvironmentObject var viewModel: AuthViewModel
         
     var body: some View {
         VStack {
@@ -45,7 +45,7 @@ struct ProfilePhotoSelectorView: View {
                 .font(.system(size: 16, weight: .semibold))
             
             CapsuleButton(text: "Continue", disabled: profileImage == nil, action: {
-                viewModel.uploadProfileImage()
+                viewModel.uploadProfileImage(selectedImage!)
             })
             
             Spacer()
