@@ -5,15 +5,21 @@
 //  Created by leeesangheee on 2021/08/02.
 //
 
-import Foundation
+import Firebase
 
 class AuthViewModel: NSObject, ObservableObject {
-    func login() {
-        print("login")
+    func login(withEmail email: String, password: String) {
+        print("login \(email), \(password)")
     }
     
-    func register() {
-        print("register")
+    func register(withEmail email: String, username: String, fullName: String, password: String) {
+        Auth.auth().createUser(withEmail: email, password: password) { result, error in
+            if let error = error {
+                print("\(error.localizedDescription)")
+                return
+            }
+            print("Successly registered")
+        }
     }
     
     func uploadProfileImage() {

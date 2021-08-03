@@ -27,12 +27,12 @@ struct RegistrationView: View {
                 
                 CustomTextField(imageName: "person",
                                 placeholder: "Username",
-                                isSecureField: true,
+                                isSecureField: false,
                                 text: $username)
                 
                 CustomTextField(imageName: "person",
                                 placeholder: "Full Name",
-                                isSecureField: true,
+                                isSecureField: false,
                                 text: $fullName)
                 
                 CustomTextField(imageName: "lock",
@@ -42,7 +42,19 @@ struct RegistrationView: View {
             }
             .padding([.top, .leading, .trailing], 32)
             
-            CustomCapsuleButton(text: "Sign Up", action: viewModel.register)
+            Button(action: {
+                viewModel.register(withEmail: email, username: username, fullName: fullName, password: password)
+            }, label: {
+                Text("Sign Up")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .frame(width: 330, height: 50)
+                    .background(Color.blue)
+                    .clipShape(Capsule())
+                    .padding()
+            })
+            .padding()
+            .shadow(color: Color(.systemGray2), radius: 6, x: 0.0, y: 0.0)
             
             Spacer()
             

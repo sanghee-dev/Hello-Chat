@@ -14,7 +14,6 @@
 		5E328A7526B159A30027B10F /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328A7426B159A30027B10F /* RegistrationView.swift */; };
 		5E328A7726B198C10027B10F /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328A7626B198C10027B10F /* CustomTextField.swift */; };
 		5E328A7926B19C5B0027B10F /* IntroParagraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328A7826B19C5B0027B10F /* IntroParagraph.swift */; };
-		5E328A7B26B19D130027B10F /* CustomCapsuleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328A7A26B19D130027B10F /* CustomCapsuleButton.swift */; };
 		5E328A7E26B26A310027B10F /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328A7D26B26A310027B10F /* MainTabView.swift */; };
 		5E328A8326B26D820027B10F /* ChannelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328A8226B26D820027B10F /* ChannelsView.swift */; };
 		5E328A8B26B26DB00027B10F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328A8A26B26DB00027B10F /* SettingsView.swift */; };
@@ -58,7 +57,6 @@
 		5E328A7426B159A30027B10F /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		5E328A7626B198C10027B10F /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		5E328A7826B19C5B0027B10F /* IntroParagraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroParagraph.swift; sourceTree = "<group>"; };
-		5E328A7A26B19D130027B10F /* CustomCapsuleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCapsuleButton.swift; sourceTree = "<group>"; };
 		5E328A7D26B26A310027B10F /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		5E328A8226B26D820027B10F /* ChannelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsView.swift; sourceTree = "<group>"; };
 		5E328A8A26B26DB00027B10F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -148,7 +146,6 @@
 			isa = PBXGroup;
 			children = (
 				5E328A7626B198C10027B10F /* CustomTextField.swift */,
-				5E328A7A26B19D130027B10F /* CustomCapsuleButton.swift */,
 				5E328AA426B2BCDA0027B10F /* CustomDivider.swift */,
 				5E328AAC26B3BE1D0027B10F /* ImagePicker.swift */,
 				5E328B0E26B7B4800027B10F /* SearchBar.swift */,
@@ -360,7 +357,6 @@
 				5E328B3F26B824240027B10F /* AuthViewModel.swift in Sources */,
 				5E328B0626B7A2680027B10F /* ChatsView.swift in Sources */,
 				5E328AA526B2BCDA0027B10F /* CustomDivider.swift in Sources */,
-				5E328A7B26B19D130027B10F /* CustomCapsuleButton.swift in Sources */,
 				5E328A7E26B26A310027B10F /* MainTabView.swift in Sources */,
 				5E328A5D26B156BD0027B10F /* Hello_ChatApp.swift in Sources */,
 				5E328AA926B2E37A0027B10F /* StatusCell.swift in Sources */,
