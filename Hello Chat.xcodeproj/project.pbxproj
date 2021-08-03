@@ -48,6 +48,7 @@
 		5E328B4326B918660027B10F /* ProfilePhotoSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328B4226B918660027B10F /* ProfilePhotoSelectorView.swift */; };
 		5E328B4526B928E80027B10F /* CapsuleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328B4426B928E80027B10F /* CapsuleButton.swift */; };
 		5E328B4726B931DD0027B10F /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328B4626B931DD0027B10F /* ImageUploader.swift */; };
+		5E328B4926B940D70027B10F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328B4826B940D70027B10F /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +91,7 @@
 		5E328B4226B918660027B10F /* ProfilePhotoSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotoSelectorView.swift; sourceTree = "<group>"; };
 		5E328B4426B928E80027B10F /* CapsuleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleButton.swift; sourceTree = "<group>"; };
 		5E328B4626B931DD0027B10F /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
+		5E328B4826B940D70027B10F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				5E328B4626B931DD0027B10F /* ImageUploader.swift */,
+				5E328B4826B940D70027B10F /* ContentView.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				5E328B0626B7A2680027B10F /* ChatsView.swift in Sources */,
 				5E328AA526B2BCDA0027B10F /* CustomDivider.swift in Sources */,
 				5E328A7E26B26A310027B10F /* MainTabView.swift in Sources */,
+				5E328B4926B940D70027B10F /* ContentView.swift in Sources */,
 				5E328B4326B918660027B10F /* ProfilePhotoSelectorView.swift in Sources */,
 				5E328A5D26B156BD0027B10F /* Hello_ChatApp.swift in Sources */,
 				5E328AA926B2E37A0027B10F /* StatusCell.swift in Sources */,
