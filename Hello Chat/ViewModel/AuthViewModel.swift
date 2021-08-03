@@ -45,7 +45,11 @@ class AuthViewModel: NSObject, ObservableObject {
                                        "username": username,
                                        "fullname": fullname]
             
-            Firestore.firestore().collection("users").document(user.uid).setData(data) { _ in
+            Firestore.firestore().collection("users").document(user.uid).setData(data) { error in
+                if let error = error {
+                    print("DEBUG: Failed to set user info with error \(error.localizedDescription)")
+                    return
+                }
                 self.didAuthenticateUser = true
             }
         }
@@ -55,7 +59,12 @@ class AuthViewModel: NSObject, ObservableObject {
         guard let uid = tempCurrentUser?.uid else { return }
 
         ImageUploader.uploadImage(image: image) { imageUrl in
-            Firestore.firestore().collection("users").document(uid).updateData(["profileImageUrl" : imageUrl]) { _ in
+            Firestore.firestore().collection("users").document(uid).updateData(["profileImageUrl" : imageUrl]) { error in
+                if let error = error {
+                    print("DEBUG: Failed to upload user profile with error \(error.localizedDescription)")
+                    return
+                }
+                print("DEBUG: Successfully updata user profile")
             }
         }
     }
