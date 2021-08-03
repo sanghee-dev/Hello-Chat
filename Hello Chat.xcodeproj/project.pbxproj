@@ -46,6 +46,7 @@
 		5E328B3D26B818EC0027B10F /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 5E328B3C26B818EC0027B10F /* FirebaseFirestore */; };
 		5E328B3F26B824240027B10F /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328B3E26B824240027B10F /* AuthViewModel.swift */; };
 		5E328B4326B918660027B10F /* ProfilePhotoSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328B4226B918660027B10F /* ProfilePhotoSelectorView.swift */; };
+		5E328B4526B928E80027B10F /* CapsuleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328B4426B928E80027B10F /* CapsuleButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		5E328B3326B8177A0027B10F /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		5E328B3E26B824240027B10F /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		5E328B4226B918660027B10F /* ProfilePhotoSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotoSelectorView.swift; sourceTree = "<group>"; };
+		5E328B4426B928E80027B10F /* CapsuleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 				5E328B0E26B7B4800027B10F /* SearchBar.swift */,
 				5E328B1026B7BAB50027B10F /* Extensions.swift */,
 				5E328B2326B7DDC90027B10F /* CustomInputView.swift */,
+				5E328B4426B928E80027B10F /* CapsuleButton.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				5E328B4326B918660027B10F /* ProfilePhotoSelectorView.swift in Sources */,
 				5E328A5D26B156BD0027B10F /* Hello_ChatApp.swift in Sources */,
 				5E328AA926B2E37A0027B10F /* StatusCell.swift in Sources */,
+				5E328B4526B928E80027B10F /* CapsuleButton.swift in Sources */,
 				5E328A9F26B295DC0027B10F /* SettingsCellViewModel.swift in Sources */,
 				5E328B0426B79F590027B10F /* ConversationCell.swift in Sources */,
 				5E328B0D26B7A6FF0027B10F /* NewMessageCell.swift in Sources */,

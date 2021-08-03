@@ -17,6 +17,11 @@ struct RegistrationView: View {
     
     var body: some View {
         VStack {
+            NavigationLink(
+                destination: ProfilePhotoSelectorView(),
+                isActive: $viewModel.didAuthenticateUser,
+                label: {})
+            
             IntroParagraph(title1: "Get started.", title2: "Create your account")
             
             VStack(spacing: 28) {
@@ -41,20 +46,12 @@ struct RegistrationView: View {
                                 text: $password)
             }
             .padding([.top, .leading, .trailing], 32)
-            
-            Button(action: {
-                viewModel.register(withEmail: email, username: username, fullname: fullname, password: password)
-            }, label: {
-                Text("Sign Up")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .frame(width: 330, height: 50)
-                    .background(Color.blue)
-                    .clipShape(Capsule())
-                    .padding()
-            })
-            .padding()
-            .shadow(color: Color(.systemGray6), radius: 6, x: 0.0, y: 0.0)
+
+            CapsuleButton(text: "Sign Up",
+                          disabled: email.count < 5 || username.count < 2 || fullname.count < 2 || password.count < 6,
+                          action: {
+                            viewModel.register(withEmail: email, username: username, fullname: fullname, password: password)
+                          })
             
             Spacer()
             

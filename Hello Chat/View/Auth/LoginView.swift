@@ -44,19 +44,11 @@ struct LoginView: View {
                         })
                 }
                 
-                Button(action: {
-                    viewModel.login(withEmail: email, password: password)
-                }, label: {
-                    Text("Sign In")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .frame(width: 330, height: 50)
-                        .background(Color.blue)
-                        .clipShape(Capsule())
-                        .padding()
-                })
-                .padding()
-                .shadow(color: Color(.systemGray6), radius: 6, x: 0.0, y: 0.0)
+                CapsuleButton(text: "Sign In",
+                              disabled: email.count < 5 || password.count < 6,
+                              action: {
+                                viewModel.login(withEmail: email, password: password)
+                              })
                 
                 Spacer()
                 

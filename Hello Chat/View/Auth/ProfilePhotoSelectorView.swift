@@ -12,7 +12,7 @@ struct ProfilePhotoSelectorView: View {
     @State private var selectedImage: UIImage?
     @State private var profileImage: Image?
     @ObservedObject var viewModel = AuthViewModel()
-    
+        
     var body: some View {
         VStack {
             Button(action: { imagePickerPresented.toggle() }, label: {
@@ -23,16 +23,18 @@ struct ProfilePhotoSelectorView: View {
                         .frame(width: 180, height: 180)
                         .clipShape(Circle())
                 } else {
-                    Image("plus_photo")
+                    Image(systemName: "person.circle")
                         .resizable()
                         .renderingMode(.template)
                         .scaledToFill()
-                        .frame(width: 180, height: 180)
+                        .frame(width: 100, height: 100)
+                        .padding(40)
                         .clipped()
-                        .padding(.top, 44)
-                        .foregroundColor(.black)
+                        .foregroundColor(Color(.systemGray4))
                 }
             })
+            .padding(.top, 56)
+            .padding(.bottom)
             .sheet(isPresented: $imagePickerPresented, onDismiss: loadImage, content: {
                 ImagePicker(image: $selectedImage)
             })
@@ -42,25 +44,13 @@ struct ProfilePhotoSelectorView: View {
                     "Tab below to continue")
                 .font(.system(size: 16, weight: .semibold))
             
-            if profileImage != nil {
-                Button(action: {
-                    viewModel.uploadProfileImage()
-                }, label: {
-                    Text("Continue")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .frame(width: 330, height: 50)
-                        .background(Color.blue)
-                        .clipShape(Capsule())
-                        .padding()
-                })
-                .padding()
-                .shadow(color: Color(.systemGray6), radius: 6, x: 0.0, y: 0.0)
-            }
+            CapsuleButton(text: "Continue", disabled: profileImage == nil, action: {
+                viewModel.uploadProfileImage()
+            })
             
             Spacer()
         }
-        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
     }
     
     func loadImage() {

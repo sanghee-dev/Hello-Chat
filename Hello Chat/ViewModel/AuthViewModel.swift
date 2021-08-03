@@ -8,6 +8,8 @@
 import Firebase
 
 class AuthViewModel: NSObject, ObservableObject {
+    @Published var didAuthenticateUser = false
+    
     func login(withEmail email: String, password: String) {
         print("login \(email), \(password)")
     }
@@ -25,7 +27,7 @@ class AuthViewModel: NSObject, ObservableObject {
                         "fullname": fullname]
             
             Firestore.firestore().collection("users").document(user.uid).setData(data) { _ in
-                print("DEBUG: updated user info")
+                self.didAuthenticateUser = true
             }
         }
     }
@@ -38,3 +40,4 @@ class AuthViewModel: NSObject, ObservableObject {
         print("signOut")
     }
 }
+
