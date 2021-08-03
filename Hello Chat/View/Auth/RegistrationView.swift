@@ -54,7 +54,7 @@ struct RegistrationView: View {
                     .padding()
             })
             .padding()
-            .shadow(color: Color(.systemGray2), radius: 6, x: 0.0, y: 0.0)
+            .shadow(color: Color(.systemGray6), radius: 6, x: 0.0, y: 0.0)
             
             Spacer()
             

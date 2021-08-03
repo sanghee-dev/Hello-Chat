@@ -45,6 +45,7 @@
 		5E328B3B26B818EC0027B10F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5E328B3A26B818EC0027B10F /* FirebaseAuth */; };
 		5E328B3D26B818EC0027B10F /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 5E328B3C26B818EC0027B10F /* FirebaseFirestore */; };
 		5E328B3F26B824240027B10F /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328B3E26B824240027B10F /* AuthViewModel.swift */; };
+		5E328B4326B918660027B10F /* ProfilePhotoSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328B4226B918660027B10F /* ProfilePhotoSelectorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +85,7 @@
 		5E328B2726B7E4F60027B10F /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		5E328B3326B8177A0027B10F /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		5E328B3E26B824240027B10F /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		5E328B4226B918660027B10F /* ProfilePhotoSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotoSelectorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,8 +125,8 @@
 				5E328A7026B158320027B10F /* Model */,
 				5E328A6E26B1582E0027B10F /* ViewModel */,
 				5E328A6F26B158300027B10F /* View */,
-				5E328A6D26B1582C0027B10F /* API */,
 				5E328A6C26B158290027B10F /* Utilities */,
+				5E328A6D26B1582C0027B10F /* API */,
 				5E328A5C26B156BD0027B10F /* Hello_ChatApp.swift */,
 				5E328A6026B156BF0027B10F /* Assets.xcassets */,
 				5E328A6526B156BF0027B10F /* Info.plist */,
@@ -200,6 +202,7 @@
 			children = (
 				5E328A7226B1596F0027B10F /* LoginView.swift */,
 				5E328A7426B159A30027B10F /* RegistrationView.swift */,
+				5E328B4226B918660027B10F /* ProfilePhotoSelectorView.swift */,
 				5E328A7826B19C5B0027B10F /* IntroParagraph.swift */,
 			);
 			path = Auth;
@@ -358,6 +361,7 @@
 				5E328B0626B7A2680027B10F /* ChatsView.swift in Sources */,
 				5E328AA526B2BCDA0027B10F /* CustomDivider.swift in Sources */,
 				5E328A7E26B26A310027B10F /* MainTabView.swift in Sources */,
+				5E328B4326B918660027B10F /* ProfilePhotoSelectorView.swift in Sources */,
 				5E328A5D26B156BD0027B10F /* Hello_ChatApp.swift in Sources */,
 				5E328AA926B2E37A0027B10F /* StatusCell.swift in Sources */,
 				5E328A9F26B295DC0027B10F /* SettingsCellViewModel.swift in Sources */,
