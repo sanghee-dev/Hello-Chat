@@ -13,12 +13,22 @@ class AuthViewModel: NSObject, ObservableObject {
     @Published var userSession: FirebaseAuth.User?
     private var tempCurrentUser: Firebase.User?
     
+    static let shared = AuthViewModel()
+    
     override init() {
         userSession = Auth.auth().currentUser
     }
     
     func login(withEmail email: String, password: String) {
-        print("login \(email), \(password)")
+        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+            if let error = error {
+                print("DEBUG: Failed to login with error \(error.localizedDescription)")
+                return
+            }
+            
+            guard let user = result?.user else { return }
+            self.tempCurrentUser = user
+        }
     }
     
     func register(withEmail email: String, username: String, fullname: String, password: String) {
@@ -46,13 +56,13 @@ class AuthViewModel: NSObject, ObservableObject {
 
         ImageUploader.uploadImage(image: image) { imageUrl in
             Firestore.firestore().collection("users").document(uid).updateData(["profileImageUrl" : imageUrl]) { _ in
-                
             }
         }
     }
     
     func signOut() {
-        print("signOut")
+        self.userSession = nil
+        try? Auth.auth().signOut()
     }
 }
 
