@@ -51,7 +51,7 @@ class AuthViewModel: NSObject, ObservableObject {
             let data: [String: Any] = ["email": email,
                                        "username": username,
                                        "fullname": fullname,
-                                       "status": "Check here to update your status"]
+                                       "status": Status.notConfigured.title]
             
             COLLECTION_USERS.document(user.uid).setData(data) { error in
                 if let error = error {
@@ -59,20 +59,6 @@ class AuthViewModel: NSObject, ObservableObject {
                     return
                 }
                 self.didAuthenticateUser = true
-            }
-        }
-    }
-    
-    func uploadProfileImage(_ image: UIImage) {
-        guard let uid = tempCurrentUser?.uid else { return }
-
-        ImageUploader.uploadImage(image: image) { imageUrl in
-            COLLECTION_USERS.document(uid).updateData(["profileImageUrl" : imageUrl]) { error in
-                if let error = error {
-                    print("DEBUG: Failed to upload user profile with error \(error.localizedDescription)")
-                    return
-                }
-                print("DEBUG: Successfully updata user profile")
             }
         }
     }
@@ -88,6 +74,32 @@ class AuthViewModel: NSObject, ObservableObject {
         COLLECTION_USERS.document(uid).getDocument { snapshot, error in
             guard let user = try? snapshot?.data(as: User.self) else { return }
             self.currentUser = user
+        }
+    }
+    
+    func uploadProfileImage(_ image: UIImage) {
+        guard let uid = tempCurrentUser?.uid else { return }
+
+        ImageUploader.uploadImage(image: image) { imageUrl in
+            COLLECTION_USERS.document(uid).updateData(["profileImageUrl" : imageUrl]) { error in
+                if let error = error {
+                    print("DEBUG: Failed to upload user profile with error \(error.localizedDescription)")
+                    return
+                }
+                print("DEBUG: Successfully update user profile")
+            }
+        }
+    }
+    
+    func updateStatus(_ status: Status) {
+        guard let uid = userSession?.uid else { return }
+        
+        COLLECTION_USERS.document(uid).updateData(["status": status.title]) { error in
+            if let error = error {
+                print("DEBUG: Failed to update status with error \(error)")
+                return
+            }
+            print("DEBUG: Successfully update status")
         }
     }
 }

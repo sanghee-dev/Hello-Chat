@@ -9,6 +9,7 @@ import SwiftUI
 
 struct StatusSelectorView: View {
     @ObservedObject var viewModel = StatusViewModel()
+    @ObservedObject var authViewModel = AuthViewModel()
     
     var body: some View {
         ZStack {
@@ -37,10 +38,11 @@ struct StatusSelectorView: View {
                         VStack(spacing: 1) {
                             CustomDivider(leadingSpace: 0)
                             
-                            ForEach(UserStatus.allCases
+                            ForEach(Status.allCases
                                         .filter({ $0 != .notConfigured}), id: \.self) { status in
                                 Button(action: {
                                     viewModel.updateStatus(status)
+                                    authViewModel.updateStatus(status)
                                 }, label: {
                                     StatusCell(status: status)
                                 })

@@ -6,9 +6,16 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct EditProfileView: View {
-    @State private var fullname = "Cat"
+    @EnvironmentObject var viewModel: AuthViewModel
+    private let user: User
+    
+    init(user: User) {
+        self.user = user
+    }
+    
     @State private var showImagePicker = false
     @State private var selectedImage: UIImage?
     @State private var profileImage: Image?
@@ -23,19 +30,11 @@ struct EditProfileView: View {
                     VStack {
                         HStack(spacing: 16) {
                             VStack(alignment: .center) {
-                                if let profileImage = profileImage {
-                                    profileImage
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 48, height: 48)
-                                        .clipShape(Circle())
-                                } else {
-                                    Image("profile")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 48, height: 48)
-                                        .clipShape(Circle())
-                                }
+                                KFImage(URL(string: user.profileImageUrl))
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 48, height: 48)
+                                    .clipShape(Circle())
                                 
                                 Button(action: {
                                     showImagePicker.toggle()
@@ -57,7 +56,7 @@ struct EditProfileView: View {
                     
                     VStack {
                         HStack {
-                            TextField("", text: $fullname)
+                            TextField("", text: .constant(user.username))
                                 .padding(.vertical, 8)
                             
                             Spacer()
@@ -78,7 +77,11 @@ struct EditProfileView: View {
                     NavigationLink(
                         destination: StatusSelectorView(),
                         label: {
-                            EditProfileCell(text: "Available")
+                            if user.status != Status.notConfigured.title {
+                                EditProfileCell(text: user.status)
+                            } else {
+                                EditProfileCell(text: user.status)
+                            }
                         }
                     )
                 }
@@ -95,10 +98,3 @@ struct EditProfileView: View {
         profileImage = Image(uiImage: selectedImage)
     }
 }
-
-struct EditProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        EditProfileView()
-    }
-}
-

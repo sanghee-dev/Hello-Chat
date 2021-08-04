@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StatusCell: View {
-    let status: UserStatus
+    let status: Status
     
     var body: some View {
         VStack(spacing: 1) {

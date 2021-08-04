@@ -54,6 +54,7 @@
 		5E328B6E26BA8F720027B10F /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 5E328B6D26BA8F720027B10F /* Kingfisher */; };
 		5E328B7026BA951C0027B10F /* NewMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328B6F26BA951B0027B10F /* NewMessageViewModel.swift */; };
 		5E328B7226BA95BA0027B10F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328B7126BA95BA0027B10F /* Constants.swift */; };
+		5E328B7426BAA13A0027B10F /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328B7326BAA13A0027B10F /* Status.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +101,7 @@
 		5E328B5F26BA70880027B10F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5E328B6F26BA951B0027B10F /* NewMessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageViewModel.swift; sourceTree = "<group>"; };
 		5E328B7126BA95BA0027B10F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5E328B7326BAA13A0027B10F /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +217,7 @@
 			children = (
 				5E328B5F26BA70880027B10F /* User.swift */,
 				5E328B2526B7E3490027B10F /* Message.swift */,
+				5E328B7326BAA13A0027B10F /* Status.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 				5E328B0B26B7A6F00027B10F /* NewMessageView.swift in Sources */,
 				5E328B6026BA70890027B10F /* User.swift in Sources */,
 				5E328B2626B7E3490027B10F /* Message.swift in Sources */,
+				5E328B7426BAA13A0027B10F /* Status.swift in Sources */,
 				5E328A7726B198C10027B10F /* CustomTextField.swift in Sources */,
 				5E328B7026BA951C0027B10F /* NewMessageViewModel.swift in Sources */,
 				5E328A8B26B26DB00027B10F /* SettingsView.swift in Sources */,
