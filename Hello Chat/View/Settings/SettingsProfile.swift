@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct SettingsProfile: View {
-    let imageName: String
-    let personName: String
-    let status: String
+    private let user: User
+    
+    init(user: User) {
+        self.user = user
+    }
     
     var body: some View {
         HStack {
-            Image(imageName)
+            Image(user.profileImageUrl)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 48, height: 48)
@@ -22,11 +24,11 @@ struct SettingsProfile: View {
                 .padding(.leading)
             
             VStack(alignment: .leading, spacing: 4) {
-                Text(personName)
+                Text(user.username)
                     .font(.system(size: 18))
                     .foregroundColor(Color(.black))
                 
-                Text(status)
+                Text(user.status)
                     .font(.system(size: 14))
                     .foregroundColor(Color(.systemGray2))
             }

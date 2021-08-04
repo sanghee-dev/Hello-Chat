@@ -11,6 +11,7 @@ import Firebase
 class AuthViewModel: NSObject, ObservableObject {
     @Published var didAuthenticateUser = false
     @Published var userSession: FirebaseAuth.User?
+    @Published var currentUser: User?
     private var tempCurrentUser: Firebase.User?
     
     static let shared = AuthViewModel()
@@ -48,7 +49,8 @@ class AuthViewModel: NSObject, ObservableObject {
             
             let data: [String: Any] = ["email": email,
                                        "username": username,
-                                       "fullname": fullname]
+                                       "fullname": fullname,
+                                       "status": "Check here to updata your status"]
             
             Firestore.firestore().collection("users").document(user.uid).setData(data) { error in
                 if let error = error {
@@ -84,7 +86,7 @@ class AuthViewModel: NSObject, ObservableObject {
         
         Firestore.firestore().collection("users").document(uid).getDocument { snapshot, error in
             guard let user = try? snapshot?.data(as: User.self) else { return }
-            print("DEBUG: User object is \(user)")
+            self.currentUser = user
         }
     }
 }

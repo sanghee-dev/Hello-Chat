@@ -9,7 +9,12 @@ import SwiftUI
 
 struct SettingsView: View {
     @EnvironmentObject var viewModel: AuthViewModel
+    private let user: User
     
+    init(user: User) {
+        self.user = user
+    }
+        
     var body: some View {
         ZStack {
             Color(.systemGroupedBackground)
@@ -18,7 +23,7 @@ struct SettingsView: View {
             VStack(spacing: 32) {
                 NavigationLink(
                     destination: EditProfileView(),
-                    label: { SettingsProfile(imageName: "profile", personName: "Sanghee", status: "Available") })
+                    label: { SettingsProfile(user: user) })
                 
                 VStack(spacing: 1) {                    
                     ForEach(SettingsCellViewModel.allCases, id: \.self) { viewModel in
@@ -44,10 +49,3 @@ struct SettingsView: View {
         
     }
 }
-
-struct SettingsView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsView()
-    }
-}
-
