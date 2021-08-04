@@ -6,16 +6,15 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct NewMessageCell: View {
-    let imageName: String
-    let userName: String
-    let message: String
+    let user: User
     
     var body: some View {
         VStack(spacing: 1) {
             HStack(spacing: 12) {
-                Image(imageName)
+                KFImage(URL(string: user.profileImageUrl))
                     .resizable()
                     .scaledToFill()
                     .frame(width: 48, height: 48)
@@ -23,11 +22,11 @@ struct NewMessageCell: View {
                     .padding(.leading)
                 
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(userName)
+                    Text(user.username)
                         .bold()
                         .foregroundColor(.black)
                     
-                    Text(message)
+                    Text(user.status)
                         .foregroundColor(Color(.systemGray))
                 }
                 

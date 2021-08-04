@@ -12,6 +12,7 @@ struct NewMessageView: View {
     @Environment(\.presentationMode) var mode
     @State private var searchText = ""
     @State private var isEditing = false
+    @ObservedObject var viewModel = NewMessageViewModel()
 
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
@@ -21,12 +22,12 @@ struct NewMessageView: View {
                     .padding()
                 
                 VStack(spacing: 1) {
-                    ForEach((0...5), id: \.self) { _ in
+                    ForEach(viewModel.users) { user in
                         Button(action: {
                             showConversationView.toggle()
                             mode.wrappedValue.dismiss()
                         }, label: {
-                            NewMessageCell(imageName: "profile", userName: "Sanghee", message: "Hello")
+                            NewMessageCell(user: user)
                         })
                     }
                 }

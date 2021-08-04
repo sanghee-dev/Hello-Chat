@@ -51,9 +51,9 @@ class AuthViewModel: NSObject, ObservableObject {
             let data: [String: Any] = ["email": email,
                                        "username": username,
                                        "fullname": fullname,
-                                       "status": "Check here to updata your status"]
+                                       "status": "Check here to update your status"]
             
-            Firestore.firestore().collection("users").document(user.uid).setData(data) { error in
+            COLLECTION_USERS.document(user.uid).setData(data) { error in
                 if let error = error {
                     print("DEBUG: Failed to set user info with error \(error.localizedDescription)")
                     return
@@ -67,7 +67,7 @@ class AuthViewModel: NSObject, ObservableObject {
         guard let uid = tempCurrentUser?.uid else { return }
 
         ImageUploader.uploadImage(image: image) { imageUrl in
-            Firestore.firestore().collection("users").document(uid).updateData(["profileImageUrl" : imageUrl]) { error in
+            COLLECTION_USERS.document(uid).updateData(["profileImageUrl" : imageUrl]) { error in
                 if let error = error {
                     print("DEBUG: Failed to upload user profile with error \(error.localizedDescription)")
                     return
@@ -85,7 +85,7 @@ class AuthViewModel: NSObject, ObservableObject {
     func fetchUser() {
         guard let uid = userSession?.uid else { return }
         
-        Firestore.firestore().collection("users").document(uid).getDocument { snapshot, error in
+        COLLECTION_USERS.document(uid).getDocument { snapshot, error in
             guard let user = try? snapshot?.data(as: User.self) else { return }
             self.currentUser = user
         }
