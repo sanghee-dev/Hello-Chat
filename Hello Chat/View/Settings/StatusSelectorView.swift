@@ -10,6 +10,7 @@ import SwiftUI
 struct StatusSelectorView: View {
     @ObservedObject var viewModel = StatusViewModel()
     @EnvironmentObject var authViewModel: AuthViewModel
+    @Environment(\.presentationMode) var mode
     
     var body: some View {
         ZStack {
@@ -45,6 +46,7 @@ struct StatusSelectorView: View {
                                 Button(action: {
                                     viewModel.updateStatus(status)
                                     authViewModel.updateStatus(status)
+                                    mode.wrappedValue.dismiss()
                                 }, label: {
                                     StatusCell(status: status)
                                 })
