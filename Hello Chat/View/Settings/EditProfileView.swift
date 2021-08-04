@@ -10,11 +10,7 @@ import Kingfisher
 
 struct EditProfileView: View {
     @EnvironmentObject var viewModel: AuthViewModel
-    private let user: User
-    
-    init(user: User) {
-        self.user = user
-    }
+    @State private var username = ""
     
     @State private var showImagePicker = false
     @State private var selectedImage: UIImage?
@@ -30,7 +26,7 @@ struct EditProfileView: View {
                     VStack {
                         HStack(spacing: 16) {
                             VStack(alignment: .center) {
-                                KFImage(URL(string: user.profileImageUrl))
+                                KFImage(URL(string: viewModel.currentUser?.profileImageUrl ?? ""))
                                     .resizable()
                                     .scaledToFill()
                                     .frame(width: 48, height: 48)
@@ -56,10 +52,16 @@ struct EditProfileView: View {
                     
                     VStack {
                         HStack {
-                            TextField("", text: .constant(user.username))
-                                .padding(.vertical, 8)
-                            
+                            TextField(viewModel.currentUser?.username ?? "Username", text: $username)
+                                .padding(.top, 8)
+                                                        
                             Spacer()
+                            
+                            Button(action: {
+                                viewModel.updateUsername(username)
+                            }, label: {
+                                Text("Edit")
+                            })
                         }
                         .padding([.horizontal])
                         
@@ -77,11 +79,7 @@ struct EditProfileView: View {
                     NavigationLink(
                         destination: StatusSelectorView(),
                         label: {
-                            if user.status != Status.notConfigured.title {
-                                EditProfileCell(text: user.status)
-                            } else {
-                                EditProfileCell(text: user.status)
-                            }
+                            EditProfileCell(text: viewModel.currentUser?.status ?? "Available")
                         }
                     )
                 }

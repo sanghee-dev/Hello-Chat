@@ -9,11 +9,6 @@ import SwiftUI
 
 struct SettingsView: View {
     @EnvironmentObject var viewModel: AuthViewModel
-    private let user: User
-    
-    init(user: User) {
-        self.user = user
-    }
         
     var body: some View {
         ZStack {
@@ -22,8 +17,8 @@ struct SettingsView: View {
             
             VStack(spacing: 32) {
                 NavigationLink(
-                    destination: EditProfileView(user: user),
-                    label: { SettingsProfile(user: user) })
+                    destination: EditProfileView(),
+                    label: { SettingsProfile() })
                 
                 VStack(spacing: 1) {                    
                     ForEach(SettingsCellViewModel.allCases, id: \.self) { viewModel in

@@ -21,29 +21,24 @@ struct MainTabView: View {
     }
     
     var body: some View {
-        if let user = viewModel.currentUser {
-            NavigationView {
-                TabView(selection: $selectedIndex) {
-                    ConversationsView()
-                        .onTapGesture { selectedIndex = 0 }
-                        .tabItem { Image(systemName: "bubble.left") }
-                        .tag(0)
-                    
-                    ChannelsView()
-                        .onTapGesture { selectedIndex = 1 }
-                        .tabItem { Image(systemName: "bubble.left.and.bubble.right") }
-                        .tag(1)
-                    
-                    SettingsView(user: user)
-                        .onTapGesture { selectedIndex = 2 }
-                        .tabItem { Image(systemName: "gear") }
-                        .tag(2)
-                }
-                .navigationTitle(tabTitle)
+        NavigationView {
+            TabView(selection: $selectedIndex) {
+                ConversationsView()
+                    .onTapGesture { selectedIndex = 0 }
+                    .tabItem { Image(systemName: "bubble.left") }
+                    .tag(0)
+                
+                ChannelsView()
+                    .onTapGesture { selectedIndex = 1 }
+                    .tabItem { Image(systemName: "bubble.left.and.bubble.right") }
+                    .tag(1)
+                
+                SettingsView()
+                    .onTapGesture { selectedIndex = 2 }
+                    .tabItem { Image(systemName: "gear") }
+                    .tag(2)
             }
-        } else {
-            // show failed to load or empty state view
-            Text("Failed to load information :(")
+            .navigationTitle(tabTitle)
         }
     }
 }

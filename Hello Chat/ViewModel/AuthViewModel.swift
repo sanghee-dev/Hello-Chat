@@ -96,13 +96,25 @@ class AuthViewModel: NSObject, ObservableObject {
         
         COLLECTION_USERS.document(uid).updateData(["status": status.title]) { error in
             if let error = error {
-                print("DEBUG: Failed to update status with error \(error)")
+                print("DEBUG: Failed to update status with error \(error.localizedDescription)")
                 return
             }
             print("DEBUG: Successfully update status")
         }
         
         currentUser?.status = status.title
+    }
+    
+    func updateUsername(_ username: String) {
+        guard let uid = userSession?.uid else { return }
+        
+        COLLECTION_USERS.document(uid).updateData(["username" : username]) { error in
+            if let error = error {
+                print("DEBUG: Failed to update status with error \(error.localizedDescription)")
+                return
+            }
+            print("DEBUG: Successfully update username: \(username)")
+        }
     }
 }
 

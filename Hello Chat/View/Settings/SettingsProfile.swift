@@ -9,15 +9,11 @@ import SwiftUI
 import Kingfisher
 
 struct SettingsProfile: View {
-    private let user: User
-    
-    init(user: User) {
-        self.user = user
-    }
+    @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
         HStack {
-            KFImage(URL(string: user.profileImageUrl))
+            KFImage(URL(string: viewModel.currentUser?.profileImageUrl ?? ""))
                 .resizable()
                 .scaledToFill()
                 .frame(width: 48, height: 48)
@@ -25,11 +21,11 @@ struct SettingsProfile: View {
                 .padding(.leading)
             
             VStack(alignment: .leading, spacing: 4) {
-                Text(user.username)
+                Text(viewModel.currentUser?.username ?? "")
                     .font(.system(size: 18))
                     .foregroundColor(Color(.black))
                 
-                Text(user.status)
+                Text(viewModel.currentUser?.status ?? "Available")
                     .font(.system(size: 14))
                     .foregroundColor(Color(.systemGray2))
             }
