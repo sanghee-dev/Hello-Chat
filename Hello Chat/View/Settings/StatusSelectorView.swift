@@ -56,6 +56,7 @@ struct StatusSelectorView: View {
                                 })
                             }
                         }
+                        
                     }
                     .padding(.top)
                 }

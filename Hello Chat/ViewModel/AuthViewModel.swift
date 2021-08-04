@@ -86,8 +86,9 @@ class AuthViewModel: NSObject, ObservableObject {
                     print("DEBUG: Failed to upload user profile with error \(error.localizedDescription)")
                     return
                 }
-                print("DEBUG: Successfully update user profile")
             }
+            
+            self.currentUser?.profileImageUrl = imageUrl
         }
     }
     
@@ -113,7 +114,8 @@ class AuthViewModel: NSObject, ObservableObject {
                 print("DEBUG: Failed to update status with error \(error.localizedDescription)")
                 return
             }
-            print("DEBUG: Successfully update username: \(username)")
+            
+            self.currentUser?.username = username
         }
     }
 }

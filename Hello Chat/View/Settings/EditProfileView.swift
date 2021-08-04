@@ -10,6 +10,7 @@ import Kingfisher
 
 struct EditProfileView: View {
     @EnvironmentObject var viewModel: AuthViewModel
+    @Environment(\.presentationMode) var mode
     @State private var username = ""
     
     @State private var showImagePicker = false
@@ -23,48 +24,46 @@ struct EditProfileView: View {
             
             VStack(spacing: 44) {
                 VStack(spacing: 1) {
-                    VStack {
-                        HStack(spacing: 16) {
-                            VStack(alignment: .center) {
-                                KFImage(URL(string: viewModel.currentUser?.profileImageUrl ?? ""))
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 48, height: 48)
-                                    .clipShape(Circle())
-                                
-                                Button(action: {
-                                    showImagePicker.toggle()
-                                }, label: {
-                                    Text("Edit")
-                                })
-                                .sheet(isPresented: $showImagePicker, onDismiss: loadImage) {
-                                    ImagePicker(image: $selectedImage)
-                                }
-                            }
-                            .padding(.top)
+                    HStack(spacing: 16) {
+                        VStack(alignment: .center) {
+                            KFImage(URL(string: viewModel.currentUser?.profileImageUrl ?? ""))
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 48, height: 48)
+                                .clipShape(Circle())
                             
-                            Text("Enter your name or change your profile photo")
-                                .foregroundColor(Color(.systemGray3))
+                            Button(action: {
+                                showImagePicker.toggle()
+                            }, label: {
+                                Text("Edit")
+                            })
+                            .sheet(isPresented: $showImagePicker, onDismiss: loadImage) {
+                                ImagePicker(image: $selectedImage)
+                            }
                         }
+                        .padding(.top)
                         
-                        CustomDivider(leadingSpace: 16)
+                        Text("Enter your name or change your profile photo")
+                            .foregroundColor(Color(.systemGray3))
                     }
                     
-                    VStack {
+                    CustomDivider(leadingSpace: 16)
+                    
+                    VStack(spacing: 1) {
                         HStack {
                             TextField(viewModel.currentUser?.username ?? "Username", text: $username)
-                                .padding(.top, 8)
                                                         
                             Spacer()
                             
                             Button(action: {
                                 viewModel.updateUsername(username)
+                                mode.wrappedValue.dismiss()
                             }, label: {
                                 Text("Edit")
                             })
                             .disabled(username.count < 2)
                         }
-                        .padding([.horizontal])
+                        .padding()
                         
                         CustomDivider(leadingSpace: 16)
                     }
