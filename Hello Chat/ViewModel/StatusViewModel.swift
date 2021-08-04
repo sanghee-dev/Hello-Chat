@@ -8,42 +8,27 @@
 import Foundation
 
 class StatusViewModel: ObservableObject {
-    @Published var status: UserStatus = .notConfigured
+    @Published var status: Status = .notConfigured
     
-    func updateStatus(_ status: UserStatus) {
+    func updateStatus(_ status: Status) {
         self.status = status
     }
-}
-
-enum UserStatus: Int, CaseIterable {
-    case notConfigured
-    case available
-    case busy
-    case urgentCallsOnly
-    case batteryLow
-    case school
-    case work
-    case meeting
-    case gym
-    case movies
-    case sleeping
-    case coding
-
     
-    var title: String {
-        switch self {
-        case .notConfigured: return "Click here to update your status"
-        case .available: return "Available"
-        case .busy: return "Busy"
-        case .urgentCallsOnly: return "Urgent calls only"
-        case .batteryLow: return "Battery just to die"
-        case .school: return "At school"
-        case .work: return "At work"
-        case .meeting: return "In a meeting"
-        case .gym: return "At the gym"
-        case .movies: return "Wating Movies"
-        case .sleeping: return "Sleeping"
-        case .coding: return "Coding"
+    func getStatus(_ title: String) -> Status {
+        switch title {
+        case Status.notConfigured.title: return Status.notConfigured
+        case Status.available.title: return Status.available
+        case Status.busy.title: return Status.busy
+        case Status.urgentCallsOnly.title: return Status.urgentCallsOnly
+        case Status.batteryLow.title: return Status.batteryLow
+        case Status.school.title: return Status.school
+        case Status.work.title: return Status.work
+        case Status.meeting.title: return Status.meeting
+        case Status.gym.title: return Status.gym
+        case Status.movies.title: return Status.movies
+        case Status.sleeping.title: return Status.sleeping
+        case Status.coding.title: return Status.coding
+        default: return Status.notConfigured
         }
     }
 }

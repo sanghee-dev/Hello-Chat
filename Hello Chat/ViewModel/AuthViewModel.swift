@@ -101,6 +101,8 @@ class AuthViewModel: NSObject, ObservableObject {
             }
             print("DEBUG: Successfully update status")
         }
+        
+        currentUser?.status = status.title
     }
 }
 

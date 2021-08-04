@@ -9,7 +9,7 @@ import SwiftUI
 
 struct StatusSelectorView: View {
     @ObservedObject var viewModel = StatusViewModel()
-    @ObservedObject var authViewModel = AuthViewModel()
+    @EnvironmentObject var authViewModel: AuthViewModel
     
     var body: some View {
         ZStack {
@@ -24,7 +24,9 @@ struct StatusSelectorView: View {
                             .padding(.leading)
                             .foregroundColor(Color(.systemGray2))
                         
-                        StatusCell(status: viewModel.status)
+                        if let statusTitle = authViewModel.currentUser?.status {
+                            StatusCell(status: viewModel.getStatus(statusTitle))
+                        }
                     }
                     .padding(.top, 32)
 
