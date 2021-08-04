@@ -62,6 +62,7 @@ struct EditProfileView: View {
                             }, label: {
                                 Text("Edit")
                             })
+                            .disabled(username.count < 2)
                         }
                         .padding([.horizontal])
                         

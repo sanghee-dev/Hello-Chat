@@ -9,6 +9,7 @@ import SwiftUI
 
 struct StatusCell: View {
     let status: Status
+    let isSelected: Bool
     
     var body: some View {
         VStack(spacing: 1) {
@@ -17,6 +18,10 @@ struct StatusCell: View {
                     .foregroundColor(.black)
                 
                 Spacer()
+                
+                if isSelected {
+                    Image(systemName: "checkmark")
+                }
             }
             .padding()
             

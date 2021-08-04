@@ -26,7 +26,7 @@ struct StatusSelectorView: View {
                             .foregroundColor(Color(.systemGray2))
                         
                         if let statusTitle = authViewModel.currentUser?.status {
-                            StatusCell(status: viewModel.getStatus(statusTitle))
+                            StatusCell(status: viewModel.getStatus(statusTitle), isSelected: false)
                         }
                     }
                     .padding(.top, 32)
@@ -48,7 +48,11 @@ struct StatusSelectorView: View {
                                     authViewModel.updateStatus(status)
                                     mode.wrappedValue.dismiss()
                                 }, label: {
-                                    StatusCell(status: status)
+                                    if let statusTitle = authViewModel.currentUser?.status {
+                                        StatusCell(status: status, isSelected: status == viewModel.getStatus(statusTitle))
+                                    } else {
+                                        StatusCell(status: status, isSelected: false)
+                                    }
                                 })
                             }
                         }
