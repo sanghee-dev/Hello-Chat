@@ -64,6 +64,7 @@ class AuthViewModel: NSObject, ObservableObject {
     }
     
     func signOut() {
+        self.currentUser = nil
         self.userSession = nil
         try? Auth.auth().signOut()
     }
@@ -87,6 +88,8 @@ class AuthViewModel: NSObject, ObservableObject {
                     return
                 }
             }
+            print(imageUrl)
+            print("DEBUG: Successfully update profile")
             
             self.currentUser?.profileImageUrl = imageUrl
         }

@@ -33,6 +33,7 @@ struct EditProfileView: View {
                                 .clipShape(Circle())
                             
                             Button(action: {
+                                print("hello")
                                 showImagePicker.toggle()
                             }, label: {
                                 Text("Edit")
