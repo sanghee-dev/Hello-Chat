@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @EnvironmentObject var viewModel: AuthViewModel
+    @State private var showSheet = false
         
     var body: some View {
         ZStack {
@@ -29,7 +30,7 @@ struct SettingsView: View {
                 }
                 
                 Button(action: {
-                    viewModel.signOut()
+                    self.showSheet = true
                 }, label: {
                     Text("Log Out")
                 })
@@ -37,6 +38,15 @@ struct SettingsView: View {
                 .font(.system(size: 16, weight: .semibold))
                 .frame(width: UIScreen.main.bounds.width, height: 50)
                 .background(Color.white)
+                .actionSheet(isPresented: $showSheet) {
+                    ActionSheet(title: Text("Log Out"),
+                                message: Text("Do you really want to log out?"),
+                                buttons: [.destructive(Text("Log Out"), action: {
+                                    viewModel.signOut()
+                                }),
+                                          .cancel(Text("Cancel"))]
+                    )
+                }
                 
                 Spacer()
             }
