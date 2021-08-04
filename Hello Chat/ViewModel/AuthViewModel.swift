@@ -12,7 +12,7 @@ class AuthViewModel: NSObject, ObservableObject {
     @Published var didAuthenticateUser = false
     @Published var userSession: FirebaseAuth.User?
     @Published var currentUser: User?
-    private var tempCurrentUser: Firebase.User?
+    private var tempCurrentUser: Firebase.User? // registration에서 프로필 사진 올리기 전 유저
     
     static let shared = AuthViewModel()
     
@@ -32,7 +32,8 @@ class AuthViewModel: NSObject, ObservableObject {
             }
             
             guard let user = result?.user else { return }
-            self.tempCurrentUser = user
+            self.userSession = user
+            self.fetchUser()
         }
     }
     

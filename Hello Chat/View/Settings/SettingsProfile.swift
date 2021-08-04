@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct SettingsProfile: View {
     private let user: User
@@ -16,9 +17,9 @@ struct SettingsProfile: View {
     
     var body: some View {
         HStack {
-            Image(user.profileImageUrl)
+            KFImage(URL(string: user.profileImageUrl))
                 .resizable()
-                .scaledToFit()
+                .scaledToFill()
                 .frame(width: 48, height: 48)
                 .clipShape(Circle())
                 .padding(.leading)
