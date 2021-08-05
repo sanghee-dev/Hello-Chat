@@ -55,7 +55,7 @@ class AuthViewModel: NSObject, ObservableObject {
             let data: [String: Any] = ["email": email,
                                        "username": username,
                                        "fullname": fullname,
-                                       "status": Status.notConfigured.title]
+                                       "status": Status.available.title]
             
             COLLECTION_USERS.document(user.uid).setData(data) { error in
                 if let error = error {

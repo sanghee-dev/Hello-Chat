@@ -8,7 +8,7 @@
 import Foundation
 
 class StatusViewModel: ObservableObject {
-    @Published var status: Status = .notConfigured
+    @Published var status: Status = .available
     
     func updateStatus(_ status: Status) {
         self.status = status
@@ -16,7 +16,6 @@ class StatusViewModel: ObservableObject {
     
     func getStatus(_ title: String) -> Status {
         switch title {
-        case Status.notConfigured.title: return Status.notConfigured
         case Status.available.title: return Status.available
         case Status.busy.title: return Status.busy
         case Status.urgentCallsOnly.title: return Status.urgentCallsOnly
@@ -28,7 +27,7 @@ class StatusViewModel: ObservableObject {
         case Status.movies.title: return Status.movies
         case Status.sleeping.title: return Status.sleeping
         case Status.coding.title: return Status.coding
-        default: return Status.notConfigured
+        default: return Status.available
         }
     }
 }

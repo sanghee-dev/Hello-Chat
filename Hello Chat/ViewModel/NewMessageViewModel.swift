@@ -18,7 +18,9 @@ class NewMessageViewModel: ObservableObject {
     func fetchUsers() {
         COLLECTION_USERS.getDocuments { snapshot, error in
             guard let documents = snapshot?.documents else { return }
-            self.users = documents.compactMap({ try? $0.data(as: User.self) })
+            self.users = documents
+                .compactMap({ try? $0.data(as: User.self) })
+                .filter( { $0.id != AuthViewModel.shared.currentUser?.id } )
         }
     }
 }

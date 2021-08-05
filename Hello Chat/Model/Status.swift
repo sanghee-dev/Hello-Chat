@@ -8,7 +8,6 @@
 import Foundation
 
 enum Status: Int, CaseIterable {
-    case notConfigured
     case available
     case busy
     case urgentCallsOnly
@@ -24,7 +23,6 @@ enum Status: Int, CaseIterable {
     
     var title: String {
         switch self {
-        case .notConfigured: return "Click here to update your status"
         case .available: return "Available"
         case .busy: return "Busy"
         case .urgentCallsOnly: return "Urgent calls only"

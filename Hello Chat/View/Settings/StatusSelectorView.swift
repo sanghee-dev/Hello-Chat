@@ -41,8 +41,7 @@ struct StatusSelectorView: View {
                         VStack(spacing: 1) {
                             CustomDivider(leadingSpace: 0)
                             
-                            ForEach(Status.allCases
-                                        .filter({ $0 != .notConfigured}), id: \.self) { status in
+                            ForEach(Status.allCases, id: \.self) { status in
                                 Button(action: {
                                     viewModel.updateStatus(status)
                                     authViewModel.updateStatus(status)

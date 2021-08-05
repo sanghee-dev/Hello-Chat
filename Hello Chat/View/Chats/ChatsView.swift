@@ -21,7 +21,7 @@ struct ChatsView: View {
             ScrollView {
                 VStack(spacing: 16) {
                     ForEach(viewModel.messages) { message in
-                        ChatCell(isFromCurrentUser: message.isFromCurrentUser, messageText: message.messageText)
+//                        ChatCell(isFromCurrentUser: message.isFromCurrentUser, messageText: message.messageText)
                     }
                 }
             }
