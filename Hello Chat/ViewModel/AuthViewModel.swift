@@ -86,6 +86,8 @@ class AuthViewModel: NSObject, ObservableObject {
     
     func uploadProfileImage(_ image: UIImage) {
         guard let uid = tempCurrentUser?.uid else { return }
+        
+        print("DEBUG: \(image)")
 
         ImageUploader.uploadImage(image: image) { imageUrl in
             COLLECTION_USERS.document(uid).updateData(["profileImageUrl" : imageUrl]) { error in
@@ -100,7 +102,7 @@ class AuthViewModel: NSObject, ObservableObject {
             self.currentUser?.profileImageUrl = imageUrl
             self.userSession = Auth.auth().currentUser
             self.fetchUser()
-        }
+        }        
     }
     
     func updateStatus(_ status: Status) {

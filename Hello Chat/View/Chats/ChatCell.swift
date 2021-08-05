@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct ChatCell: View {
-    var isFromCurrentUser: Bool
-    var messageText: String
+    let isFromCurrentUser: Bool
+    let messageText: String
     
     var body: some View {
         HStack {

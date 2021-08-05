@@ -166,14 +166,14 @@
 		5E328A6C26B158290027B10F /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				5E328AAC26B3BE1D0027B10F /* ImagePicker.swift */,
+				5E328B7126BA95BA0027B10F /* Constants.swift */,
+				5E328B1026B7BAB50027B10F /* Extensions.swift */,
 				5E328A7626B198C10027B10F /* CustomTextField.swift */,
 				5E328AA426B2BCDA0027B10F /* CustomDivider.swift */,
-				5E328AAC26B3BE1D0027B10F /* ImagePicker.swift */,
 				5E328B0E26B7B4800027B10F /* SearchBar.swift */,
-				5E328B1026B7BAB50027B10F /* Extensions.swift */,
 				5E328B2326B7DDC90027B10F /* CustomInputView.swift */,
 				5E328B4426B928E80027B10F /* CapsuleButton.swift */,
-				5E328B7126BA95BA0027B10F /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";

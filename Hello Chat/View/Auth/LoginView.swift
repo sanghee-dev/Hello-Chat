@@ -59,9 +59,6 @@ struct LoginView: View {
                               action: {
                                     isIndicatorAnimating = true
                                     viewModel.login(withEmail: email, password: password)
-                                    // 에러 코드에 따라 텍스트필드 지우기
-                                    // 유저가 없다? -> 다 지우기
-                                    // 비밀번호가 틀렸다? -> 비밀번호 지우기
                               })
                                 
                 Spacer()

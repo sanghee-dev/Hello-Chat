@@ -15,7 +15,6 @@ struct EditProfileView: View {
     
     @State private var showImagePicker = false
     @State private var selectedImage: UIImage?
-    @State private var profileImage: Image?
     
     var body: some View {
         ZStack {
@@ -24,7 +23,7 @@ struct EditProfileView: View {
             
             VStack(spacing: 44) {
                 VStack(spacing: 1) {
-                    HStack(spacing: 16) {
+                    HStack(spacing: 16) {                        
                         VStack(alignment: .center) {
                             KFImage(URL(string: viewModel.currentUser?.profileImageUrl ?? ""))
                                 .resizable()
@@ -33,10 +32,10 @@ struct EditProfileView: View {
                                 .clipShape(Circle())
                             
                             Button(action: {
-                                print("hello")
                                 showImagePicker.toggle()
                             }, label: {
                                 Text("Edit")
+                                    .padding(.bottom, 4)
                             })
                             .sheet(isPresented: $showImagePicker, onDismiss: loadImage) {
                                 ImagePicker(image: $selectedImage)
@@ -94,6 +93,6 @@ struct EditProfileView: View {
     
     func loadImage() {
         guard let selectedImage = self.selectedImage else { return }
-        profileImage = Image(uiImage: selectedImage)
+        viewModel.uploadProfileImage(selectedImage)
     }
 }

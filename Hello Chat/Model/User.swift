@@ -15,3 +15,10 @@ struct User: Identifiable, Decodable {
     var profileImageUrl: String
     var status: String
 }
+
+let MOCK_USER = User(id: "000000",
+                     email: "test@gmail.com",
+                     username: "Test",
+                     fullname: "Test",
+                     profileImageUrl: "TEst",
+                     status: "Test")
