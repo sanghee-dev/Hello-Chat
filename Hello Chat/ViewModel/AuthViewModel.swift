@@ -46,7 +46,6 @@ class AuthViewModel: NSObject, ObservableObject {
             
             guard let user = result?.user else { return }
             self.tempCurrentUser = user
-            self.userSession = self.tempCurrentUser
             
             let data: [String: Any] = ["email": email,
                                        "username": username,
@@ -92,6 +91,8 @@ class AuthViewModel: NSObject, ObservableObject {
             print("DEBUG: Successfully update profile")
             
             self.currentUser?.profileImageUrl = imageUrl
+            self.userSession = Auth.auth().currentUser
+            self.fetchUser()
         }
     }
     

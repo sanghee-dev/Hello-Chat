@@ -29,11 +29,9 @@ struct SettingsView: View {
                     }
                 }
                 
-                Button(action: {
-                    self.showSheet = true
-                }, label: {
-                    Text("Log Out")
-                })
+                Button(action: { self.showSheet = true },
+                       label: { Text("Log Out") }
+                )
                 .foregroundColor(.red)
                 .font(.system(size: 16, weight: .semibold))
                 .frame(width: UIScreen.main.bounds.width, height: 50)
@@ -41,11 +39,11 @@ struct SettingsView: View {
                 .actionSheet(isPresented: $showSheet) {
                     ActionSheet(title: Text("Log Out"),
                                 message: Text("Do you really want to log out?"),
-                                buttons: [.destructive(Text("Log Out"), action: {
-                                    viewModel.signOut()
-                                }),
-                                          .cancel(Text("Cancel"))]
-                    )
+                                buttons: [
+                                    .destructive( Text("Log Out"), action: { viewModel.signOut() } ),
+                                    .cancel( Text("Cancel") )
+                                        
+                                ])
                 }
                 
                 Spacer()
