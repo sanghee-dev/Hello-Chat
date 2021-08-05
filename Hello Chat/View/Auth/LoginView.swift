@@ -10,8 +10,9 @@ import SwiftUI
 struct LoginView: View {
     @State private var email = ""
     @State private var password = ""
+    @State private var isIndicatorAnimating = false
     @EnvironmentObject var viewModel: AuthViewModel
-    
+        
     var body: some View {
         NavigationView {
             VStack {
@@ -46,7 +47,9 @@ struct LoginView: View {
                 
                 CapsuleButton(text: "Sign In",
                               disabled: email.count < 5 || password.count < 6,
+                              isAnimating: isIndicatorAnimating,
                               action: {
+                                isIndicatorAnimating = true
                                 viewModel.login(withEmail: email, password: password)
                               })
                 

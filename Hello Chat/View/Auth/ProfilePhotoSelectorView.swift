@@ -11,6 +11,7 @@ struct ProfilePhotoSelectorView: View {
     @State private var imagePickerPresented = false
     @State private var selectedImage: UIImage?
     @State private var profileImage: Image?
+    @State private var isIndicatorAnimating = false
     @EnvironmentObject var viewModel: AuthViewModel
         
     var body: some View {
@@ -44,9 +45,14 @@ struct ProfilePhotoSelectorView: View {
                     "Tab below to continue")
                 .font(.system(size: 16, weight: .semibold))
             
-            CapsuleButton(text: "Continue", disabled: profileImage == nil, action: {
-                viewModel.uploadProfileImage(selectedImage!)
-            })
+            CapsuleButton(text: "Continue",
+                          disabled: profileImage == nil,
+                          isAnimating: isIndicatorAnimating,
+                          action: {
+                            isIndicatorAnimating = true
+                            viewModel.uploadProfileImage(selectedImage!)
+                          }
+            )
             
             Spacer()
         }

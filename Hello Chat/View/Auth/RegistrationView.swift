@@ -12,6 +12,7 @@ struct RegistrationView: View {
     @State private var username = ""
     @State private var fullname = ""
     @State private var password = ""
+    @State private var isIndicatorAnimating = false
     @Environment(\.presentationMode) var mode
     @EnvironmentObject var viewModel: AuthViewModel
     
@@ -49,7 +50,9 @@ struct RegistrationView: View {
 
             CapsuleButton(text: "Sign Up",
                           disabled: email.count < 5 || username.count < 2 || fullname.count < 2 || password.count < 6,
+                          isAnimating: isIndicatorAnimating,
                           action: {
+                            isIndicatorAnimating = true
                             viewModel.register(withEmail: email, username: username, fullname: fullname, password: password)
                           })
             
