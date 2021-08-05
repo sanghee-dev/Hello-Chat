@@ -10,9 +10,10 @@ import SwiftUI
 struct LoginView: View {
     @State private var email = ""
     @State private var password = ""
-    @State private var isIndicatorAnimating = false
     @EnvironmentObject var viewModel: AuthViewModel
-        
+    
+    @State private var isIndicatorAnimating = false
+
     var body: some View {
         NavigationView {
             VStack {
@@ -34,25 +35,35 @@ struct LoginView: View {
                 HStack {
                     Spacer()
                     
-                    NavigationLink(
-                        destination: Text("Reset password..."),
-                        label: {
+                    Button(action: { print("Forgot Password?") }, label: {
                             Text("Forgot Password?")
                                 .font(.system(size: 14, weight: .semibold))
                                 .foregroundColor(.blue)
                                 .padding(.top)
+                                .padding(.bottom, 16)
                                 .padding(.trailing, 32)
-                        })
+                    })
+                }
+                
+                // 에러 메세지 띄우기
+                if let error = viewModel.error {
+                    Text(error.localizedDescription)
+                        .font(.system(size: 14))
+                        .foregroundColor(.red)
+                        .padding(.horizontal, 32)
                 }
                 
                 CapsuleButton(text: "Sign In",
                               disabled: email.count < 5 || password.count < 6,
-                              isAnimating: isIndicatorAnimating,
+                              isAnimating: isIndicatorAnimating && viewModel.error == nil,
                               action: {
-                                isIndicatorAnimating = true
-                                viewModel.login(withEmail: email, password: password)
+                                    isIndicatorAnimating = true
+                                    viewModel.login(withEmail: email, password: password)
+                                    // 에러 코드에 따라 텍스트필드 지우기
+                                    // 유저가 없다? -> 다 지우기
+                                    // 비밀번호가 틀렸다? -> 비밀번호 지우기
                               })
-                
+                                
                 Spacer()
                 
                 NavigationLink(

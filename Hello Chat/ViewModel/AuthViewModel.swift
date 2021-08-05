@@ -12,22 +12,24 @@ class AuthViewModel: NSObject, ObservableObject {
     @Published var didAuthenticateUser = false
     @Published var userSession: FirebaseAuth.User?
     @Published var currentUser: User?
+    @Published var error: Error?
     private var tempCurrentUser: Firebase.User? // registration에서 프로필 사진 올리기 전 유저
     
     static let shared = AuthViewModel()
     
     override init() {
         super.init()
-        
         userSession = Auth.auth().currentUser
-        
         fetchUser()
     }
     
     func login(withEmail email: String, password: String) {
+        self.error = nil
+        
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
             if let error = error {
-                print("DEBUG: Failed to login with error \(error.localizedDescription)")
+                print(error)
+                self.error = error
                 return
             }
             
@@ -38,9 +40,12 @@ class AuthViewModel: NSObject, ObservableObject {
     }
     
     func register(withEmail email: String, username: String, fullname: String, password: String) {
+        self.error = nil
+        
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             if let error = error {
-                print("DEBUG: Failed to register with error \(error.localizedDescription)")
+                print(error)
+                self.error = error
                 return
             }
             
