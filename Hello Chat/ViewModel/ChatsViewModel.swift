@@ -25,9 +25,15 @@ class ChatsViewModel: ObservableObject {
             .collection(chatPartnerId)
             .order(by: "timestamp", descending: false)
         
+        query.addSnapshotListener { snapshot, error in
+            guard let changes = snapshot?.documentChanges.filter({ $0.type == .added }) else { return }
+            let addedMessages = changes.compactMap{ try? $0.document.data(as: Message.self) }
+            self.messages.append(contentsOf: addedMessages)
+        }
+        
         query.getDocuments { snapshot, error in
             guard let documents = snapshot?.documents else { return }
-            self.messages =  documents.compactMap{ try? $0.data(as: Message.self) }
+            self.messages = documents.compactMap{ try? $0.data(as: Message.self) }
         }
     }
     
@@ -54,4 +60,5 @@ class ChatsViewModel: ObservableObject {
         
     }
 }
+
 
