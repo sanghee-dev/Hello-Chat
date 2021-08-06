@@ -17,12 +17,22 @@ struct MessageView: View {
                 HStack(alignment: .bottom) {
                     Spacer()
                     
-                    Text(viewModel.message.text)
-                        .padding(12)
-                        .background(Color(.systemBlue))
-                        .font(.system(size: 14))
-                        .clipShape(MessageBubble(isFromCurrentUser: true))
-                        .foregroundColor(.white)
+                    if viewModel.message.text.isSingleEmoji {
+                        Text(viewModel.message.text)
+                            .padding(12)
+                            .background(Color(.systemBlue).opacity(0.7))
+                            .font(.system(size: 21))
+                            .clipShape(MessageBubble(isFromCurrentUser: true))
+                            .foregroundColor(.white)
+                    } else {
+                        Text(viewModel.message.text)
+                            .padding(12)
+                            .background(Color(.systemBlue).opacity(0.7))
+                            .font(.system(size: 14))
+                            .clipShape(MessageBubble(isFromCurrentUser: true))
+                            .foregroundColor(.white)
+                    }
+                    
                 }
                 .padding(.horizontal)
                 .padding(.leading, 120)
@@ -34,12 +44,21 @@ struct MessageView: View {
                         .frame(width: 24, height: 24)
                         .clipShape(Circle())
                     
-                    Text(viewModel.message.text)
-                        .padding(12)
-                        .background(Color(.systemGroupedBackground))
-                        .font(.system(size: 14))
-                        .clipShape(MessageBubble(isFromCurrentUser: false))
-                        .foregroundColor(.black)
+                    if viewModel.message.text.isSingleEmoji {
+                        Text(viewModel.message.text)
+                            .padding(12)
+                            .background(Color(.systemGroupedBackground))
+                            .font(.system(size: 21))
+                            .clipShape(MessageBubble(isFromCurrentUser: false))
+                            .foregroundColor(.black)
+                    } else {
+                        Text(viewModel.message.text)
+                            .padding(12)
+                            .background(Color(.systemGroupedBackground))
+                            .font(.system(size: 14))
+                            .clipShape(MessageBubble(isFromCurrentUser: false))
+                            .foregroundColor(.black)
+                    }
                     
                     Spacer()
                 }
