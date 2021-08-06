@@ -41,10 +41,17 @@ class ChatsViewModel: ObservableObject {
         guard let currentUserId = AuthViewModel.shared.currentUser?.id else { return }
         guard let chatPartnerId = chatPartner.id else { return }
         
+        // save at messages
         let currentUserRef =
             COLLECTION_MESSAGES.document(currentUserId).collection(chatPartnerId).document()
         let chatPartnerRef =
             COLLECTION_MESSAGES.document(chatPartnerId).collection(currentUserId)
+        
+        // save at recent-messages
+        let recentCurrentUserRef =
+            COLLECTION_MESSAGES.document(currentUserId).collection("recent-messages").document(chatPartnerId)
+        let recentChatPartnerRef =
+            COLLECTION_MESSAGES.document(chatPartnerId).collection("recent-messages").document(currentUserId)
         
         let messageId = currentUserRef.documentID
         
@@ -58,6 +65,8 @@ class ChatsViewModel: ObservableObject {
         currentUserRef.setData(data)
         chatPartnerRef.document(messageId).setData(data)
         
+        recentCurrentUserRef.setData(data)
+        recentChatPartnerRef.setData(data)
     }
 }
 

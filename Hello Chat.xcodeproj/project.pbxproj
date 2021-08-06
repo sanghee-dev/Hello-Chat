@@ -56,6 +56,7 @@
 		5E328B7226BA95BA0027B10F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328B7126BA95BA0027B10F /* Constants.swift */; };
 		5E328B7426BAA13A0027B10F /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328B7326BAA13A0027B10F /* Status.swift */; };
 		5E47394C26BD13A7001AF420 /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E47394B26BD13A7001AF420 /* MessageViewModel.swift */; };
+		5E47394E26BD5369001AF420 /* ConversationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E47394D26BD5369001AF420 /* ConversationsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,6 +105,7 @@
 		5E328B7126BA95BA0027B10F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5E328B7326BAA13A0027B10F /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		5E47394B26BD13A7001AF420 /* MessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewModel.swift; sourceTree = "<group>"; };
+		5E47394D26BD5369001AF420 /* ConversationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				5E328B3E26B824240027B10F /* AuthViewModel.swift */,
+				5E47394D26BD5369001AF420 /* ConversationsViewModel.swift */,
 				5E328B6F26BA951B0027B10F /* ChatPartnersViewModel.swift */,
 				5E328B2726B7E4F60027B10F /* ChatsViewModel.swift */,
 				5E47394B26BD13A7001AF420 /* MessageViewModel.swift */,
@@ -387,6 +390,7 @@
 				5E328B2826B7E4F60027B10F /* ChatsViewModel.swift in Sources */,
 				5E328A7926B19C5B0027B10F /* IntroParagraph.swift in Sources */,
 				5E328A9D26B28B4B0027B10F /* SettingsCell.swift in Sources */,
+				5E47394E26BD5369001AF420 /* ConversationsViewModel.swift in Sources */,
 				5E328B0F26B7B4800027B10F /* SearchBar.swift in Sources */,
 				5E328A8326B26D820027B10F /* ChannelsView.swift in Sources */,
 				5E328AA326B2BC920027B10F /* EditProfileCell.swift in Sources */,
