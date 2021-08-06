@@ -193,13 +193,13 @@
 		5E328A6E26B1582E0027B10F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				5E328B3E26B824240027B10F /* AuthViewModel.swift */,
-				5E47394D26BD5369001AF420 /* ConversationsViewModel.swift */,
-				5E328B6F26BA951B0027B10F /* ChatPartnersViewModel.swift */,
-				5E328B2726B7E4F60027B10F /* ChatsViewModel.swift */,
-				5E47394B26BD13A7001AF420 /* MessageViewModel.swift */,
-				5E328A9E26B295DC0027B10F /* SettingsCellViewModel.swift */,
-				5E328AAA26B2E5EA0027B10F /* StatusViewModel.swift */,
+				5E47394F26BD718A001AF420 /* Auth */,
+				5E47395026BD7195001AF420 /* Main */,
+				5E47395126BD71A2001AF420 /* Conversations */,
+				5E47395226BD71AB001AF420 /* ChatPartners */,
+				5E47395326BD71B0001AF420 /* Messages */,
+				5E47395426BD71BC001AF420 /* Channels */,
+				5E47395526BD71C1001AF420 /* Settings */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -295,6 +295,62 @@
 				5E328B0C26B7A6FF0027B10F /* ChatPartnerCell.swift */,
 			);
 			path = ChatPartners;
+			sourceTree = "<group>";
+		};
+		5E47394F26BD718A001AF420 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				5E328B3E26B824240027B10F /* AuthViewModel.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		5E47395026BD7195001AF420 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		5E47395126BD71A2001AF420 /* Conversations */ = {
+			isa = PBXGroup;
+			children = (
+				5E47394D26BD5369001AF420 /* ConversationsViewModel.swift */,
+			);
+			path = Conversations;
+			sourceTree = "<group>";
+		};
+		5E47395226BD71AB001AF420 /* ChatPartners */ = {
+			isa = PBXGroup;
+			children = (
+				5E328B6F26BA951B0027B10F /* ChatPartnersViewModel.swift */,
+			);
+			path = ChatPartners;
+			sourceTree = "<group>";
+		};
+		5E47395326BD71B0001AF420 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				5E328B2726B7E4F60027B10F /* ChatsViewModel.swift */,
+				5E47394B26BD13A7001AF420 /* MessageViewModel.swift */,
+			);
+			path = Messages;
+			sourceTree = "<group>";
+		};
+		5E47395426BD71BC001AF420 /* Channels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Channels;
+			sourceTree = "<group>";
+		};
+		5E47395526BD71C1001AF420 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				5E328AAA26B2E5EA0027B10F /* StatusViewModel.swift */,
+				5E328A9E26B295DC0027B10F /* SettingsCellViewModel.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

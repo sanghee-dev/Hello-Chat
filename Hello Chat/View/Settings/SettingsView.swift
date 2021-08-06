@@ -38,7 +38,7 @@ struct SettingsView: View {
                 .background(Color.white)
                 .actionSheet(isPresented: $showSheet) {
                     ActionSheet(title: Text("Log Out"),
-                                message: Text("Do you really want to log out?"),
+                                message: Text("Are you sure you want to log out?"),
                                 buttons: [
                                     .destructive( Text("Log Out"), action: { viewModel.signOut() } ),
                                     .cancel( Text("Cancel") )

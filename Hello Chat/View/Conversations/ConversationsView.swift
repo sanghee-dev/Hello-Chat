@@ -28,7 +28,7 @@ struct ConversationsView: View {
                     ForEach(viewModel.recentMessages) { message in
                         NavigationLink(
                             destination:
-                                ChatsView(chatPartner: MOCK_USER),
+                                ChatsView(chatPartner: MessageViewModel(message).chatPartner ?? MOCK_USER),
                             label: {
                                 ConversationCell(viewModel: MessageViewModel(message))
                             })
