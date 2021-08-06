@@ -12,6 +12,8 @@ struct ConversationsView: View {
     @State private var showConversationView = false
     @State private var selectedUser: User?
     
+    @ObservedObject var viewModel = ConversationsViewModel()
+    
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
             if let chatPartner = selectedUser {
@@ -23,12 +25,12 @@ struct ConversationsView: View {
             
             ScrollView {
                 VStack(spacing: 1) {
-                    ForEach((0...5), id: \.self) { _ in
+                    ForEach(viewModel.recentMessages) { message in
                         NavigationLink(
                             destination:
                                 ChatsView(chatPartner: MOCK_USER),
                             label: {
-                                ConversationCell(imageName: "profile", userName: "Sanghee", conversation: "Hello")
+                                ConversationCell(viewModel: MessageViewModel(message: message))
                             })
                     }
                 }

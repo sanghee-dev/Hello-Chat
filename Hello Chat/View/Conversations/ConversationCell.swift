@@ -8,14 +8,12 @@
 import SwiftUI
 
 struct ConversationCell: View {
-    let imageName: String
-    let userName: String
-    let conversation: String
+    let viewModel: MessageViewModel
     
     var body: some View {
         VStack(spacing: 1) {
             HStack(spacing: 12) {
-                Image(imageName)
+                Image("profile")
                     .resizable()
                     .scaledToFill()
                     .frame(width: 56, height: 56)
@@ -23,11 +21,11 @@ struct ConversationCell: View {
                     .padding(.leading)
                 
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(userName)
+                    Text("username")
                         .bold()
                         .foregroundColor(.black)
                     
-                    Text(conversation)
+                    Text(viewModel.message.text)
                         .foregroundColor(Color(.systemGray))
                 }
                 

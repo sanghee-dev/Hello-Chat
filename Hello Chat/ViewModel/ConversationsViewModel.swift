@@ -8,8 +8,24 @@
 import Foundation
 import Firebase
 
-class ConversationsViewModel {
+class ConversationsViewModel: ObservableObject {
+    @Published var recentMessages = [Message]()
     
+    init() {
+        fetchRecentMessages()
+    }
     
+    func fetchRecentMessages() {
+        guard let currentUserId = AuthViewModel.shared.currentUser?.id else { return }
+        
+        let query = COLLECTION_MESSAGES.document(currentUserId)
+            .collection("recent-messages")
+            .order(by: "timestamp", descending: true)
+        
+        query.getDocuments { snapshot, error in
+            guard let documents = snapshot?.documents else { return }
+            self.recentMessages = documents.compactMap({ try? $0.data(as: Message.self) })
+        }
+        
+    }
 }
-
