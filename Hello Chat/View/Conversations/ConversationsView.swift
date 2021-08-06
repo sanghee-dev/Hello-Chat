@@ -14,9 +14,9 @@ struct ConversationsView: View {
     
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
-            if let user = selectedUser {
+            if let chatPartner = selectedUser {
                 NavigationLink(
-                    destination: ChatsView(user: user),
+                    destination: ChatsView(chatPartner: chatPartner),
                     isActive: $showConversationView,
                     label: {})
             }
@@ -26,7 +26,7 @@ struct ConversationsView: View {
                     ForEach((0...5), id: \.self) { _ in
                         NavigationLink(
                             destination:
-                                ChatsView(user: MOCK_USER),
+                                ChatsView(chatPartner: MOCK_USER),
                             label: {
                                 ConversationCell(imageName: "profile", userName: "Sanghee", conversation: "Hello")
                             })

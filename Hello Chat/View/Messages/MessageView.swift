@@ -21,14 +21,14 @@ struct MessageView: View {
                         .padding(12)
                         .background(Color(.systemBlue))
                         .font(.system(size: 14))
-                        .clipShape(ChatBubble(isFromCurrentUser: true))
+                        .clipShape(MessageBubble(isFromCurrentUser: true))
                         .foregroundColor(.white)
                 }
                 .padding(.horizontal)
                 .padding(.leading, 120)
             } else {
                 HStack(alignment: .bottom) {
-                    Image("profile")
+                    KFImage(viewModel.profileImageUrl)
                         .resizable()
                         .scaledToFill()
                         .frame(width: 24, height: 24)
@@ -38,7 +38,7 @@ struct MessageView: View {
                         .padding(12)
                         .background(Color(.systemGroupedBackground))
                         .font(.system(size: 14))
-                        .clipShape(ChatBubble(isFromCurrentUser: false))
+                        .clipShape(MessageBubble(isFromCurrentUser: false))
                         .foregroundColor(.black)
                     
                     Spacer()

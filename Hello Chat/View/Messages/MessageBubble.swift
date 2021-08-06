@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ChatBubble: Shape {
+struct MessageBubble: Shape {
     var isFromCurrentUser: Bool
     
     func path(in rect: CGRect) -> Path {

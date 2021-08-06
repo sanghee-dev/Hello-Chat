@@ -10,11 +10,11 @@ import SwiftUI
 struct ChatsView: View {
     @State private var messageText = ""
     @ObservedObject var viewModel: ChatsViewModel
-    private let user: User
+    private let chatPartner: User
     
-    init(user: User) {
-        self.user = user
-        self.viewModel = ChatsViewModel(user: user)
+    init(chatPartner: User) {
+        self.chatPartner = chatPartner
+        self.viewModel = ChatsViewModel(chatPartner: chatPartner)
     }
     
     var body: some View {
@@ -29,7 +29,7 @@ struct ChatsView: View {
             
             CustomInputView(text: $messageText, action: sendMessage)
         }
-        .navigationTitle(user.username)
+        .navigationTitle(chatPartner.username)
         .navigationBarTitleDisplayMode(.inline)
         .padding(.vertical)
     }
