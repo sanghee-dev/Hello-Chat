@@ -12,6 +12,9 @@ struct ChatsView: View {
     @ObservedObject var viewModel: ChatsViewModel
     private let chatPartner: User
     
+    @Namespace var topID
+    @Namespace var bottomID
+    
     init(chatPartner: User) {
         self.chatPartner = chatPartner
         self.viewModel = ChatsViewModel(chatPartner: chatPartner)
@@ -19,11 +22,23 @@ struct ChatsView: View {
     
     var body: some View {
         VStack {
-            ScrollView {
-                VStack(spacing: 16) {
-                    ForEach(viewModel.messages) { message in
-                        MessageView(viewModel: MessageViewModel(message))
+            ScrollViewReader { proxy in
+                ScrollView {
+                    Button(
+                        action: { withAnimation { proxy.scrollTo(bottomID) } },
+                        label: { Image(systemName: "chevron.down").foregroundColor(Color(.systemGray2)) })
+                        .id(topID)
+                    
+                    VStack(spacing: 16) {
+                        ForEach(viewModel.messages) { message in
+                            MessageView(viewModel: MessageViewModel(message))
+                        }
                     }
+                    .onChange(of: messageText == "") { _ in
+                        withAnimation { proxy.scrollTo(bottomID) }
+                    }
+                    
+                    Text("").id(bottomID)
                 }
             }
             
