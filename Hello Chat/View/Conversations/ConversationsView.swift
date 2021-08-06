@@ -26,12 +26,7 @@ struct ConversationsView: View {
             ScrollView {
                 VStack(spacing: 1) {
                     ForEach(viewModel.recentMessages) { message in
-                        NavigationLink(
-                            destination:
-                                ChatsView(chatPartner: MOCK_USER),
-                            label: {
-                                ConversationCell(viewModel: ConversationCellViewModel(message))
-                            })
+                        ConversationCell(viewModel: ConversationCellViewModel(message))
                     }
                 }
             }
@@ -61,4 +56,3 @@ struct ConversationsView_Previews: PreviewProvider {
         ConversationsView()
     }
 }
-

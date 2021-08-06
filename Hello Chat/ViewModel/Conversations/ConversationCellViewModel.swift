@@ -9,7 +9,7 @@ import Foundation
 
 class ConversationCellViewModel: ObservableObject {
     @Published var message: Message
-    var chatPartner: User?
+    @Published var chatPartner: User?
 
     init(_ message: Message) {
         self.message = message
