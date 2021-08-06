@@ -15,6 +15,5 @@ struct Message: Identifiable, Decodable {
     let toId: String
     let read: Bool
     let text: String
-    
-    var user: User?
+    let profileImageUrl: String
 }

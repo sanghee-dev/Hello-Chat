@@ -28,7 +28,7 @@ struct MessageView: View {
                 .padding(.leading, 120)
             } else {
                 HStack(alignment: .bottom) {
-                    KFImage(viewModel.profileImageUrl)
+                    KFImage(URL(string: viewModel.message.profileImageUrl))
                         .resizable()
                         .scaledToFill()
                         .frame(width: 24, height: 24)

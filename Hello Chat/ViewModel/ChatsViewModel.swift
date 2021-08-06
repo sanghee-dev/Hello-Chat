@@ -24,13 +24,7 @@ class ChatsViewModel: ObservableObject {
         
         query.getDocuments { snapshot, error in
             guard let documents = snapshot?.documents else { return }
-            var messages = documents.compactMap{ try? $0.data(as: Message.self) }
-            
-            for (index, message) in messages.enumerated() where message.fromId != currentUserId {
-                messages[index].user = self.chatPartner
-            }
-            
-            self.messages = messages
+            self.messages =  documents.compactMap{ try? $0.data(as: Message.self) }
         }
     }
     
@@ -49,7 +43,8 @@ class ChatsViewModel: ObservableObject {
                                    "fromId": currentUserId,
                                    "toId": chatPartnerId,
                                    "read": false,
-                                   "text": messageText]
+                                   "text": messageText,
+                                   "profileImageUrl": AuthViewModel.shared.currentUser?.profileImageUrl ?? ""]
         
         currentUserRef.setData(data)
         chatPartnerRef.document(messageId).setData(data)
