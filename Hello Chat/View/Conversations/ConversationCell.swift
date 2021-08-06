@@ -9,7 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct ConversationCell: View {
-    @ObservedObject var viewModel: MessageViewModel
+    @ObservedObject var viewModel: ConversationCellViewModel
     
     var body: some View {
         VStack(spacing: 1) {

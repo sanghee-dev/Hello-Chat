@@ -7,13 +7,11 @@
 
 import Foundation
 
-class MessageViewModel: ObservableObject {
-    @Published var chatPartner: User?
+struct MessageViewModel {
     let message: Message
     
     init(_ message: Message) {
         self.message = message
-        fetchUser()
     }
     
     var currentUserId: String {
@@ -26,26 +24,6 @@ class MessageViewModel: ObservableObject {
     
     var profileImageUrl: URL? {
         return URL(string: message.profileImageUrl)
-    }
-    
-    var chatPartnerId: String {
-        return message.fromId == currentUserId ? message.toId : message.fromId
-    }
-    
-    var chatPartnerUsername: String {
-        guard let chatPartner = chatPartner else { return "" }
-        return chatPartner.username
-    }
-    
-    var chatPartnerProfileImageUrl: URL? {
-        guard let chatPartner = chatPartner else { return nil }
-        return URL(string: chatPartner.profileImageUrl)
-    }
-    
-    func fetchUser() {
-        COLLECTION_USERS.document(chatPartnerId).getDocument { snapshot, error in
-            self.chatPartner = try? snapshot?.data(as: User.self)
-        }
     }
 }
 

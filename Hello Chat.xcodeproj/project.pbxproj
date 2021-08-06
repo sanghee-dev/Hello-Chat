@@ -57,6 +57,7 @@
 		5E328B7426BAA13A0027B10F /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E328B7326BAA13A0027B10F /* Status.swift */; };
 		5E47394C26BD13A7001AF420 /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E47394B26BD13A7001AF420 /* MessageViewModel.swift */; };
 		5E47394E26BD5369001AF420 /* ConversationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E47394D26BD5369001AF420 /* ConversationsViewModel.swift */; };
+		5E47395926BD7643001AF420 /* ConversationCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E47395826BD7643001AF420 /* ConversationCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,6 +107,7 @@
 		5E328B7326BAA13A0027B10F /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		5E47394B26BD13A7001AF420 /* MessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewModel.swift; sourceTree = "<group>"; };
 		5E47394D26BD5369001AF420 /* ConversationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsViewModel.swift; sourceTree = "<group>"; };
+		5E47395826BD7643001AF420 /* ConversationCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -316,6 +318,7 @@
 			isa = PBXGroup;
 			children = (
 				5E47394D26BD5369001AF420 /* ConversationsViewModel.swift */,
+				5E47395826BD7643001AF420 /* ConversationCellViewModel.swift */,
 			);
 			path = Conversations;
 			sourceTree = "<group>";
@@ -470,6 +473,7 @@
 				5E328B1126B7BAB50027B10F /* Extensions.swift in Sources */,
 				5E328A7526B159A30027B10F /* RegistrationView.swift in Sources */,
 				5E328B0B26B7A6F00027B10F /* ChatPartnersView.swift in Sources */,
+				5E47395926BD7643001AF420 /* ConversationCellViewModel.swift in Sources */,
 				5E328B6026BA70890027B10F /* User.swift in Sources */,
 				5E328B2626B7E3490027B10F /* Message.swift in Sources */,
 				5E328B7426BAA13A0027B10F /* Status.swift in Sources */,
