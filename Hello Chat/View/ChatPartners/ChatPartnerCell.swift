@@ -8,7 +8,7 @@
 import SwiftUI
 import Kingfisher
 
-struct NewMessageCell: View {
+struct ChatPartnerCell: View {
     let user: User
     
     var body: some View {

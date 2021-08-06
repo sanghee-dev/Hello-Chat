@@ -1,5 +1,5 @@
 //
-//  NewMessageViewModel.swift
+//  ChatPartnersViewModel.swift
 //  Hello Chat
 //
 //  Created by leeesangheee on 2021/08/04.
@@ -8,7 +8,7 @@
 import Foundation
 import Firebase
 
-class NewMessageViewModel: ObservableObject {
+class ChatPartnersViewModel: ObservableObject {
     @Published var users = [User]()
     
     init() {

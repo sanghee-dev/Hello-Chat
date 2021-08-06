@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct NewMessageView: View {
+struct ChatPartnersView: View {
     @Binding var showConversationView: Bool
     @Environment(\.presentationMode) var mode
     @State private var searchText = ""
     @State private var isEditing = false
     @Binding var user: User?
-    @ObservedObject var viewModel = NewMessageViewModel()
+    @ObservedObject var viewModel = ChatPartnersViewModel()
 
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
@@ -29,7 +29,7 @@ struct NewMessageView: View {
                             self.user = user
                             mode.wrappedValue.dismiss()
                         }, label: {
-                            NewMessageCell(user: user)
+                            ChatPartnerCell(user: user)
                         })
                     }
                 }
