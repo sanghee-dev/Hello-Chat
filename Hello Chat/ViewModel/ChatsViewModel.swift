@@ -20,7 +20,10 @@ class ChatsViewModel: ObservableObject {
         guard let currentUserId = AuthViewModel.shared.currentUser?.id else { return }
         guard let chatPartnerId = chatPartner.id else { return }
         
-        let query = COLLECTION_MESSAGES.document(currentUserId).collection(chatPartnerId)
+        let query = COLLECTION_MESSAGES
+            .document(currentUserId)
+            .collection(chatPartnerId)
+            .order(by: "timestamp", descending: false)
         
         query.getDocuments { snapshot, error in
             guard let documents = snapshot?.documents else { return }
@@ -51,3 +54,4 @@ class ChatsViewModel: ObservableObject {
         
     }
 }
+
