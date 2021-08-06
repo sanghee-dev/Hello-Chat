@@ -48,6 +48,7 @@ struct ConversationsView: View {
                 ChatPartnersView(showConversationView: $showConversationView, user: $selectedUser)
             })
         }
+        .onAppear{ viewModel.fetchRecentMessages() }
     }
 }
 
