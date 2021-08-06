@@ -28,6 +28,7 @@ struct CustomInputView: View {
                         .scaledToFit()
                         .frame(width: 20, height: 20)
                 })
+                .disabled(text.count < 1)
             }
             .padding(.horizontal)
             .padding(.top, 4)
