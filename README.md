@@ -8,9 +8,10 @@ Hello Chat is a real time chat service!
 
 # Skills
 
-- MVVM Pattern
+- Swift
 - SwiftUI
-
+- MVVM Pattern
+- Firestore
 
 # Authentication
 
