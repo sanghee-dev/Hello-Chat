@@ -17,7 +17,7 @@ struct SelectGroupMembersView: View {
                 SearchBar(text: $searchText, isEditing: .constant(false))
                     .padding()
                 
-                // selected users view
+                SelectedMembers()
                             
                 ScrollView {
                     VStack(spacing: 1) {
