@@ -217,11 +217,8 @@
 			children = (
 				5E328A7126B1590C0027B10F /* Auth */,
 				5E328A7C26B26A080027B10F /* Main */,
-				5E328A8126B26D5A0027B10F /* Conversations */,
-				5E328B0926B7A6C40027B10F /* ChatPartners */,
-				5E328A9326B26EEF0027B10F /* Messages */,
-				5E328A8026B26D550027B10F /* Channels */,
-				5E7EF9A026CA570900ED906C /* SelectGroupMembers */,
+				5E7EF9A726CA861500ED906C /* Chats */,
+				5E7EF9A826CA866D00ED906C /* Channels */,
 				5E328A7F26B26D4C0027B10F /* Settings */,
 			);
 			path = View;
@@ -371,6 +368,25 @@
 				5E7EF9A526CA5E7C00ED906C /* GroupMemberCell.swift */,
 			);
 			path = SelectGroupMembers;
+			sourceTree = "<group>";
+		};
+		5E7EF9A726CA861500ED906C /* Chats */ = {
+			isa = PBXGroup;
+			children = (
+				5E328A8126B26D5A0027B10F /* Conversations */,
+				5E328B0926B7A6C40027B10F /* ChatPartners */,
+				5E328A9326B26EEF0027B10F /* Messages */,
+			);
+			path = Chats;
+			sourceTree = "<group>";
+		};
+		5E7EF9A826CA866D00ED906C /* Channels */ = {
+			isa = PBXGroup;
+			children = (
+				5E328A8026B26D550027B10F /* Channels */,
+				5E7EF9A026CA570900ED906C /* SelectGroupMembers */,
+			);
+			path = Channels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
