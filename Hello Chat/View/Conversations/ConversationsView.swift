@@ -31,26 +31,10 @@ struct ConversationsView: View {
                 }
             }
             
-            HStack {
-                Spacer()
-                
-                Button(action: {
-                    showMessageView.toggle()
-                }, label: {
-                    Image(systemName: "square.and.pencil")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 18, height: 18)
-                        .padding(.all, 14)
-                })
-                .background(Color(.systemBlue))
-                .foregroundColor(.white)
-                .clipShape(Circle())
-                .padding()
+            FloatingButton(show: $showMessageView)
                 .sheet(isPresented: $showMessageView, content: {
                     ChatPartnersView(showConversationView: $showConversationView, user: $selectedUser)
-                })
-            }
+                })            
         }
         .onAppear{ viewModel.fetchRecentMessages() }
     }

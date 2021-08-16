@@ -10,8 +10,6 @@ import SwiftUI
 struct ChannelsView: View {
     @State private var showCreateGroupView = false
     @State private var selectedUsers: [User]?
-
-    @ObservedObject var viewModel = ConversationsViewModel()
     
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
@@ -24,39 +22,47 @@ struct ChannelsView: View {
             
             ScrollView {
                 VStack(spacing: 1) {
-                    ForEach(viewModel.recentMessages) { message in
-                        ChannelCell(viewModel: ConversationCellViewModel(message))
+                    ForEach(0...5, id: \.self) { _ in
+                        ChannelCell()
                     }
                 }
             }
             
-            HStack {
-                Spacer()
-                
-                Button(action: {
-                    showCreateGroupView.toggle()
-                }, label: {
-                    Image(systemName: "square.and.pencil")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 18, height: 18)
-                        .padding(.all, 14)
-                })
-                .background(Color(.systemBlue))
-                .foregroundColor(.white)
-                .clipShape(Circle())
-                .padding()
+            FloatingButton(show: $showCreateGroupView)
                 .sheet(isPresented: $showCreateGroupView, content: {
                     Text("Create group view...")
                 })
-            }
         }
-        .onAppear{ viewModel.fetchRecentMessages() }
+        .onAppear{ }
     }
 }
 
 struct ChannelsView_Previews: PreviewProvider {
     static var previews: some View {
         ChannelsView()
+    }
+}
+
+struct FloatingButton: View {
+    @Binding var show: Bool
+    
+    var body: some View {
+        HStack {
+            Spacer()
+            
+            Button(action: {
+                show.toggle()
+            }, label: {
+                Image(systemName: "square.and.pencil")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 18, height: 18)
+                    .padding(.all, 14)
+            })
+            .background(Color(.systemBlue))
+            .foregroundColor(.white)
+            .clipShape(Circle())
+            .padding()
+        }
     }
 }
