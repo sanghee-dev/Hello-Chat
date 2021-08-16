@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct ChatPartnersView: View {
-    @Binding var showConversationView: Bool
     @Environment(\.presentationMode) var mode
+    @ObservedObject var viewModel = ChatPartnersViewModel()
+    @Binding var showConversationView: Bool
     @State private var searchText = ""
     @State private var isEditing = false
     @Binding var user: User?
-    @ObservedObject var viewModel = ChatPartnersViewModel()
+    
 
     var body: some View {
         ZStack(alignment: .bottomTrailing) {

@@ -59,6 +59,8 @@
 		5E47394E26BD5369001AF420 /* ConversationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E47394D26BD5369001AF420 /* ConversationsViewModel.swift */; };
 		5E47395926BD7643001AF420 /* ConversationCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E47395826BD7643001AF420 /* ConversationCellViewModel.swift */; };
 		5E7EF99A26CA3F6E00ED906C /* ChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7EF99926CA3F6E00ED906C /* ChannelCell.swift */; };
+		5E7EF9A226CA572200ED906C /* SelectGroupMembersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7EF9A126CA572200ED906C /* SelectGroupMembersView.swift */; };
+		5E7EF9A626CA5E7C00ED906C /* GroupMemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7EF9A526CA5E7C00ED906C /* GroupMemberCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,6 +112,8 @@
 		5E47394D26BD5369001AF420 /* ConversationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsViewModel.swift; sourceTree = "<group>"; };
 		5E47395826BD7643001AF420 /* ConversationCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationCellViewModel.swift; sourceTree = "<group>"; };
 		5E7EF99926CA3F6E00ED906C /* ChannelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCell.swift; sourceTree = "<group>"; };
+		5E7EF9A126CA572200ED906C /* SelectGroupMembersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectGroupMembersView.swift; sourceTree = "<group>"; };
+		5E7EF9A526CA5E7C00ED906C /* GroupMemberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMemberCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +221,7 @@
 				5E328B0926B7A6C40027B10F /* ChatPartners */,
 				5E328A9326B26EEF0027B10F /* Messages */,
 				5E328A8026B26D550027B10F /* Channels */,
+				5E7EF9A026CA570900ED906C /* SelectGroupMembers */,
 				5E328A7F26B26D4C0027B10F /* Settings */,
 			);
 			path = View;
@@ -359,6 +364,15 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		5E7EF9A026CA570900ED906C /* SelectGroupMembers */ = {
+			isa = PBXGroup;
+			children = (
+				5E7EF9A126CA572200ED906C /* SelectGroupMembersView.swift */,
+				5E7EF9A526CA5E7C00ED906C /* GroupMemberCell.swift */,
+			);
+			path = SelectGroupMembers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -457,6 +471,7 @@
 				5E328A8326B26D820027B10F /* ChannelsView.swift in Sources */,
 				5E328AA326B2BC920027B10F /* EditProfileCell.swift in Sources */,
 				5E328B3F26B824240027B10F /* AuthViewModel.swift in Sources */,
+				5E7EF9A226CA572200ED906C /* SelectGroupMembersView.swift in Sources */,
 				5E328B0626B7A2680027B10F /* ChatsView.swift in Sources */,
 				5E328AA526B2BCDA0027B10F /* CustomDivider.swift in Sources */,
 				5E328A7E26B26A310027B10F /* MainTabView.swift in Sources */,
@@ -482,6 +497,7 @@
 				5E328B2626B7E3490027B10F /* Message.swift in Sources */,
 				5E328B7426BAA13A0027B10F /* Status.swift in Sources */,
 				5E328A7726B198C10027B10F /* CustomTextField.swift in Sources */,
+				5E7EF9A626CA5E7C00ED906C /* GroupMemberCell.swift in Sources */,
 				5E328B7026BA951C0027B10F /* ChatPartnersViewModel.swift in Sources */,
 				5E328A8B26B26DB00027B10F /* SettingsView.swift in Sources */,
 			);
