@@ -38,7 +38,13 @@ class SelectGroupMembersViewModel: ObservableObject {
         }
     }
     
-    // filter users for search with pagination
-    
+    func filteredUsers(_ query: String) -> [SelectableUser] {
+        let lowercasedQuery = query.lowercased()
+        
+        return selectableUsers.filter({
+            $0.user.fullname.lowercased().contains(lowercasedQuery) ||
+            $0.user.username.lowercased().contains(lowercasedQuery)
+        })
+    }
 }
 
