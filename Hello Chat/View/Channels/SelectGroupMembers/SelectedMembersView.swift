@@ -6,28 +6,31 @@
 //
 
 import SwiftUI
+import Kingfisher
 
-struct SelectedMembers: View {
+struct SelectedMembersView: View {
+    @ObservedObject var viewModel: SelectGroupMembersViewModel
+    
     var body: some View {
         ScrollView(.horizontal) {
             HStack {
-                ForEach(0...5, id: \.self) { _ in
+                ForEach(viewModel.selectedUsers) { selectableUser in
                     ZStack(alignment: .topTrailing) {
                         VStack {
-                            Image("profile")
+                            KFImage(URL(string: selectableUser.user.profileImageUrl))
                                 .resizable()
                                 .scaledToFill()
                                 .frame(width: 60, height: 60)
                                 .clipShape(Circle())
                                 .shadow(color: Color(.systemGray4), radius: 6, x: 0.0, y: 0.0)
                             
-                            Text("Username")
+                            Text(selectableUser.user.username)
                                 .font(.system(size: 11, weight: .semibold))
                                 .multilineTextAlignment(.center)
                         }.frame(width: 64)
                         
                         Button(action: {
-                            print("Deselect user...")
+                            viewModel.selectUser(selectableUser, isSelected: false)
                         }, label: {
                             Image(systemName: "xmark")
                                 .resizable()
@@ -47,8 +50,3 @@ struct SelectedMembers: View {
     }
 }
 
-struct SelectedMembers_Previews: PreviewProvider {
-    static var previews: some View {
-        SelectedMembers()
-    }
-}
