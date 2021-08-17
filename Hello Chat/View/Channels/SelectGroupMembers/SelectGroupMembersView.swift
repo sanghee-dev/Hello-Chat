@@ -23,7 +23,11 @@ struct SelectGroupMembersView: View {
                 ScrollView {
                     VStack(spacing: 1) {
                         ForEach(viewModel.selectableUsers) { selectableUser in
-                            SelectableUserCell(viewModel: SelectableUserCellViewModel(selectableUser: selectableUser))
+                            Button(action: {
+                                viewModel.selectUser(selectableUser, isSelected: !selectableUser.isSelected)
+                            }, label: {
+                                SelectableUserCell(viewModel: SelectableUserCellViewModel(selectableUser: selectableUser))
+                            })
                         }
                     }
                 }
