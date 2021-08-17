@@ -22,7 +22,7 @@ struct SelectGroupMembersView: View {
                 ScrollView {
                     VStack(spacing: 1) {
                         ForEach(0...8, id: \.self) { _ in
-                            GroupMemberCell(user: MOCK_USER)
+                            SelectableUserCell(selectableUser: SelectableUser(user: MOCK_USER))
                         }
                     }
                 }
