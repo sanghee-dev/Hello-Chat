@@ -61,6 +61,8 @@
 		5E5A58FE26CA9CE300CBEC14 /* SelectedMembers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5A58FD26CA9CE300CBEC14 /* SelectedMembers.swift */; };
 		5E5A590026CA9E4500CBEC14 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5A58FF26CA9E4500CBEC14 /* FloatingButton.swift */; };
 		5E5A590226CB9F6A00CBEC14 /* SelectableUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5A590126CB9F6A00CBEC14 /* SelectableUser.swift */; };
+		5E5A590526CBA6FD00CBEC14 /* SelectGroupMembersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5A590426CBA6FC00CBEC14 /* SelectGroupMembersViewModel.swift */; };
+		5E5A590726CBB11800CBEC14 /* SelectableUserCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5A590626CBB11800CBEC14 /* SelectableUserCellViewModel.swift */; };
 		5E7EF99A26CA3F6E00ED906C /* ChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7EF99926CA3F6E00ED906C /* ChannelCell.swift */; };
 		5E7EF9A226CA572200ED906C /* SelectGroupMembersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7EF9A126CA572200ED906C /* SelectGroupMembersView.swift */; };
 		5E7EF9A626CA5E7C00ED906C /* SelectableUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7EF9A526CA5E7C00ED906C /* SelectableUserCell.swift */; };
@@ -117,6 +119,8 @@
 		5E5A58FD26CA9CE300CBEC14 /* SelectedMembers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedMembers.swift; sourceTree = "<group>"; };
 		5E5A58FF26CA9E4500CBEC14 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 		5E5A590126CB9F6A00CBEC14 /* SelectableUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableUser.swift; sourceTree = "<group>"; };
+		5E5A590426CBA6FC00CBEC14 /* SelectGroupMembersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectGroupMembersViewModel.swift; sourceTree = "<group>"; };
+		5E5A590626CBB11800CBEC14 /* SelectableUserCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableUserCellViewModel.swift; sourceTree = "<group>"; };
 		5E7EF99926CA3F6E00ED906C /* ChannelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCell.swift; sourceTree = "<group>"; };
 		5E7EF9A126CA572200ED906C /* SelectGroupMembersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectGroupMembersView.swift; sourceTree = "<group>"; };
 		5E7EF9A526CA5E7C00ED906C /* SelectableUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableUserCell.swift; sourceTree = "<group>"; };
@@ -209,11 +213,10 @@
 			isa = PBXGroup;
 			children = (
 				5E47394F26BD718A001AF420 /* Auth */,
-				5E47395026BD7195001AF420 /* Main */,
 				5E47395126BD71A2001AF420 /* Conversations */,
 				5E47395226BD71AB001AF420 /* ChatPartners */,
 				5E47395326BD71B0001AF420 /* Messages */,
-				5E47395426BD71BC001AF420 /* Channels */,
+				5E5A590326CBA6D700CBEC14 /* Channels */,
 				5E47395526BD71C1001AF420 /* Settings */,
 			);
 			path = ViewModel;
@@ -320,13 +323,6 @@
 			path = Auth;
 			sourceTree = "<group>";
 		};
-		5E47395026BD7195001AF420 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Main;
-			sourceTree = "<group>";
-		};
 		5E47395126BD71A2001AF420 /* Conversations */ = {
 			isa = PBXGroup;
 			children = (
@@ -353,13 +349,6 @@
 			path = Messages;
 			sourceTree = "<group>";
 		};
-		5E47395426BD71BC001AF420 /* Channels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Channels;
-			sourceTree = "<group>";
-		};
 		5E47395526BD71C1001AF420 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -367,6 +356,15 @@
 				5E328A9E26B295DC0027B10F /* SettingsCellViewModel.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		5E5A590326CBA6D700CBEC14 /* Channels */ = {
+			isa = PBXGroup;
+			children = (
+				5E5A590426CBA6FC00CBEC14 /* SelectGroupMembersViewModel.swift */,
+				5E5A590626CBB11800CBEC14 /* SelectableUserCellViewModel.swift */,
+			);
+			path = Channels;
 			sourceTree = "<group>";
 		};
 		5E7EF9A026CA570900ED906C /* SelectGroupMembers */ = {
@@ -481,6 +479,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E328AA126B2AB150027B10F /* EditProfileView.swift in Sources */,
+				5E5A590726CBB11800CBEC14 /* SelectableUserCellViewModel.swift in Sources */,
 				5E328B7226BA95BA0027B10F /* Constants.swift in Sources */,
 				5E47394C26BD13A7001AF420 /* MessageViewModel.swift in Sources */,
 				5E328AA726B2D5C10027B10F /* StatusSelectorView.swift in Sources */,
@@ -515,6 +514,7 @@
 				5E328A9B26B284E80027B10F /* SettingsProfile.swift in Sources */,
 				5E328AAB26B2E5EA0027B10F /* StatusViewModel.swift in Sources */,
 				5E328B2426B7DDC90027B10F /* CustomInputView.swift in Sources */,
+				5E5A590526CBA6FD00CBEC14 /* SelectGroupMembersViewModel.swift in Sources */,
 				5E7EF99A26CA3F6E00ED906C /* ChannelCell.swift in Sources */,
 				5E328B1126B7BAB50027B10F /* Extensions.swift in Sources */,
 				5E328A7526B159A30027B10F /* RegistrationView.swift in Sources */,
