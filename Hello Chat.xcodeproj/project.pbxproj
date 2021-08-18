@@ -63,6 +63,7 @@
 		5E5A590226CB9F6A00CBEC14 /* SelectableUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5A590126CB9F6A00CBEC14 /* SelectableUser.swift */; };
 		5E5A590526CBA6FD00CBEC14 /* SelectGroupMembersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5A590426CBA6FC00CBEC14 /* SelectGroupMembersViewModel.swift */; };
 		5E5A590726CBB11800CBEC14 /* SelectableUserCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5A590626CBB11800CBEC14 /* SelectableUserCellViewModel.swift */; };
+		5E5A590A26CD24F700CBEC14 /* CreateChannelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5A590926CD24F700CBEC14 /* CreateChannelView.swift */; };
 		5E7EF99A26CA3F6E00ED906C /* ChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7EF99926CA3F6E00ED906C /* ChannelCell.swift */; };
 		5E7EF9A226CA572200ED906C /* SelectGroupMembersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7EF9A126CA572200ED906C /* SelectGroupMembersView.swift */; };
 		5E7EF9A626CA5E7C00ED906C /* SelectableUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7EF9A526CA5E7C00ED906C /* SelectableUserCell.swift */; };
@@ -121,6 +122,7 @@
 		5E5A590126CB9F6A00CBEC14 /* SelectableUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableUser.swift; sourceTree = "<group>"; };
 		5E5A590426CBA6FC00CBEC14 /* SelectGroupMembersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectGroupMembersViewModel.swift; sourceTree = "<group>"; };
 		5E5A590626CBB11800CBEC14 /* SelectableUserCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableUserCellViewModel.swift; sourceTree = "<group>"; };
+		5E5A590926CD24F700CBEC14 /* CreateChannelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChannelView.swift; sourceTree = "<group>"; };
 		5E7EF99926CA3F6E00ED906C /* ChannelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCell.swift; sourceTree = "<group>"; };
 		5E7EF9A126CA572200ED906C /* SelectGroupMembersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectGroupMembersView.swift; sourceTree = "<group>"; };
 		5E7EF9A526CA5E7C00ED906C /* SelectableUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableUserCell.swift; sourceTree = "<group>"; };
@@ -167,7 +169,6 @@
 				5E328A6F26B158300027B10F /* View */,
 				5E328A6C26B158290027B10F /* Utilities */,
 				5E328A6D26B1582C0027B10F /* API */,
-				5E328B4826B940D70027B10F /* ContentView.swift */,
 				5E328A5C26B156BD0027B10F /* Hello_ChatApp.swift */,
 				5E328A6026B156BF0027B10F /* Assets.xcassets */,
 				5E328A6526B156BF0027B10F /* Info.plist */,
@@ -188,15 +189,12 @@
 		5E328A6C26B158290027B10F /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				5E328AAC26B3BE1D0027B10F /* ImagePicker.swift */,
-				5E328B7126BA95BA0027B10F /* Constants.swift */,
 				5E328B1026B7BAB50027B10F /* Extensions.swift */,
-				5E328A7626B198C10027B10F /* CustomTextField.swift */,
-				5E328AA426B2BCDA0027B10F /* CustomDivider.swift */,
+				5E328B7126BA95BA0027B10F /* Constants.swift */,
+				5E328AAC26B3BE1D0027B10F /* ImagePicker.swift */,
 				5E328B0E26B7B4800027B10F /* SearchBar.swift */,
-				5E328B2326B7DDC90027B10F /* CustomInputView.swift */,
-				5E328B4426B928E80027B10F /* CapsuleButton.swift */,
 				5E5A58FF26CA9E4500CBEC14 /* FloatingButton.swift */,
+				5E328AA426B2BCDA0027B10F /* CustomDivider.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -225,8 +223,9 @@
 		5E328A6F26B158300027B10F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5E328B4826B940D70027B10F /* ContentView.swift */,
 				5E328A7126B1590C0027B10F /* Auth */,
-				5E328A7C26B26A080027B10F /* Main */,
+				5E328A7C26B26A080027B10F /* MainTab */,
 				5E7EF9A726CA861500ED906C /* Chats */,
 				5E7EF9A826CA866D00ED906C /* Channels */,
 				5E328A7F26B26D4C0027B10F /* Settings */,
@@ -239,8 +238,8 @@
 			children = (
 				5E328B5F26BA70880027B10F /* User.swift */,
 				5E5A590126CB9F6A00CBEC14 /* SelectableUser.swift */,
-				5E328B2526B7E3490027B10F /* Message.swift */,
 				5E328B7326BAA13A0027B10F /* Status.swift */,
+				5E328B2526B7E3490027B10F /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -248,32 +247,29 @@
 		5E328A7126B1590C0027B10F /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				5E328A7226B1596F0027B10F /* LoginView.swift */,
-				5E328A7426B159A30027B10F /* RegistrationView.swift */,
-				5E328B4226B918660027B10F /* ProfilePhotoSelectorView.swift */,
+				5E5A590F26CD2B3E00CBEC14 /* Login */,
+				5E5A591026CD2B4200CBEC14 /* Registration */,
 				5E328A7826B19C5B0027B10F /* IntroParagraph.swift */,
+				5E328A7626B198C10027B10F /* CustomTextField.swift */,
+				5E328B4426B928E80027B10F /* CapsuleButton.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
 		};
-		5E328A7C26B26A080027B10F /* Main */ = {
+		5E328A7C26B26A080027B10F /* MainTab */ = {
 			isa = PBXGroup;
 			children = (
 				5E328A7D26B26A310027B10F /* MainTabView.swift */,
 			);
-			path = Main;
+			path = MainTab;
 			sourceTree = "<group>";
 		};
 		5E328A7F26B26D4C0027B10F /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				5E328A8A26B26DB00027B10F /* SettingsView.swift */,
-				5E328AA026B2AB150027B10F /* EditProfileView.swift */,
-				5E328AA626B2D5C10027B10F /* StatusSelectorView.swift */,
-				5E328A9A26B284E80027B10F /* SettingsProfile.swift */,
-				5E328A9C26B28B4B0027B10F /* SettingsCell.swift */,
-				5E328AA226B2BC920027B10F /* EditProfileCell.swift */,
-				5E328AA826B2E37A0027B10F /* StatusCell.swift */,
+				5E5A590B26CD2A4E00CBEC14 /* Settings */,
+				5E5A590C26CD2A8100CBEC14 /* EditProfile */,
+				5E5A590D26CD2AB000CBEC14 /* Status */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -302,6 +298,7 @@
 				5E328B0526B7A2680027B10F /* ChatsView.swift */,
 				5E328B2126B7CBFD0027B10F /* MessageView.swift */,
 				5E328B1F26B7C9440027B10F /* MessageBubble.swift */,
+				5E328B2326B7DDC90027B10F /* CustomInputView.swift */,
 			);
 			path = Messages;
 			sourceTree = "<group>";
@@ -367,6 +364,59 @@
 			path = Channels;
 			sourceTree = "<group>";
 		};
+		5E5A590826CD24CD00CBEC14 /* CreateChannel */ = {
+			isa = PBXGroup;
+			children = (
+				5E5A590926CD24F700CBEC14 /* CreateChannelView.swift */,
+			);
+			path = CreateChannel;
+			sourceTree = "<group>";
+		};
+		5E5A590B26CD2A4E00CBEC14 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				5E328A8A26B26DB00027B10F /* SettingsView.swift */,
+				5E328A9A26B284E80027B10F /* SettingsProfile.swift */,
+				5E328A9C26B28B4B0027B10F /* SettingsCell.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		5E5A590C26CD2A8100CBEC14 /* EditProfile */ = {
+			isa = PBXGroup;
+			children = (
+				5E328AA026B2AB150027B10F /* EditProfileView.swift */,
+				5E328AA226B2BC920027B10F /* EditProfileCell.swift */,
+			);
+			path = EditProfile;
+			sourceTree = "<group>";
+		};
+		5E5A590D26CD2AB000CBEC14 /* Status */ = {
+			isa = PBXGroup;
+			children = (
+				5E328AA626B2D5C10027B10F /* StatusSelectorView.swift */,
+				5E328AA826B2E37A0027B10F /* StatusCell.swift */,
+			);
+			path = Status;
+			sourceTree = "<group>";
+		};
+		5E5A590F26CD2B3E00CBEC14 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				5E328A7226B1596F0027B10F /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		5E5A591026CD2B4200CBEC14 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				5E328A7426B159A30027B10F /* RegistrationView.swift */,
+				5E328B4226B918660027B10F /* ProfilePhotoSelectorView.swift */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
 		5E7EF9A026CA570900ED906C /* SelectGroupMembers */ = {
 			isa = PBXGroup;
 			children = (
@@ -392,6 +442,7 @@
 			children = (
 				5E328A8026B26D550027B10F /* Channels */,
 				5E7EF9A026CA570900ED906C /* SelectGroupMembers */,
+				5E5A590826CD24CD00CBEC14 /* CreateChannel */,
 			);
 			path = Channels;
 			sourceTree = "<group>";
@@ -519,6 +570,7 @@
 				5E328B1126B7BAB50027B10F /* Extensions.swift in Sources */,
 				5E328A7526B159A30027B10F /* RegistrationView.swift in Sources */,
 				5E5A58FE26CA9CE300CBEC14 /* SelectedMembersView.swift in Sources */,
+				5E5A590A26CD24F700CBEC14 /* CreateChannelView.swift in Sources */,
 				5E328B0B26B7A6F00027B10F /* ChatPartnersView.swift in Sources */,
 				5E47395926BD7643001AF420 /* ConversationCellViewModel.swift in Sources */,
 				5E328B6026BA70890027B10F /* User.swift in Sources */,

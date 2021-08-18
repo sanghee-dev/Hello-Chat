@@ -47,7 +47,7 @@ struct SelectGroupMembersView: View {
     
     var NextButton: some View {
         NavigationLink(
-            destination: Text("Next"),
+            destination: CreateChannelView(),
             label: { Text("Next").bold() })
     }
     

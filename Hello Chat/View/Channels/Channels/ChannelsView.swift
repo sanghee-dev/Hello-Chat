@@ -13,12 +13,10 @@ struct ChannelsView: View {
     
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
-            if let chatPartners = selectedUsers {
-                NavigationLink(
-                    destination: Text("ConversationView"),
-                    isActive: $showCreateGroupView,
-                    label: {})
-            }
+            NavigationLink(
+                destination: Text("ConversationView"),
+                isActive: $showCreateGroupView,
+                label: {})
             
             ScrollView {
                 VStack(spacing: 1) {

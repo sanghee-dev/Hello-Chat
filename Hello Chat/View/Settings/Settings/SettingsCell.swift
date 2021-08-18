@@ -12,10 +12,6 @@ struct SettingsCell: View {
     
     var body: some View {
         VStack {
-//            if id == 0 {
-//                CustomDivider(leadingSpace: 0)
-//            }
-            
             HStack {
                 Image(systemName: viewModel.imageName)
                     .resizable()

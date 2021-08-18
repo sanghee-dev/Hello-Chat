@@ -14,7 +14,7 @@ class SelectGroupMembersViewModel: ObservableObject {
     init() {
         fetchUsers()
     }
-    
+        
     func fetchUsers() {
         COLLECTION_USERS.getDocuments { snapshot, error in
             guard let documents = snapshot?.documents else { return }
