@@ -89,7 +89,7 @@ class AuthViewModel: NSObject, ObservableObject {
         
         print("DEBUG: \(image)")
 
-        ImageUploader.uploadImage(image: image) { imageUrl in
+        ImageUploader.uploadImage(image: image, folderName: "profile_images") { imageUrl in
             COLLECTION_USERS.document(uid).updateData(["profileImageUrl" : imageUrl]) { error in
                 if let error = error {
                     print("DEBUG: Failed to upload user profile with error \(error.localizedDescription)")

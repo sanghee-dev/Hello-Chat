@@ -10,11 +10,11 @@ import Firebase
 
 struct ImageUploader {
     
-    static func uploadImage(image: UIImage, completion: @escaping(String) -> Void) {
+    static func uploadImage(image: UIImage, folderName: String, completion: @escaping(String) -> Void) {
         guard let imageData = image.jpegData(compressionQuality: 0.0001) else { return }
         
         let filename = NSUUID().uuidString
-        let ref = Storage.storage().reference(withPath: "/profile_images/\(filename)")
+        let ref = Storage.storage().reference(withPath: "/\(folderName)/\(filename)")
                 
         ref.putData(imageData, metadata: nil) { _, error in
             if let error = error {

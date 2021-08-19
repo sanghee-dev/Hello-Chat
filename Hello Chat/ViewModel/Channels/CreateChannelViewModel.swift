@@ -29,7 +29,7 @@ class CreateChannelViewModel: ObservableObject {
                                    "lastMessage": "\(currentUser.fullname) created a channel"]
         
         if let image = image {
-            ImageUploader.uploadImage(image: image) { imageUrl in
+            ImageUploader.uploadImage(image: image, folderName: "channel_images") { imageUrl in
                 data["imageUrl"] = imageUrl
             }
         }
