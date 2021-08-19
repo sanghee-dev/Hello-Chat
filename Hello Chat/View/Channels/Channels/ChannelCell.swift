@@ -12,7 +12,7 @@ struct ChannelCell: View {
     let channel: Channel
     
     var body: some View {
-        NavigationLink(destination: Text("Channel chat view")) {
+        NavigationLink(destination: ChannelChatView(channel)) {
             VStack(spacing: 1) {
                 HStack(spacing: 12) {
                     if let imageUrl = channel.imageUrl {

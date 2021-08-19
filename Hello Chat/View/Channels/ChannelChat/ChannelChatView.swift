@@ -1,23 +1,21 @@
 //
-//  ChatsView.swift
+//  ChannelChatView.swift
 //  Hello Chat
 //
-//  Created by leeesangheee on 2021/08/02.
+//  Created by leeesangheee on 2021/08/19.
 //
 
 import SwiftUI
 
-struct ChatsView: View {
-    @ObservedObject var viewModel: ChatsViewModel
+struct ChannelChatView: View {
+    @ObservedObject var viewModel: ChannelChatViewModel
     @State private var messageText = ""
-    private let chatPartner: User
     
     @Namespace var topID
     @Namespace var bottomID
     
-    init(chatPartner: User) {
-        self.chatPartner = chatPartner
-        self.viewModel = ChatsViewModel(chatPartner: chatPartner)
+    init(_ channel: Channel) {
+        self.viewModel = ChannelChatViewModel(channel)
     }
     
     var body: some View {
@@ -44,13 +42,13 @@ struct ChatsView: View {
             
             CustomInputView(text: $messageText, action: sendMessage)
         }
-        .navigationTitle(chatPartner.username)
+        .navigationTitle(viewModel.channel.name)
         .navigationBarTitleDisplayMode(.inline)
         .padding(.vertical)
     }
     
     func sendMessage() {
-        viewModel.sendMessage(messageText)
+        viewModel.sendChannelMessage(messageText)
         messageText = ""
     }
 }

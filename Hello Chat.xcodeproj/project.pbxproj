@@ -67,6 +67,9 @@
 		5E5A591226CE212D00CBEC14 /* CreateChannelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5A591126CE212D00CBEC14 /* CreateChannelViewModel.swift */; };
 		5E5A591426CE7F9900CBEC14 /* ChannelsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5A591326CE7F9900CBEC14 /* ChannelsViewModel.swift */; };
 		5E5A591626CE807300CBEC14 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5A591526CE807300CBEC14 /* Channel.swift */; };
+		5E5A591826CE960800CBEC14 /* ChannelChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5A591726CE960800CBEC14 /* ChannelChatView.swift */; };
+		5E5A591A26CE962800CBEC14 /* ChannelChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5A591926CE962800CBEC14 /* ChannelChatViewModel.swift */; };
+		5E5A591D26CE9A3A00CBEC14 /* ChannelMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5A591C26CE9A3A00CBEC14 /* ChannelMessageView.swift */; };
 		5E7EF99A26CA3F6E00ED906C /* ChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7EF99926CA3F6E00ED906C /* ChannelCell.swift */; };
 		5E7EF9A226CA572200ED906C /* SelectGroupMembersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7EF9A126CA572200ED906C /* SelectGroupMembersView.swift */; };
 		5E7EF9A626CA5E7C00ED906C /* SelectableUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7EF9A526CA5E7C00ED906C /* SelectableUserCell.swift */; };
@@ -129,6 +132,9 @@
 		5E5A591126CE212D00CBEC14 /* CreateChannelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChannelViewModel.swift; sourceTree = "<group>"; };
 		5E5A591326CE7F9900CBEC14 /* ChannelsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsViewModel.swift; sourceTree = "<group>"; };
 		5E5A591526CE807300CBEC14 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		5E5A591726CE960800CBEC14 /* ChannelChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelChatView.swift; sourceTree = "<group>"; };
+		5E5A591926CE962800CBEC14 /* ChannelChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelChatViewModel.swift; sourceTree = "<group>"; };
+		5E5A591C26CE9A3A00CBEC14 /* ChannelMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelMessageView.swift; sourceTree = "<group>"; };
 		5E7EF99926CA3F6E00ED906C /* ChannelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCell.swift; sourceTree = "<group>"; };
 		5E7EF9A126CA572200ED906C /* SelectGroupMembersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectGroupMembersView.swift; sourceTree = "<group>"; };
 		5E7EF9A526CA5E7C00ED906C /* SelectableUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableUserCell.swift; sourceTree = "<group>"; };
@@ -366,6 +372,7 @@
 			isa = PBXGroup;
 			children = (
 				5E5A591326CE7F9900CBEC14 /* ChannelsViewModel.swift */,
+				5E5A591926CE962800CBEC14 /* ChannelChatViewModel.swift */,
 				5E5A590426CBA6FC00CBEC14 /* SelectGroupMembersViewModel.swift */,
 				5E5A590626CBB11800CBEC14 /* SelectableUserCellViewModel.swift */,
 				5E5A591126CE212D00CBEC14 /* CreateChannelViewModel.swift */,
@@ -426,6 +433,15 @@
 			path = Registration;
 			sourceTree = "<group>";
 		};
+		5E5A591B26CE9A2000CBEC14 /* ChannelChat */ = {
+			isa = PBXGroup;
+			children = (
+				5E5A591726CE960800CBEC14 /* ChannelChatView.swift */,
+				5E5A591C26CE9A3A00CBEC14 /* ChannelMessageView.swift */,
+			);
+			path = ChannelChat;
+			sourceTree = "<group>";
+		};
 		5E7EF9A026CA570900ED906C /* SelectGroupMembers */ = {
 			isa = PBXGroup;
 			children = (
@@ -450,6 +466,7 @@
 			isa = PBXGroup;
 			children = (
 				5E328A8026B26D550027B10F /* Channels */,
+				5E5A591B26CE9A2000CBEC14 /* ChannelChat */,
 				5E7EF9A026CA570900ED906C /* SelectGroupMembers */,
 				5E5A590826CD24CD00CBEC14 /* CreateChannel */,
 			);
@@ -540,6 +557,7 @@
 			files = (
 				5E5A591226CE212D00CBEC14 /* CreateChannelViewModel.swift in Sources */,
 				5E328AA126B2AB150027B10F /* EditProfileView.swift in Sources */,
+				5E5A591826CE960800CBEC14 /* ChannelChatView.swift in Sources */,
 				5E5A590726CBB11800CBEC14 /* SelectableUserCellViewModel.swift in Sources */,
 				5E328B7226BA95BA0027B10F /* Constants.swift in Sources */,
 				5E47394C26BD13A7001AF420 /* MessageViewModel.swift in Sources */,
@@ -563,6 +581,7 @@
 				5E5A590026CA9E4500CBEC14 /* FloatingButton.swift in Sources */,
 				5E328AA526B2BCDA0027B10F /* CustomDivider.swift in Sources */,
 				5E328A7E26B26A310027B10F /* MainTabView.swift in Sources */,
+				5E5A591D26CE9A3A00CBEC14 /* ChannelMessageView.swift in Sources */,
 				5E328B4926B940D70027B10F /* ContentView.swift in Sources */,
 				5E328B4326B918660027B10F /* ProfilePhotoSelectorView.swift in Sources */,
 				5E328A5D26B156BD0027B10F /* Hello_ChatApp.swift in Sources */,
@@ -587,6 +606,7 @@
 				5E47395926BD7643001AF420 /* ConversationCellViewModel.swift in Sources */,
 				5E328B6026BA70890027B10F /* User.swift in Sources */,
 				5E328B2626B7E3490027B10F /* Message.swift in Sources */,
+				5E5A591A26CE962800CBEC14 /* ChannelChatViewModel.swift in Sources */,
 				5E328B7426BAA13A0027B10F /* Status.swift in Sources */,
 				5E328A7726B198C10027B10F /* CustomTextField.swift in Sources */,
 				5E7EF9A626CA5E7C00ED906C /* SelectableUserCell.swift in Sources */,
