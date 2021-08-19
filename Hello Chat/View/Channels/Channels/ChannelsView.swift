@@ -13,11 +13,6 @@ struct ChannelsView: View {
     
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
-            NavigationLink(
-                destination: Text("ConversationView"),
-                isActive: $showCreateGroupView,
-                label: {})
-            
             ScrollView {
                 VStack(spacing: 1) {
                     ForEach(0...5, id: \.self) { _ in
@@ -28,10 +23,9 @@ struct ChannelsView: View {
             
             FloatingButton(show: $showCreateGroupView)
                 .sheet(isPresented: $showCreateGroupView, content: {
-                    SelectGroupMembersView()
+                    SelectGroupMembersView(show: $showCreateGroupView)
                 })
         }
-        .onAppear{ }
     }
 }
 

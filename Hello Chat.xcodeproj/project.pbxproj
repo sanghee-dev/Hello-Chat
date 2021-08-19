@@ -64,6 +64,7 @@
 		5E5A590526CBA6FD00CBEC14 /* SelectGroupMembersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5A590426CBA6FC00CBEC14 /* SelectGroupMembersViewModel.swift */; };
 		5E5A590726CBB11800CBEC14 /* SelectableUserCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5A590626CBB11800CBEC14 /* SelectableUserCellViewModel.swift */; };
 		5E5A590A26CD24F700CBEC14 /* CreateChannelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5A590926CD24F700CBEC14 /* CreateChannelView.swift */; };
+		5E5A591226CE212D00CBEC14 /* CreateChannelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5A591126CE212D00CBEC14 /* CreateChannelViewModel.swift */; };
 		5E7EF99A26CA3F6E00ED906C /* ChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7EF99926CA3F6E00ED906C /* ChannelCell.swift */; };
 		5E7EF9A226CA572200ED906C /* SelectGroupMembersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7EF9A126CA572200ED906C /* SelectGroupMembersView.swift */; };
 		5E7EF9A626CA5E7C00ED906C /* SelectableUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7EF9A526CA5E7C00ED906C /* SelectableUserCell.swift */; };
@@ -123,6 +124,7 @@
 		5E5A590426CBA6FC00CBEC14 /* SelectGroupMembersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectGroupMembersViewModel.swift; sourceTree = "<group>"; };
 		5E5A590626CBB11800CBEC14 /* SelectableUserCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableUserCellViewModel.swift; sourceTree = "<group>"; };
 		5E5A590926CD24F700CBEC14 /* CreateChannelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChannelView.swift; sourceTree = "<group>"; };
+		5E5A591126CE212D00CBEC14 /* CreateChannelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChannelViewModel.swift; sourceTree = "<group>"; };
 		5E7EF99926CA3F6E00ED906C /* ChannelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCell.swift; sourceTree = "<group>"; };
 		5E7EF9A126CA572200ED906C /* SelectGroupMembersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectGroupMembersView.swift; sourceTree = "<group>"; };
 		5E7EF9A526CA5E7C00ED906C /* SelectableUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableUserCell.swift; sourceTree = "<group>"; };
@@ -360,6 +362,7 @@
 			children = (
 				5E5A590426CBA6FC00CBEC14 /* SelectGroupMembersViewModel.swift */,
 				5E5A590626CBB11800CBEC14 /* SelectableUserCellViewModel.swift */,
+				5E5A591126CE212D00CBEC14 /* CreateChannelViewModel.swift */,
 			);
 			path = Channels;
 			sourceTree = "<group>";
@@ -529,6 +532,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E5A591226CE212D00CBEC14 /* CreateChannelViewModel.swift in Sources */,
 				5E328AA126B2AB150027B10F /* EditProfileView.swift in Sources */,
 				5E5A590726CBB11800CBEC14 /* SelectableUserCellViewModel.swift in Sources */,
 				5E328B7226BA95BA0027B10F /* Constants.swift in Sources */,
