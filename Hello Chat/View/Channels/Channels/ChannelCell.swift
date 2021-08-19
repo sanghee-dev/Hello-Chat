@@ -9,23 +9,34 @@ import SwiftUI
 import Kingfisher
 
 struct ChannelCell: View {
+    let channel: Channel
+    
     var body: some View {
         NavigationLink(destination: Text("Channel chat view")) {
             VStack(spacing: 1) {
                 HStack(spacing: 12) {
-                    Image(systemName: "person.2.circle.fill")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 56, height: 56)
-                        .clipShape(Circle())
-                        .padding(.leading)
+                    if let imageUrl = channel.imageUrl {
+                        KFImage(URL(string: imageUrl))
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 56, height: 56)
+                            .clipShape(Circle())
+                            .padding(.leading)
+                    } else {
+                        Image(systemName: "person.2.circle")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 56, height: 56)
+                            .clipShape(Circle())
+                            .padding(.leading)
+                    }
                     
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("Username")
+                        Text(channel.name)
                             .bold()
                             .foregroundColor(.black)
                         
-                        Text("Message")
+                        Text(channel.lastMessage)
                             .foregroundColor(Color(.systemGray))
                     }
                     

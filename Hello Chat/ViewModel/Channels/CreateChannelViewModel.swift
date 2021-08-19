@@ -13,8 +13,6 @@ class CreateChannelViewModel: ObservableObject {
     
     init(_ selectableUsers: [SelectableUser]) {
         self.users = selectableUsers.map({ $0.user })
-        
-        print(users)
     }
     
     func createChannel(name: String, image: UIImage?) {
@@ -31,12 +29,16 @@ class CreateChannelViewModel: ObservableObject {
         if let image = image {
             ImageUploader.uploadImage(image: image, folderName: "channel_images") { imageUrl in
                 data["imageUrl"] = imageUrl
+                COLLECTION_CHANNELS.document().setData(data) { error in
+                    print("DEBUG: Successly upload channel")
+                    self.didCreateChannel = true
+                }
             }
-        }
-        
-        COLLECTION_CHANNELS.document().setData(data) { error in
-            print("DEBUG: Successly upload channel")
-            self.didCreateChannel = true
+        } else {
+            COLLECTION_CHANNELS.document().setData(data) { error in
+                print("DEBUG: Successly upload channel")
+                self.didCreateChannel = true
+            }
         }
     }
 }

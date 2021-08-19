@@ -54,9 +54,7 @@ struct CreateChannelView: View {
             Spacer()
         }
         .onReceive(viewModel.$didCreateChannel, perform: { completed in
-            if completed {
-                show.toggle()
-            }
+            if completed { show.toggle() }
         })
         .navigationBarItems(trailing: CreateChannelButton)
     }

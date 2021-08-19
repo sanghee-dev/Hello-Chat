@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ChannelsView: View {
+    @ObservedObject var viewModel = ChannelsViewModel()
     @State private var showCreateGroupView = false
     @State private var selectedUsers: [User]?
     
@@ -15,8 +16,8 @@ struct ChannelsView: View {
         ZStack(alignment: .bottomTrailing) {
             ScrollView {
                 VStack(spacing: 1) {
-                    ForEach(0...5, id: \.self) { _ in
-                        ChannelCell()
+                    ForEach(viewModel.channels) { channel in
+                        ChannelCell(channel: channel)
                     }
                 }
             }
