@@ -26,10 +26,11 @@ struct ChannelChatView: View {
                         action: { withAnimation { proxy.scrollTo(bottomID) } },
                         label: { Image(systemName: "chevron.down").foregroundColor(Color(.systemGray2)) })
                         .id(topID)
-                    
+                                        
                     VStack(spacing: 16) {
                         ForEach(viewModel.messages) { message in
-                            MessageView(viewModel: MessageViewModel(message))
+                            MessageView(viewModel: MessageViewModel(message),
+                                        config: .groupMessage)
                         }
                     }
                     .onChange(of: messageText == "") { _ in

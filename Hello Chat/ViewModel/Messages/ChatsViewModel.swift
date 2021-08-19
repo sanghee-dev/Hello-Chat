@@ -56,6 +56,7 @@ class ChatsViewModel: ObservableObject {
         let messageId = currentUserRef.documentID
         
         let data: [String: Any] = ["timestamp": Timestamp(date: Date()),
+                                   "username": AuthViewModel.shared.currentUser?.username ?? "",
                                    "fromId": currentUserId,
                                    "toId": chatPartnerId,
                                    "read": false,

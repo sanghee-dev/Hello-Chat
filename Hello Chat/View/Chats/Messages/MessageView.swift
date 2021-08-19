@@ -8,8 +8,14 @@
 import SwiftUI
 import Kingfisher
 
+enum MessageViewConfig {
+    case privateMessage
+    case groupMessage
+}
+
 struct MessageView: View {
     let viewModel: MessageViewModel
+    let config: MessageViewConfig
     
     var body: some View {
         HStack {
@@ -37,33 +43,42 @@ struct MessageView: View {
                 .padding(.horizontal)
                 .padding(.leading, 120)
             } else {
-                HStack(alignment: .bottom) {
-                    KFImage(URL(string: viewModel.message.profileImageUrl))
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 24, height: 24)
-                        .clipShape(Circle())
-                    
-                    if viewModel.message.text.isSingleEmoji {
-                        Text(viewModel.message.text)
-                            .padding(12)
-                            .background(Color(.systemGroupedBackground))
-                            .font(.system(size: 21))
-                            .clipShape(MessageBubble(isFromCurrentUser: false))
-                            .foregroundColor(.black)
-                    } else {
-                        Text(viewModel.message.text)
-                            .padding(12)
-                            .background(Color(.systemGroupedBackground))
+                VStack(alignment: .leading, spacing: 1) {
+                    if config == .groupMessage {
+                        Text(viewModel.message.username)
+                            .foregroundColor(Color(.systemGray2))
                             .font(.system(size: 14))
-                            .clipShape(MessageBubble(isFromCurrentUser: false))
-                            .foregroundColor(.black)
+                            .padding(.leading, 48)
                     }
                     
-                    Spacer()
+                    HStack(alignment: .bottom) {
+                        KFImage(URL(string: viewModel.message.profileImageUrl))
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 24, height: 24)
+                            .clipShape(Circle())
+                        
+                        if viewModel.message.text.isSingleEmoji {
+                            Text(viewModel.message.text)
+                                .padding(12)
+                                .background(Color(.systemGroupedBackground))
+                                .font(.system(size: 21))
+                                .clipShape(MessageBubble(isFromCurrentUser: false))
+                                .foregroundColor(.black)
+                        } else {
+                            Text(viewModel.message.text)
+                                .padding(12)
+                                .background(Color(.systemGroupedBackground))
+                                .font(.system(size: 15))
+                                .clipShape(MessageBubble(isFromCurrentUser: false))
+                                .foregroundColor(.black)
+                        }
+                        
+                        Spacer()
+                    }
+                    .padding(.horizontal)
+                    .padding(.trailing, 80)
                 }
-                .padding(.horizontal)
-                .padding(.trailing, 80)
             }
         }
     }

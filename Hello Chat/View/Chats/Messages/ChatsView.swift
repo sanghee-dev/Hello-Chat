@@ -31,7 +31,8 @@ struct ChatsView: View {
                     
                     VStack(spacing: 16) {
                         ForEach(viewModel.messages) { message in
-                            MessageView(viewModel: MessageViewModel(message))
+                            MessageView(viewModel: MessageViewModel(message),
+                                        config: .privateMessage)
                         }
                     }
                     .onChange(of: messageText == "") { _ in
