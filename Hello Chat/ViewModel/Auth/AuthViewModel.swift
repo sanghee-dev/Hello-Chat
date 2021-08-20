@@ -52,10 +52,10 @@ class AuthViewModel: NSObject, ObservableObject {
             guard let user = result?.user else { return }
             self.tempCurrentUser = user
             
-            let data: [String: Any] = ["email": email,
-                                       "username": username,
-                                       "fullname": fullname,
-                                       "status": Status.available.rawValue]
+            let data: [String: Any] = [KEY_EMAIL: email,
+                                       KEY_USERNAME: username,
+                                       KEY_FULLNAME: fullname,
+                                       KEY_STATUS: Status.available.rawValue]
             
             COLLECTION_USERS.document(user.uid).setData(data) { error in
                 if let error = error {
@@ -89,8 +89,9 @@ class AuthViewModel: NSObject, ObservableObject {
         
         print("DEBUG: \(image)")
 
-        ImageUploader.uploadImage(image: image, folderName: "profile_images") { imageUrl in
-            COLLECTION_USERS.document(uid).updateData(["profileImageUrl" : imageUrl]) { error in
+        ImageUploader.uploadImage(image: image, folderName: FOLDER_PROFILE_IMAGES) { imageUrl in
+            let data: [String: Any] = [KEY_PROFILE_IMAGE_URL : imageUrl]
+            COLLECTION_USERS.document(uid).updateData(data) { error in
                 if let error = error {
                     print("DEBUG: Failed to upload user profile with error \(error.localizedDescription)")
                     return

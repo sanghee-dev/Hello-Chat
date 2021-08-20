@@ -27,7 +27,7 @@ class CreateChannelViewModel: ObservableObject {
                                    "lastMessage": "\(currentUser.fullname) created a channel"]
         
         if let image = image {
-            ImageUploader.uploadImage(image: image, folderName: "channel_images") { imageUrl in
+            ImageUploader.uploadImage(image: image, folderName: FOLDER_CHANNEL_IMAGES) { imageUrl in
                 data["imageUrl"] = imageUrl
                 COLLECTION_CHANNELS.document().setData(data) { error in
                     print("DEBUG: Successly upload channel")
