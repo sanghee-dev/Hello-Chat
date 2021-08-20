@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Status: Int, CaseIterable {
+enum Status: Int, CaseIterable, Codable {
     case available
     case busy
     case urgentCallsOnly

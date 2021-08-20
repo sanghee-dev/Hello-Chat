@@ -42,7 +42,7 @@ struct SettingsView: View {
                 .frame(width: UIScreen.main.bounds.width, height: 50)
                 .background(Color.white)
                 .actionSheet(isPresented: $showSheet) {
-                    ActionSheet(title: Text("Log Out"),
+                    ActionSheet(title: Text("Log out"),
                                 message: Text("Are you sure you want to log out?"),
                                 buttons: [
                                     .destructive( Text("Log Out"), action: { viewModel.signOut() } ),

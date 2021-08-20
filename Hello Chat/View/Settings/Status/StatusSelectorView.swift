@@ -9,7 +9,6 @@ import SwiftUI
 
 struct StatusSelectorView: View {
     @ObservedObject var viewModel = StatusViewModel()
-    @Environment(\.presentationMode) var mode
     
     var body: some View {
         ZStack {
@@ -24,7 +23,7 @@ struct StatusSelectorView: View {
                             .padding(.leading)
                             .foregroundColor(Color(.systemGray2))
                         
-                        //StatusCell(status: Status, isSelected: false)
+                        StatusCell(status: viewModel.status, isSelected: false)
                     }
                     .padding(.top, 32)
 
@@ -41,7 +40,6 @@ struct StatusSelectorView: View {
                             ForEach(Status.allCases, id: \.self) { status in
                                 Button(action: {
                                     viewModel.updateStatus(status)
-                                    mode.wrappedValue.dismiss()
                                 }, label: {
                                     StatusCell(status: status, isSelected: false)
                                 })

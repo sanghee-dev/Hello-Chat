@@ -40,8 +40,8 @@ struct EditProfileCell: View {
     }
     
     func loadImage() {
-        guard let selectedImage = self.selectedImage else { return }
-        //viewModel.uploadProfileImage(selectedImage: $selectedImage)
+        //guard let selectedImage = self.selectedImage else { return }
+        //
     }
 }
 
