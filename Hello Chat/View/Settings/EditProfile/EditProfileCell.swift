@@ -2,31 +2,46 @@
 //  EditProfileCell.swift
 //  Hello Chat
 //
-//  Created by leeesangheee on 2021/07/29.
+//  Created by leeesangheee on 2021/08/20.
 //
 
 import SwiftUI
+import Kingfisher
 
 struct EditProfileCell: View {
-    let text: String
-    
+    @EnvironmentObject var viewModel: AuthViewModel
+    @Binding var showImagePicker: Bool
+    @Binding var selectedImage: UIImage?
+
     var body: some View {
-        VStack {
-            HStack {
-                Text(text)
-                    .foregroundColor(.black)
+        HStack(spacing: 16) {
+            VStack(alignment: .center) {
+                KFImage(URL(string: viewModel.currentUser?.profileImageUrl ?? ""))
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 48, height: 48)
+                    .clipShape(Circle())
                 
-                Spacer()
-                
-                Button(action: {}, label: {
-                    Image(systemName: "chevron.forward")
+                Button(action: {
+                    showImagePicker.toggle()
+                }, label: {
+                    Text("Edit")
+                        .padding(.bottom, 4)
                 })
-                .foregroundColor(Color(.systemGray4))
+                .sheet(isPresented: $showImagePicker, onDismiss: loadImage) {
+                    ImagePicker(image: $selectedImage)
+                }
             }
-            .padding([.top, .horizontal])
+            .padding(.top)
             
-            CustomDivider(leadingSpace: 16)
+            Text("Enter your name or change your profile photo")
+                .foregroundColor(Color(.systemGray3))
         }
-        .background(Color.white)
+    }
+    
+    func loadImage() {
+        guard let selectedImage = self.selectedImage else { return }
+        viewModel.uploadProfileImage(selectedImage)
     }
 }
+

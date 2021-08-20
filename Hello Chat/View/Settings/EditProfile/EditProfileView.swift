@@ -23,51 +23,11 @@ struct EditProfileView: View {
             
             VStack(spacing: 44) {
                 VStack(spacing: 1) {
-                    HStack(spacing: 16) {                        
-                        VStack(alignment: .center) {
-                            KFImage(URL(string: viewModel.currentUser?.profileImageUrl ?? ""))
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 48, height: 48)
-                                .clipShape(Circle())
-                            
-                            Button(action: {
-                                showImagePicker.toggle()
-                            }, label: {
-                                Text("Edit")
-                                    .padding(.bottom, 4)
-                            })
-                            .sheet(isPresented: $showImagePicker, onDismiss: loadImage) {
-                                ImagePicker(image: $selectedImage)
-                            }
-                        }
-                        .padding(.top)
-                        
-                        Text("Enter your name or change your profile photo")
-                            .foregroundColor(Color(.systemGray3))
-                    }
+                    EditProfileCell(showImagePicker: $showImagePicker, selectedImage: $selectedImage)
                     
                     CustomDivider(leadingSpace: 16)
                     
-                    VStack(spacing: 1) {
-                        HStack {
-                            TextField(viewModel.currentUser?.username ?? "Username", text: $username)
-                                                        
-                            Spacer()
-                            
-                            Button(action: {
-                                viewModel.updateUsername(username)
-                                mode.wrappedValue.dismiss()
-                            }, label: {
-                                Text("Edit")
-                            })
-                            .disabled(username.count < 2)
-                        }
-                        .padding()
-                        
-                        CustomDivider(leadingSpace: 16)
-                    }
-                    .background(Color.white)
+                    EditUsernameCell(username: $username)
                 }
                 .background(Color.white)
                 
@@ -79,7 +39,7 @@ struct EditProfileView: View {
                     NavigationLink(
                         destination: StatusSelectorView(),
                         label: {
-                            EditProfileCell(text: viewModel.currentUser?.status ?? "Available")
+                            EditStatusCell(text: viewModel.currentUser?.status ?? "Available")
                         }
                     )
                 }
@@ -89,10 +49,5 @@ struct EditProfileView: View {
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("Edit Profile")
-    }
-    
-    func loadImage() {
-        guard let selectedImage = self.selectedImage else { return }
-        viewModel.uploadProfileImage(selectedImage)
     }
 }
