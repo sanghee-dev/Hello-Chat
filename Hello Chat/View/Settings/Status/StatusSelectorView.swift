@@ -9,7 +9,6 @@ import SwiftUI
 
 struct StatusSelectorView: View {
     @ObservedObject var viewModel = StatusViewModel()
-    @EnvironmentObject var authViewModel: AuthViewModel
     @Environment(\.presentationMode) var mode
     
     var body: some View {
@@ -25,9 +24,7 @@ struct StatusSelectorView: View {
                             .padding(.leading)
                             .foregroundColor(Color(.systemGray2))
                         
-                        if let statusTitle = authViewModel.currentUser?.status {
-                            StatusCell(status: viewModel.getStatus(statusTitle), isSelected: false)
-                        }
+                        //StatusCell(status: Status, isSelected: false)
                     }
                     .padding(.top, 32)
 
@@ -44,14 +41,9 @@ struct StatusSelectorView: View {
                             ForEach(Status.allCases, id: \.self) { status in
                                 Button(action: {
                                     viewModel.updateStatus(status)
-                                    authViewModel.updateStatus(status)
                                     mode.wrappedValue.dismiss()
                                 }, label: {
-                                    if let statusTitle = authViewModel.currentUser?.status {
-                                        StatusCell(status: status, isSelected: status == viewModel.getStatus(statusTitle))
-                                    } else {
-                                        StatusCell(status: status, isSelected: false)
-                                    }
+                                    StatusCell(status: status, isSelected: false)
                                 })
                             }
                         }

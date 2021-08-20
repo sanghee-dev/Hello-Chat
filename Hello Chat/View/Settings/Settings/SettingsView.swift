@@ -10,6 +10,11 @@ import SwiftUI
 struct SettingsView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     @State private var showSheet = false
+    private let user: User
+    
+    init() {
+        self.user = AuthViewModel.shared.currentUser ?? MOCK_USER
+    }
         
     var body: some View {
         ZStack {
@@ -18,8 +23,8 @@ struct SettingsView: View {
             
             VStack(spacing: 32) {
                 NavigationLink(
-                    destination: EditProfileView(),
-                    label: { SettingsProfile() })
+                    destination: EditProfileView(user),
+                    label: { SettingsProfile(user) })
                 
                 VStack(spacing: 1) {                    
                     ForEach(SettingsCellViewModel.allCases, id: \.self) { viewModel in
@@ -42,7 +47,6 @@ struct SettingsView: View {
                                 buttons: [
                                     .destructive( Text("Log Out"), action: { viewModel.signOut() } ),
                                     .cancel( Text("Cancel") )
-                                        
                                 ])
                 }
                 

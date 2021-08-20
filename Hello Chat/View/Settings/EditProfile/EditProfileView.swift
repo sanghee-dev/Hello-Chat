@@ -9,12 +9,18 @@ import SwiftUI
 import Kingfisher
 
 struct EditProfileView: View {
-    @EnvironmentObject var viewModel: AuthViewModel
+    @ObservedObject var viewModel: EditProfileViewModel
     @Environment(\.presentationMode) var mode
     @State private var username = ""
-    
     @State private var showImagePicker = false
     @State private var selectedImage: UIImage?
+    
+    let user: User
+    
+    init(_ user: User) {
+        self.user = user
+        self.viewModel = EditProfileViewModel(user)
+    }
     
     var body: some View {
         ZStack {
@@ -23,11 +29,14 @@ struct EditProfileView: View {
             
             VStack(spacing: 44) {
                 VStack(spacing: 1) {
-                    EditProfileCell(showImagePicker: $showImagePicker, selectedImage: $selectedImage)
+                    EditProfileCell(viewModel: viewModel,
+                                    showImagePicker: $showImagePicker,
+                                    selectedImage: $selectedImage)
                     
                     CustomDivider(leadingSpace: 16)
                     
-                    EditUsernameCell(username: $username)
+                    EditUsernameCell(viewModel: viewModel,
+                                     username: $username)
                 }
                 .background(Color.white)
                 
@@ -39,7 +48,7 @@ struct EditProfileView: View {
                     NavigationLink(
                         destination: StatusSelectorView(),
                         label: {
-                            EditStatusCell(text: viewModel.currentUser?.status ?? "Available")
+                            EditStatusCell(text: viewModel.user.status)
                         }
                     )
                 }

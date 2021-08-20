@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct EditUsernameCell: View {
-    @EnvironmentObject var viewModel: AuthViewModel
+    @ObservedObject var viewModel: EditProfileViewModel
     @Environment(\.presentationMode) var mode
     @Binding var username: String
     
     var body: some View {
         VStack(spacing: 1) {
             HStack {
-                TextField(viewModel.currentUser?.username ?? "Username", text: $username)
+                TextField(viewModel.user.username, text: $username)
                                             
                 Spacer()
                 

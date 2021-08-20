@@ -9,14 +9,14 @@ import SwiftUI
 import Kingfisher
 
 struct EditProfileCell: View {
-    @EnvironmentObject var viewModel: AuthViewModel
+    @ObservedObject var viewModel: EditProfileViewModel
     @Binding var showImagePicker: Bool
     @Binding var selectedImage: UIImage?
 
     var body: some View {
         HStack(spacing: 16) {
             VStack(alignment: .center) {
-                KFImage(URL(string: viewModel.currentUser?.profileImageUrl ?? ""))
+                KFImage(URL(string: viewModel.user.profileImageUrl))
                     .resizable()
                     .scaledToFill()
                     .frame(width: 48, height: 48)
@@ -41,7 +41,7 @@ struct EditProfileCell: View {
     
     func loadImage() {
         guard let selectedImage = self.selectedImage else { return }
-        viewModel.uploadProfileImage(selectedImage)
+        //viewModel.uploadProfileImage(selectedImage: $selectedImage)
     }
 }
 
