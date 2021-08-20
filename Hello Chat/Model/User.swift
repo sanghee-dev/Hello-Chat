@@ -12,8 +12,8 @@ struct User: Identifiable, Decodable {
     let email: String
     let username: String
     let fullname: String
-    let profileImageUrl: String
-    let status: String
+    var profileImageUrl: String
+    var status: Status
 }
 
 let MOCK_USER = User(id: "000000",
@@ -21,4 +21,4 @@ let MOCK_USER = User(id: "000000",
                      username: "Username",
                      fullname: "Fullname",
                      profileImageUrl: "Profile Url",
-                     status: "Status")
+                     status: Status.available)

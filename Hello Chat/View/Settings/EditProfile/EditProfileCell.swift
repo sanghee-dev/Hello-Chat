@@ -12,15 +12,24 @@ struct EditProfileCell: View {
     @ObservedObject var viewModel: EditProfileViewModel
     @Binding var showImagePicker: Bool
     @Binding var selectedImage: UIImage?
+    @State var profileImage: Image?
 
     var body: some View {
         HStack(spacing: 16) {
             VStack(alignment: .center) {
-                KFImage(URL(string: viewModel.user.profileImageUrl))
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 48, height: 48)
-                    .clipShape(Circle())
+                if let profileImage = profileImage {
+                    profileImage
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 48, height: 48)
+                        .clipShape(Circle())
+                } else {
+                    KFImage(URL(string: viewModel.user.profileImageUrl))
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 48, height: 48)
+                        .clipShape(Circle())
+                }
                 
                 Button(action: {
                     showImagePicker.toggle()
@@ -40,8 +49,8 @@ struct EditProfileCell: View {
     }
     
     func loadImage() {
-        //guard let selectedImage = self.selectedImage else { return }
-        //
+        guard let selectedImage = selectedImage else { return }
+        profileImage = Image(uiImage: selectedImage)
     }
 }
 

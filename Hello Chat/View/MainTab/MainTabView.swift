@@ -33,7 +33,7 @@ struct MainTabView: View {
                     .tabItem { Image(systemName: "bubble.left.and.bubble.right") }
                     .tag(1)
                 
-                SettingsView()
+                SettingsView(viewModel.currentUser ?? MOCK_USER)
                     .onTapGesture { selectedIndex = 2 }
                     .tabItem { Image(systemName: "gear") }
                     .tag(2)

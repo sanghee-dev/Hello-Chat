@@ -26,7 +26,7 @@ struct ChatPartnerCell: View {
                         .bold()
                         .foregroundColor(.black)
                     
-                    Text(user.status)
+                    Text(user.status.title)
                         .foregroundColor(Color(.systemGray))
                 }
                 

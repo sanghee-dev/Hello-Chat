@@ -14,7 +14,6 @@ struct EditStatusCell: View {
         VStack {
             HStack {
                 Text(text)
-                    .foregroundColor(.black)
                 
                 Spacer()
                 

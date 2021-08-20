@@ -14,12 +14,9 @@ struct EditProfileView: View {
     @State private var username = ""
     @State private var showImagePicker = false
     @State private var selectedImage: UIImage?
-    
-    let user: User
-    
-    init(_ user: User) {
-        self.user = user
-        self.viewModel = EditProfileViewModel(user)
+        
+    init(_ viewModel: EditProfileViewModel) {
+        self.viewModel = viewModel
     }
     
     var body: some View {
@@ -46,9 +43,9 @@ struct EditProfileView: View {
                         .foregroundColor(Color(.systemGray))
                     
                     NavigationLink(
-                        destination: StatusSelectorView(),
+                        destination: StatusSelectorView(viewModel),
                         label: {
-                            EditStatusCell(text: viewModel.user.status)
+                            EditStatusCell(text: viewModel.user.status.title)
                         }
                     )
                 }

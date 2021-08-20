@@ -9,7 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct SettingsProfile: View {
-    let user: User
+    private let user: User
     
     init(_ user: User) {
         self.user = user
@@ -29,7 +29,7 @@ struct SettingsProfile: View {
                     .font(.system(size: 18))
                     .foregroundColor(Color(.black))
                 
-                Text(user.status)
+                Text(user.status.title)
                     .font(.system(size: 14))
                     .foregroundColor(Color(.systemGray2))
             }
