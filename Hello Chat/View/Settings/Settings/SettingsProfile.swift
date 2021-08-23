@@ -20,14 +20,14 @@ struct SettingsProfile: View {
             KFImage(URL(string: viewModel.user.profileImageUrl))
                 .resizable()
                 .scaledToFill()
-                .frame(width: 48, height: 48)
+                .frame(width: 56, height: 56)
                 .clipShape(Circle())
                 .padding(.leading)
             
             VStack(alignment: .leading, spacing: 4) {
                 Text(viewModel.user.username)
-                    .font(.system(size: 18))
-                    .foregroundColor(Color(.black))
+                    .font(.system(size: 18, weight: .semibold))
+                    .foregroundColor(.black)
                 
                 Text(viewModel.user.status.title)
                     .font(.system(size: 14))

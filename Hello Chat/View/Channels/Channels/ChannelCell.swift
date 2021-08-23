@@ -33,11 +33,12 @@ struct ChannelCell: View {
                     
                     VStack(alignment: .leading, spacing: 4) {
                         Text(channel.name)
-                            .bold()
+                            .font(.system(size: 18, weight: .semibold))
                             .foregroundColor(.black)
                         
                         Text(channel.lastMessage)
-                            .foregroundColor(Color(.systemGray))
+                            .font(.system(size: 14))
+                            .foregroundColor(Color(.systemGray2))
                     }
                     
                     Spacer()
@@ -45,7 +46,7 @@ struct ChannelCell: View {
                 .frame(height: 80)
                 .background(Color.white)
                 
-                CustomDivider(leadingSpace: 80)
+                CustomDivider(leadingSpace: 84)
             }
         }
     }
