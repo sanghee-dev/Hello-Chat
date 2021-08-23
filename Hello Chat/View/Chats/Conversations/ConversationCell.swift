@@ -40,6 +40,8 @@ struct ConversationCell: View {
                     CustomDivider(leadingSpace: 80)
                 }
             }
+            .modifier(ErrorAlertModifier(showAlert: $viewModel.showingErrorAlert,
+                                         message: viewModel.errorMessage))
         }
     }
 }

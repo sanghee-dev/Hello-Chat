@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct ConversationsView: View {
+    @ObservedObject var viewModel = ConversationsViewModel()
     @State private var showMessageView = false
     @State private var showConversationView = false
     @State private var selectedUser: User?
     
-    @ObservedObject var viewModel = ConversationsViewModel()
     
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
@@ -34,9 +34,11 @@ struct ConversationsView: View {
             FloatingButton(show: $showMessageView)
                 .sheet(isPresented: $showMessageView, content: {
                     ChatPartnersView(showConversationView: $showConversationView, user: $selectedUser)
-                })            
+                })
         }
         .onAppear{ viewModel.fetchRecentMessages() }
+        .modifier(ErrorAlertModifier(showAlert: $viewModel.showingErrorAlert,
+                                     message: viewModel.errorMessage))
     }
 }
 

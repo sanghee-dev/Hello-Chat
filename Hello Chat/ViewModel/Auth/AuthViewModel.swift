@@ -5,16 +5,16 @@
 //  Created by leeesangheee on 2021/08/02.
 //
 
-import UIKit
+import SwiftUI
 import Firebase
 
 class AuthViewModel: NSObject, ObservableObject {
     @Published var didAuthenticateUser = false
     @Published var userSession: FirebaseAuth.User?
     @Published var currentUser: User?
+    private var tempCurrentUser: Firebase.User? // registration에서 프로필 사진 올리기 전 유저
     @Published var showingErrorAlert = false
     @Published var errorMessage = ""
-    private var tempCurrentUser: Firebase.User? // registration에서 프로필 사진 올리기 전 유저
     
     static let shared = AuthViewModel()
     
@@ -24,16 +24,20 @@ class AuthViewModel: NSObject, ObservableObject {
         fetchUser()
     }
     
+    func showErrorMessage(_ errorMessage: String) {
+        self.showingErrorAlert = true
+        self.errorMessage = errorMessage
+    }
+    
     func login(withEmail email: String, password: String) {
         self.errorMessage = ""
         
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
-            if let errorMessage = error?.localizedDescription {
-                self.showingErrorAlert = true
-                self.errorMessage = errorMessage
+            if let (errorMessage) = error?.localizedDescription {
+                self.showErrorMessage(errorMessage)
                 return
             }
-            
+                        
             guard let user = result?.user else { return }
             self.userSession = user
             self.fetchUser()
@@ -44,9 +48,8 @@ class AuthViewModel: NSObject, ObservableObject {
         self.errorMessage = ""
         
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
-            if let errorMessage = error?.localizedDescription {
-                self.showingErrorAlert = true
-                self.errorMessage = errorMessage
+            if let (errorMessage) = error?.localizedDescription {
+                self.showErrorMessage(errorMessage)
                 return
             }
             
@@ -81,6 +84,11 @@ class AuthViewModel: NSObject, ObservableObject {
         guard let uid = userSession?.uid else { return }
         
         COLLECTION_USERS.document(uid).getDocument { snapshot, error in
+            if let (errorMessage) = error?.localizedDescription {
+                self.showErrorMessage(errorMessage)
+                return
+            }
+            
             guard let user = try? snapshot?.data(as: User.self) else { return }
             self.currentUser = user
         }
@@ -105,4 +113,5 @@ class AuthViewModel: NSObject, ObservableObject {
         }        
     }
 }
+
 

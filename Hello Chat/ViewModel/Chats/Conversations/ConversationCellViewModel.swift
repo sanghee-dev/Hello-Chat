@@ -10,6 +10,8 @@ import Foundation
 class ConversationCellViewModel: ObservableObject {
     @Published var message: Message
     @Published var chatPartner: User?
+    @Published var showingErrorAlert = false
+    @Published var errorMessage = ""
 
     init(_ message: Message) {
         self.message = message
@@ -32,6 +34,11 @@ class ConversationCellViewModel: ObservableObject {
     
     func fetchChatPartner() {
         COLLECTION_USERS.document(chatPartnerId).getDocument { snapshot, error in
+            if let errorMessage = error?.localizedDescription {
+                self.showingErrorAlert = true
+                self.errorMessage = errorMessage
+                return
+            }
             self.chatPartner = try? snapshot?.data(as: User.self)
         }
     }

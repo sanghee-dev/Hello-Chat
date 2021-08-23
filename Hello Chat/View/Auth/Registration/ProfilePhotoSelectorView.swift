@@ -57,6 +57,8 @@ struct ProfilePhotoSelectorView: View {
             Spacer()
         }
         .navigationBarBackButtonHidden(true)
+        .modifier(ErrorAlertModifier(showAlert: $viewModel.showingErrorAlert,
+                                     message: viewModel.errorMessage))
     }
     
     func loadImage() {

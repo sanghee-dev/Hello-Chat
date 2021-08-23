@@ -13,6 +13,25 @@ extension UIApplication {
     }
 }
 
+extension View {
+    func showErrorMessage(_ message: String, showAlert: Binding<Bool>) -> some View {
+        self.modifier(ErrorAlertModifier(showAlert: showAlert, message: message))
+    }
+}
+
+struct ErrorAlertModifier: ViewModifier {
+    var showAlert: Binding<Bool>
+    let message: String
+
+    func body(content: Content) -> some View {
+        content.alert(isPresented: showAlert) {
+            Alert(title: Text("Error"),
+                  message: Text(message),
+                  dismissButton: .cancel(Text("OK")))
+        }
+    }
+}
+
 extension String {
     var isSingleEmoji: Bool {
         if unicodeScalars.count > 2 {

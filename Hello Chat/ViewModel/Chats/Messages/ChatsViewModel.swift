@@ -10,10 +10,17 @@ import Firebase
 class ChatsViewModel: ObservableObject {
     @Published var messages = [Message]()
     let chatPartner: User
+    @Published var showingErrorAlert = false
+    @Published var errorMessage = ""
     
     init(chatPartner: User) {
         self.chatPartner = chatPartner
         fetchMessages()
+    }
+    
+    func showErrorMessage(_ errorMessage: String) {
+        self.showingErrorAlert = true
+        self.errorMessage = errorMessage
     }
     
     func fetchMessages() {
@@ -26,12 +33,22 @@ class ChatsViewModel: ObservableObject {
             .order(by: "timestamp", descending: false)
         
         query.addSnapshotListener { snapshot, error in
+            if let (errorMessage) = error?.localizedDescription {
+                self.showErrorMessage(errorMessage)
+                return
+            }
+            
             guard let changes = snapshot?.documentChanges.filter({ $0.type == .added }) else { return }
             let addedMessages = changes.compactMap{ try? $0.document.data(as: Message.self) }
             self.messages.append(contentsOf: addedMessages)
         }
         
         query.getDocuments { snapshot, error in
+            if let (errorMessage) = error?.localizedDescription {
+                self.showErrorMessage(errorMessage)
+                return
+            }
+            
             guard let documents = snapshot?.documents else { return }
             self.messages = documents.compactMap{ try? $0.data(as: Message.self) }
         }
@@ -70,4 +87,3 @@ class ChatsViewModel: ObservableObject {
         recentChatPartnerRef.setData(data)
     }
 }
-

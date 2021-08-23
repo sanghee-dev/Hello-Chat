@@ -55,11 +55,6 @@ struct RegistrationView: View {
                             isIndicatorAnimating = true
                             viewModel.register(withEmail: email, username: username, fullname: fullname, password: password)
                           })
-                .alert(isPresented: $viewModel.showingErrorAlert) {
-                    Alert(title: Text("Error"),
-                          message: Text(viewModel.errorMessage),
-                          dismissButton: .cancel(Text("OK")))
-                }
             
             Spacer()
             
@@ -73,5 +68,7 @@ struct RegistrationView: View {
             })
             .padding(.bottom, 32)
         }
+        .modifier(ErrorAlertModifier(showAlert: $viewModel.showingErrorAlert,
+                                     message: viewModel.errorMessage))
     }
 }

@@ -51,11 +51,6 @@ struct LoginView: View {
                                     isIndicatorAnimating = true
                                     viewModel.login(withEmail: email, password: password)
                               })
-                    .alert(isPresented: $viewModel.showingErrorAlert) {
-                        Alert(title: Text("Error"),
-                              message: Text(viewModel.errorMessage),
-                              dismissButton: .cancel(Text("OK")))
-                    }
                                 
                 Spacer()
                 
@@ -74,6 +69,8 @@ struct LoginView: View {
             }
         }
         .padding(.top, -56)
+        .modifier(ErrorAlertModifier(showAlert: $viewModel.showingErrorAlert,
+                                     message: viewModel.errorMessage))
     }
 }
 
