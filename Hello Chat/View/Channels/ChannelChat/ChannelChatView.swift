@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ChannelChatView: View {
     @ObservedObject var viewModel: ChannelChatViewModel
+    @Environment(\.presentationMode) var mode
     @State private var messageText = ""
     
     @Namespace var topID
@@ -53,6 +54,7 @@ struct ChannelChatView: View {
     var ExitButton: some View {
         Button {
             viewModel.exitChannel()
+            mode.wrappedValue.dismiss()
         } label: {
             Text("Exit")
         }
