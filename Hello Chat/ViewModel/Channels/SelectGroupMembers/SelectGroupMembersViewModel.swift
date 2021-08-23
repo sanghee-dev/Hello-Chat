@@ -10,6 +10,8 @@ import Firebase
 class SelectGroupMembersViewModel: ObservableObject {
     @Published var selectableUsers = [SelectableUser]()
     @Published var selectedUsers = [SelectableUser]()
+    @Published var showingErrorAlert = false
+    @Published var errorMessage = ""
     
     init() {
         fetchUsers()
@@ -17,6 +19,12 @@ class SelectGroupMembersViewModel: ObservableObject {
         
     func fetchUsers() {
         COLLECTION_USERS.getDocuments { snapshot, error in
+            if let errorMessage = error?.localizedDescription {
+                self.showingErrorAlert = true
+                self.errorMessage = errorMessage
+                return
+            }
+            
             guard let documents = snapshot?.documents else { return }
             let users = documents
                 .compactMap({ try? $0.data(as: User.self) })

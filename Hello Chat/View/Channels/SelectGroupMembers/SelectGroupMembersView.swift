@@ -44,6 +44,8 @@ struct SelectGroupMembersView: View {
             .navigationBarTitle("New Group")
             .navigationBarTitleDisplayMode(.inline)
         }
+        .modifier(ErrorAlertModifier(showAlert: $viewModel.showingErrorAlert,
+                                             message: viewModel.errorMessage))
     }
     
     var NextButton: some View {

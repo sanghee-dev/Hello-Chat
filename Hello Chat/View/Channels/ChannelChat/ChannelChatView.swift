@@ -46,6 +46,8 @@ struct ChannelChatView: View {
         .navigationTitle(viewModel.channel.name)
         .navigationBarTitleDisplayMode(.inline)
         .padding(.vertical)
+        .modifier(ErrorAlertModifier(showAlert: $viewModel.showingErrorAlert,
+                                             message: viewModel.errorMessage))
     }
     
     func sendMessage() {

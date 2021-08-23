@@ -10,17 +10,24 @@ import Firebase
 
 class EditProfileViewModel: ObservableObject {
     @Published var user: User
+    @Published var showingErrorAlert = false
+    @Published var errorMessage = ""
     
     init(_ user: User) {
         self.user = user
+    }
+    
+    func showErrorMessage(_ errorMessage: String) {
+        self.showingErrorAlert = true
+        self.errorMessage = errorMessage
     }
     
     func updateProfileImage(_ image: UIImage) {
         guard let uid = user.id else { return }
         let storagePath = Storage.storage().reference(forURL: user.profileImageUrl)
         storagePath.delete { error in
-            if let error = error {
-                print("DEBUG: Failed to delete user profile image \(error.localizedDescription)")
+            if let errorMessage = error?.localizedDescription {
+                self.showErrorMessage(errorMessage)
                 return
             }
         }
@@ -28,11 +35,10 @@ class EditProfileViewModel: ObservableObject {
         ImageUploader.uploadImage(image: image, folderName: FOLDER_PROFILE_IMAGES) { imageUrl in
             let data: [String: Any] = [KEY_PROFILE_IMAGE_URL: imageUrl]
             COLLECTION_USERS.document(uid).updateData(data) { error in
-                if let error = error {
-                    print("DEBUG: Failed to upload user profile image \(error.localizedDescription)")
+                if let errorMessage = error?.localizedDescription {
+                    self.showErrorMessage(errorMessage)
                     return
                 }
-                
                 self.user.profileImageUrl = imageUrl
             }
         }
@@ -43,8 +49,8 @@ class EditProfileViewModel: ObservableObject {
         let data: [String: Any] = [KEY_USERNAME: username]
         
         COLLECTION_USERS.document(uid).updateData(data) { error in
-            if let error = error {
-                print("DEBUG: Failed to update username \(error.localizedDescription)")
+            if let errorMessage = error?.localizedDescription {
+                self.showErrorMessage(errorMessage)
                 return
             }
         }
@@ -55,11 +61,10 @@ class EditProfileViewModel: ObservableObject {
         let data: [String: Any] = [KEY_STATUS: status.rawValue]
         
         COLLECTION_USERS.document(uid).updateData(data) { error in
-            if let error = error {
-                print("DEBUG: Failed to update status \(error.localizedDescription)")
+            if let errorMessage = error?.localizedDescription {
+                self.showErrorMessage(errorMessage)
                 return
             }
-            
             self.user.status = status
         }
     }

@@ -10,9 +10,16 @@ import UIKit
 class CreateChannelViewModel: ObservableObject {
     let users: [User]
     @Published var didCreateChannel = false
+    @Published var showingErrorAlert = false
+    @Published var errorMessage = ""
     
     init(_ selectableUsers: [SelectableUser]) {
         self.users = selectableUsers.map({ $0.user })
+    }
+    
+    func showErrorMessage(_ errorMessage: String) {
+        self.showingErrorAlert = true
+        self.errorMessage = errorMessage
     }
     
     func createChannel(name: String, image: UIImage?) {
@@ -30,13 +37,19 @@ class CreateChannelViewModel: ObservableObject {
             ImageUploader.uploadImage(image: image, folderName: FOLDER_CHANNEL_IMAGES) { imageUrl in
                 data["imageUrl"] = imageUrl
                 COLLECTION_CHANNELS.document().setData(data) { error in
-                    print("DEBUG: Successly upload channel")
+                    if let errorMessage = error?.localizedDescription {
+                        self.showErrorMessage(errorMessage)
+                        return
+                    }
                     self.didCreateChannel = true
                 }
             }
         } else {
             COLLECTION_CHANNELS.document().setData(data) { error in
-                print("DEBUG: Successly upload channel")
+                if let errorMessage = error?.localizedDescription {
+                    self.showErrorMessage(errorMessage)
+                    return
+                }
                 self.didCreateChannel = true
             }
         }

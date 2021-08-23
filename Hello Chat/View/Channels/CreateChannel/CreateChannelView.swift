@@ -57,6 +57,8 @@ struct CreateChannelView: View {
             if completed { show.toggle() }
         })
         .navigationBarItems(trailing: CreateChannelButton)
+        .modifier(ErrorAlertModifier(showAlert: $viewModel.showingErrorAlert,
+                                             message: viewModel.errorMessage))
     }
     
     func loadImage() {
