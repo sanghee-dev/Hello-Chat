@@ -11,9 +11,9 @@ import Kingfisher
 struct EditProfileView: View {
     @ObservedObject var viewModel: EditProfileViewModel
     @Environment(\.presentationMode) var mode
-    @State private var username = AuthViewModel.shared.currentUser?.username ?? ""
     @State private var showImagePicker = false
     @State private var selectedImage: UIImage?
+    @State private var username = AuthViewModel.shared.currentUser?.username ?? ""
         
     init(_ viewModel: EditProfileViewModel) {
         self.viewModel = viewModel
@@ -56,12 +56,14 @@ struct EditProfileView: View {
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("Edit Profile")
     }
-    
+
     var DoneButton: some View {
         Button {
-            print("Done")
+            viewModel.updateProfile(image: selectedImage, username: username)
+            mode.wrappedValue.dismiss()
         } label: {
-            Text(true ? "Done" : "").font(.system(size: 16, weight: .semibold))
+            Text(viewModel.getButtonLabel(image: selectedImage, username: username))
+                .font(.system(size: 16, weight: .semibold))
         }
     }
 }

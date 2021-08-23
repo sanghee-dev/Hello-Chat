@@ -17,6 +17,23 @@ class EditProfileViewModel: ObservableObject {
         self.user = user
     }
     
+    func getButtonLabel(image: UIImage?, username: String) -> String {
+        if (image != nil || username != user.username && username != "") {
+            return "Done"
+        }
+        return ""
+    }
+    
+    func updateProfile(image: UIImage?, username: String) {
+        if let image = image {
+            updateProfileImage(image)
+            
+        }
+        if (username != "" && username != user.username) {
+            updateUsername(username)
+        }
+    }
+        
     func updateProfileImage(_ image: UIImage) {
         guard let uid = user.id else { return }
         let storagePath = Storage.storage().reference(forURL: user.profileImageUrl)
