@@ -23,7 +23,7 @@ struct SettingsView: View {
             VStack(spacing: 32) {
                 NavigationLink(
                     destination: EditProfileView(viewModel),
-                    label: { SettingsProfile(viewModel.user) })
+                    label: { SettingsProfile(viewModel) })
                 
                 VStack(spacing: 1) {                    
                     ForEach(SettingsCellViewModel.allCases, id: \.self) { viewModel in

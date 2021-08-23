@@ -27,7 +27,6 @@ class EditProfileViewModel: ObservableObject {
     func updateProfile(image: UIImage?, username: String) {
         if let image = image {
             updateProfileImage(image)
-            
         }
         if (username != "" && username != user.username) {
             updateUsername(username)
@@ -68,6 +67,7 @@ class EditProfileViewModel: ObservableObject {
                 self.errorMessage = errorMessage
                 return
             }
+            self.user.username = username
         }
     }
     
