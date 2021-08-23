@@ -10,7 +10,7 @@ import Firebase
 class ChatsViewModel: ObservableObject {
     @Published var messages = [Message]()
     let chatPartner: User
-    @Published var showingErrorAlert = false
+    @Published var showErrorAlert = false
     @Published var errorMessage = ""
     
     init(chatPartner: User) {
@@ -19,7 +19,7 @@ class ChatsViewModel: ObservableObject {
     }
     
     func showErrorMessage(_ errorMessage: String) {
-        self.showingErrorAlert = true
+        self.showErrorAlert = true
         self.errorMessage = errorMessage
     }
     

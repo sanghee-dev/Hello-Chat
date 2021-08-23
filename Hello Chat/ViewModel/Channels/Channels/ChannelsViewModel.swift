@@ -9,7 +9,7 @@ import Foundation
 
 class ChannelsViewModel: ObservableObject {
     @Published var channels = [Channel]()
-    @Published var showingErrorAlert = false
+    @Published var showErrorAlert = false
     @Published var errorMessage = ""
     
     init() {
@@ -21,7 +21,7 @@ class ChannelsViewModel: ObservableObject {
         
         COLLECTION_CHANNELS.whereField("uids", arrayContains: uid).getDocuments { snapshot, error in
             if let errorMessage = error?.localizedDescription {
-                self.showingErrorAlert = true
+                self.showErrorAlert = true
                 self.errorMessage = errorMessage
                 return
             }

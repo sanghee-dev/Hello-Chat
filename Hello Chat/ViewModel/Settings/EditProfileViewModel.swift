@@ -10,7 +10,7 @@ import Firebase
 
 class EditProfileViewModel: ObservableObject {
     @Published var user: User
-    @Published var showingErrorAlert = false
+    @Published var showErrorAlert = false
     @Published var errorMessage = ""
     
     init(_ user: User) {
@@ -18,7 +18,7 @@ class EditProfileViewModel: ObservableObject {
     }
     
     func showErrorMessage(_ errorMessage: String) {
-        self.showingErrorAlert = true
+        self.showErrorAlert = true
         self.errorMessage = errorMessage
     }
     

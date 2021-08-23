@@ -10,7 +10,7 @@ import Firebase
 
 class ConversationsViewModel: ObservableObject {
     @Published var recentMessages = [Message]()
-    @Published var showingErrorAlert = false
+    @Published var showErrorAlert = false
     @Published var errorMessage = ""
     
     init() {
@@ -26,7 +26,7 @@ class ConversationsViewModel: ObservableObject {
         
         query.getDocuments { snapshot, error in
             if let errorMessage = error?.localizedDescription {
-                self.showingErrorAlert = true
+                self.showErrorAlert = true
                 self.errorMessage = errorMessage
                 return
             }

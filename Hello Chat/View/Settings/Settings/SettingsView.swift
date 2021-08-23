@@ -52,7 +52,7 @@ struct SettingsView: View {
                 Spacer()
             }
         }
-        .modifier(ErrorAlertModifier(showAlert: $viewModel.showingErrorAlert,
+        .modifier(ErrorAlertModifier(showAlert: $viewModel.showErrorAlert,
                                              message: viewModel.errorMessage))
     }
 }

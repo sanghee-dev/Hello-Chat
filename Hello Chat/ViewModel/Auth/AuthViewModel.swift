@@ -13,7 +13,7 @@ class AuthViewModel: NSObject, ObservableObject {
     @Published var userSession: FirebaseAuth.User?
     @Published var currentUser: User?
     private var tempCurrentUser: Firebase.User? // registration에서 프로필 사진 올리기 전 유저
-    @Published var showingErrorAlert = false
+    @Published var showErrorAlert = false
     @Published var errorMessage = ""
     
     static let shared = AuthViewModel()
@@ -25,7 +25,7 @@ class AuthViewModel: NSObject, ObservableObject {
     }
     
     func showErrorMessage(_ errorMessage: String) {
-        self.showingErrorAlert = true
+        self.showErrorAlert = true
         self.errorMessage = errorMessage
     }
     
@@ -63,7 +63,7 @@ class AuthViewModel: NSObject, ObservableObject {
             
             COLLECTION_USERS.document(user.uid).setData(data) { error in
                 if let errorMessage = error?.localizedDescription {
-                    self.showingErrorAlert = true
+                    self.showErrorAlert = true
                     self.errorMessage = errorMessage
                     return
                 }
@@ -101,7 +101,7 @@ class AuthViewModel: NSObject, ObservableObject {
             let data: [String: Any] = [KEY_PROFILE_IMAGE_URL : imageUrl]
             COLLECTION_USERS.document(uid).updateData(data) { error in
                 if let errorMessage = error?.localizedDescription {
-                    self.showingErrorAlert = true
+                    self.showErrorAlert = true
                     self.errorMessage = errorMessage
                     return
                 }

@@ -48,7 +48,7 @@ struct ChatsView: View {
         .navigationTitle(chatPartner.username)
         .navigationBarTitleDisplayMode(.inline)
         .padding(.vertical)
-        .modifier(ErrorAlertModifier(showAlert: $viewModel.showingErrorAlert,
+        .modifier(ErrorAlertModifier(showAlert: $viewModel.showErrorAlert,
                                      message: viewModel.errorMessage))
     }
     

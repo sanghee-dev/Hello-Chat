@@ -68,7 +68,7 @@ struct RegistrationView: View {
             })
             .padding(.bottom, 32)
         }
-        .modifier(ErrorAlertModifier(showAlert: $viewModel.showingErrorAlert,
+        .modifier(ErrorAlertModifier(showAlert: $viewModel.showErrorAlert,
                                      message: viewModel.errorMessage))
     }
 }

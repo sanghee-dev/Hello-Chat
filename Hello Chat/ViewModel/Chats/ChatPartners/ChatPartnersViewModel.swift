@@ -10,7 +10,7 @@ import Firebase
 
 class ChatPartnersViewModel: ObservableObject {
     @Published var users = [User]()
-    @Published var showingErrorAlert = false
+    @Published var showErrorAlert = false
     @Published var errorMessage = ""
     
     init() {
@@ -20,7 +20,7 @@ class ChatPartnersViewModel: ObservableObject {
     func fetchUsers() {
         COLLECTION_USERS.getDocuments { snapshot, error in
             if let errorMessage = error?.localizedDescription {
-                self.showingErrorAlert = true
+                self.showErrorAlert = true
                 self.errorMessage = errorMessage
                 return
             }

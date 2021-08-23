@@ -10,7 +10,7 @@ import UIKit
 class CreateChannelViewModel: ObservableObject {
     let users: [User]
     @Published var didCreateChannel = false
-    @Published var showingErrorAlert = false
+    @Published var showErrorAlert = false
     @Published var errorMessage = ""
     
     init(_ selectableUsers: [SelectableUser]) {
@@ -18,7 +18,7 @@ class CreateChannelViewModel: ObservableObject {
     }
     
     func showErrorMessage(_ errorMessage: String) {
-        self.showingErrorAlert = true
+        self.showErrorAlert = true
         self.errorMessage = errorMessage
     }
     
