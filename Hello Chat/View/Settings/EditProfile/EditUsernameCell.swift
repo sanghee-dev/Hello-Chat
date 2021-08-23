@@ -9,8 +9,8 @@ import SwiftUI
 
 struct EditUsernameCell: View {
     @ObservedObject var viewModel: EditProfileViewModel
-    @Environment(\.presentationMode) var mode
     @Binding var username: String
+    @State private var isTextFieldFocused = false
     
     var body: some View {
         VStack(spacing: 1) {
@@ -19,12 +19,13 @@ struct EditUsernameCell: View {
                                             
                 Spacer()
                 
-                Button(action: {
-                    viewModel.updateUsername(username)
-                    mode.wrappedValue.dismiss()
-                }, label: {
-                    Text("Edit")
-                })
+                Button(
+                    action: {
+                        username = ""
+                        isTextFieldFocused = true
+                    }, label: {
+                        Text("Edit")
+                    })
                 .disabled(username.count < 2)
             }
             .padding()

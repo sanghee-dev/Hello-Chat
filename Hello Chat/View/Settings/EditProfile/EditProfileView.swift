@@ -11,7 +11,7 @@ import Kingfisher
 struct EditProfileView: View {
     @ObservedObject var viewModel: EditProfileViewModel
     @Environment(\.presentationMode) var mode
-    @State private var username = ""
+    @State private var username = AuthViewModel.shared.currentUser?.username ?? ""
     @State private var showImagePicker = false
     @State private var selectedImage: UIImage?
         
@@ -21,8 +21,7 @@ struct EditProfileView: View {
     
     var body: some View {
         ZStack {
-            Color(.systemGroupedBackground)
-                .ignoresSafeArea()
+            Color(.systemGroupedBackground).ignoresSafeArea()
             
             VStack(spacing: 44) {
                 VStack(spacing: 1) {
@@ -34,8 +33,7 @@ struct EditProfileView: View {
                     
                     EditUsernameCell(viewModel: viewModel,
                                      username: $username)
-                }
-                .background(Color.white)
+                }.background(Color.white)
                 
                 VStack(alignment: .leading, spacing: 1) {
                     Text("Status")
@@ -53,8 +51,17 @@ struct EditProfileView: View {
                 Spacer()
             }
         }
+        .showErrorMessage(showAlert: $viewModel.showErrorAlert, message: viewModel.errorMessage)
+        .navigationBarItems(trailing: DoneButton)
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("Edit Profile")
-        .showErrorMessage(showAlert: $viewModel.showErrorAlert, message: viewModel.errorMessage)
+    }
+    
+    var DoneButton: some View {
+        Button {
+            print("Done")
+        } label: {
+            Text(true ? "Done" : "").font(.system(size: 16, weight: .semibold))
+        }
     }
 }

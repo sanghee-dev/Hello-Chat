@@ -39,12 +39,12 @@ struct SelectGroupMembersView: View {
                     }
                 }
             }
+            .showErrorMessage(showAlert: $viewModel.showErrorAlert, message: viewModel.errorMessage)
             .navigationBarItems(leading: CancelButton,
                                 trailing: NextButton)
             .navigationBarTitle("New Group")
             .navigationBarTitleDisplayMode(.inline)
         }
-        .showErrorMessage(showAlert: $viewModel.showErrorAlert, message: viewModel.errorMessage)
     }
     
     var NextButton: some View {
