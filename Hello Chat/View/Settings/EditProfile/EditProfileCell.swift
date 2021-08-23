@@ -25,16 +25,16 @@ struct EditProfileCell: View {
                             .resizable()
                             .scaledToFill()
                             .frame(width: 200, height: 200)
-                            .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
+                            .clipShape(Circle())
                     } else {
                         KFImage(URL(string: viewModel.user.profileImageUrl))
                             .resizable()
                             .scaledToFill()
                             .frame(width: 200, height: 200)
-                            .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
+                            .clipShape(Circle())
                     }
                 }.sheet(isPresented: $showImagePicker, onDismiss: loadImage) { ImagePicker(image: $selectedImage) }
-            }.padding(44)
+            }.padding(32)
         }
     }
     
