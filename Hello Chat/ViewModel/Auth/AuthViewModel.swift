@@ -13,6 +13,7 @@ class AuthViewModel: NSObject, ObservableObject {
     @Published var userSession: FirebaseAuth.User?
     @Published var currentUser: User?
     private var tempCurrentUser: Firebase.User? // registration에서 프로필 사진 올리기 전 유저
+    var tempCurrentUsername = ""
     @Published var showErrorAlert = false
     @Published var errorMessage = ""
     
@@ -52,6 +53,7 @@ class AuthViewModel: NSObject, ObservableObject {
             
             guard let user = result?.user else { return }
             self.tempCurrentUser = user
+            self.tempCurrentUsername = username
             
             let data: [String: Any] = [KEY_EMAIL: email,
                                        KEY_USERNAME: username,

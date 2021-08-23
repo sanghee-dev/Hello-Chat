@@ -34,19 +34,18 @@ struct SettingsView: View {
                 }
                 
                 Button(action: { self.showSheet = true },
-                       label: { Text("Log Out") }
+                       label: { Text("Log out").font(.system(size: 18, weight: .semibold)) }
                 )
                 .foregroundColor(.red)
-                .font(.system(size: 16, weight: .semibold))
+                .font(.system(size: 18))
                 .frame(width: UIScreen.main.bounds.width, height: 50)
                 .background(Color.white)
                 .actionSheet(isPresented: $showSheet) {
                     ActionSheet(title: Text("Log out"),
                                 message: Text("Are you sure you want to log out?"),
                                 buttons: [
-                                    .destructive( Text("Log Out"), action: { AuthViewModel.shared.signOut() } ),
-                                    .cancel( Text("Cancel") )
-                                ])
+                                    .destructive( Text("Log out"), action: { AuthViewModel.shared.signOut() } ),
+                                    .cancel( Text("Cancel") ) ])
                 }
                 
                 Spacer()

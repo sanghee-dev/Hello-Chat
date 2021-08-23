@@ -23,7 +23,7 @@ struct EditProfileView: View {
         ZStack {
             Color(.systemGroupedBackground).ignoresSafeArea()
             
-            VStack(spacing: 44) {
+            VStack(spacing: 1) {
                 VStack(spacing: 1) {
                     EditProfileCell(viewModel: viewModel,
                                     showImagePicker: $showImagePicker,
@@ -37,6 +37,7 @@ struct EditProfileView: View {
                 
                 VStack(alignment: .leading, spacing: 1) {
                     Text("Status")
+                        .padding(.top, 44)
                         .padding([.leading, .bottom])
                         .foregroundColor(Color(.systemGray))
                     

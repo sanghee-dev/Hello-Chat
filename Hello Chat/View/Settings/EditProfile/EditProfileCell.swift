@@ -17,34 +17,24 @@ struct EditProfileCell: View {
     var body: some View {
         HStack(spacing: 16) {
             VStack(alignment: .center) {
-                if let profileImage = profileImage {
-                    profileImage
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 48, height: 48)
-                        .clipShape(Circle())
-                } else {
-                    KFImage(URL(string: viewModel.user.profileImageUrl))
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 48, height: 48)
-                        .clipShape(Circle())
-                }
-                
-                Button(action: {
+                Button {
                     showImagePicker.toggle()
-                }, label: {
-                    Text("Edit")
-                        .padding(.bottom, 4)
-                })
-                .sheet(isPresented: $showImagePicker, onDismiss: loadImage) {
-                    ImagePicker(image: $selectedImage)
-                }
-            }
-            .padding(.top)
-            
-            Text("Enter your name or change your profile photo")
-                .foregroundColor(Color(.systemGray3))
+                } label: {
+                    if let profileImage = profileImage {
+                        profileImage
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 200, height: 200)
+                            .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
+                    } else {
+                        KFImage(URL(string: viewModel.user.profileImageUrl))
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 200, height: 200)
+                            .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
+                    }
+                }.sheet(isPresented: $showImagePicker, onDismiss: loadImage) { ImagePicker(image: $selectedImage) }
+            }.padding(44)
         }
     }
     

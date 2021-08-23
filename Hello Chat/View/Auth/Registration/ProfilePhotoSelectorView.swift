@@ -16,22 +16,26 @@ struct ProfilePhotoSelectorView: View {
         
     var body: some View {
         VStack {
+            IntroParagraph(title1: profileImage == nil ?
+                           "Hello. \(viewModel.tempCurrentUsername)!" :
+                           "Great!",
+                           title2: profileImage == nil ?
+                            "Select your profile image" :
+                            "Tab below to continue")
+            
             Button(action: { imagePickerPresented.toggle() }, label: {
                 if let profileImage = profileImage {
                     profileImage
                         .resizable()
                         .scaledToFill()
-                        .frame(width: 180, height: 180)
+                        .frame(width: 240, height: 240)
                         .clipShape(Circle())
                 } else {
-                    Image(systemName: "person.circle")
-                        .resizable()
-                        .renderingMode(.template)
-                        .scaledToFill()
-                        .frame(width: 100, height: 100)
-                        .padding(40)
-                        .clipped()
-                        .foregroundColor(Color(.systemGray4))
+                    Text("Click here!")
+                        .font(.system(size: 18, weight: .semibold))
+                        .frame(width: 240, height: 240)
+                        .clipShape(Circle())
+                        .overlay(Circle().stroke(style: StrokeStyle(lineWidth: 2, dash: [5])))
                 }
             })
             .padding(.top, 56)
@@ -39,11 +43,6 @@ struct ProfilePhotoSelectorView: View {
             .sheet(isPresented: $imagePickerPresented, onDismiss: loadImage, content: {
                 ImagePicker(image: $selectedImage)
             })
-            
-            Text(profileImage == nil ?
-                    "Select a profile photo" :
-                    "Tab below to continue")
-                .font(.system(size: 16, weight: .semibold))
             
             CapsuleButton(text: "Continue",
                           disabled: profileImage == nil,
