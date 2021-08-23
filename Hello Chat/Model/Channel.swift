@@ -13,4 +13,5 @@ struct Channel: Identifiable, Decodable {
     let imageUrl: String?
     let uids: [String]
     var lastMessage: String
+    var userCount: Int
 }

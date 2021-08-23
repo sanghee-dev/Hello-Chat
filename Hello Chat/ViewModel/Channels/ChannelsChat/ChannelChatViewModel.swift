@@ -18,6 +18,10 @@ class ChannelChatViewModel: ObservableObject {
         fetchChannelMessages()
     }
     
+    func exitChannel() {
+        print("Exit Channel")
+    }
+    
     func fetchChannelMessages() {
         guard let channelId = channel.id else { return }
         

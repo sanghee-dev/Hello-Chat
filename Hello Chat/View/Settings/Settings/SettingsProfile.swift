@@ -30,8 +30,8 @@ struct SettingsProfile: View {
                     .foregroundColor(.black)
                 
                 Text(viewModel.user.status.title)
-                    .font(.system(size: 14))
-                    .foregroundColor(Color(.systemGray2))
+                    .font(.system(size: 15))
+                    .foregroundColor(Color(.systemGray))
             }
             
             Spacer()

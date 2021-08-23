@@ -43,10 +43,19 @@ struct ChannelChatView: View {
             
             CustomInputView(text: $messageText, action: sendMessage)
         }
-        .navigationTitle(viewModel.channel.name)
-        .navigationBarTitleDisplayMode(.inline)
-        .padding(.vertical)
         .showErrorMessage(showAlert: $viewModel.showErrorAlert, message: viewModel.errorMessage)
+        .padding(.vertical)
+        .navigationTitle("\(viewModel.channel.name)(\(viewModel.channel.userCount))")
+        .navigationBarItems(trailing: ExitButton)
+        .navigationBarTitleDisplayMode(.inline)
+    }
+    
+    var ExitButton: some View {
+        Button {
+            viewModel.exitChannel()
+        } label: {
+            Text("Exit")
+        }
     }
     
     func sendMessage() {

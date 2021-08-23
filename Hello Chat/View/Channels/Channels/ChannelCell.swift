@@ -32,13 +32,19 @@ struct ChannelCell: View {
                     }
                     
                     VStack(alignment: .leading, spacing: 4) {
-                        Text(channel.name)
-                            .font(.system(size: 18, weight: .semibold))
-                            .foregroundColor(.black)
+                        HStack {
+                            Text(channel.name)
+                                .font(.system(size: 18, weight: .semibold))
+                                .foregroundColor(.black)
+                            
+                            Text("\(channel.userCount)")
+                                .font(.system(size: 18))
+                                .foregroundColor(Color(.systemGray2))
+                        }
                         
                         Text(channel.lastMessage)
-                            .font(.system(size: 14))
-                            .foregroundColor(Color(.systemGray2))
+                            .font(.system(size: 15))
+                            .foregroundColor(Color(.systemGray))
                     }
                     
                     Spacer()

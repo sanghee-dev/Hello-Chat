@@ -29,8 +29,8 @@ struct ConversationCell: View {
                                 .foregroundColor(.black)
                             
                             Text(viewModel.message.text)
-                                .font(.system(size: 14))
-                                .foregroundColor(Color(.systemGray2))
+                                .font(.system(size: 15))
+                                .foregroundColor(Color(.systemGray))
                         }
                         
                         Spacer()
