@@ -20,31 +20,18 @@ class ChannelChatViewModel: ObservableObject {
     
     func exitChannel() {
         guard let channelId = channel.id else { return }
-        let currentUid = AuthViewModel.shared.currentUser?.id ?? ""
+        let currentUser = AuthViewModel.shared.currentUser
         
-        let filteredUids = filterUids(channelId: channelId, currentUid: currentUid)
+        let filteredUids = channel.uids.filter({ $0 != currentUser?.id ?? "" })
         let data: [String: Any] = ["uids": filteredUids]
         
-        updateChannel(channelId: channelId, data: data)
-    }
-    
-    func filterUids(channelId: String, currentUid: String) -> [String] {
-        var filteredUids: [String] = []
+        updateChannelData(channelId: channelId, data: data)
         
-        COLLECTION_CHANNELS.document(channelId).getDocument { snapshot, error in
-            if let errorMessage = error?.localizedDescription {
-                self.showErrorAlert = true
-                self.errorMessage = errorMessage
-                return
-            }
-            
-            guard let channel = try? snapshot?.data(as: Channel.self) else { return }
-            filteredUids = channel.uids.filter({ $0 != "\(AuthViewModel.shared.currentUser?.id ?? "")" })
-        }
-        return filteredUids
+        let lastMessage = "\(currentUser?.username ?? "User"): leave a channel"
+        COLLECTION_CHANNELS.document(channelId).updateData(["lastMessage": lastMessage])
     }
     
-    func updateChannel(channelId: String, data: [String: Any]) {
+    func updateChannelData(channelId: String, data: [String: Any]) {
         COLLECTION_CHANNELS.document(channelId).updateData(data) { error in
             if let errorMessage = error?.localizedDescription {
                 self.showErrorAlert = true

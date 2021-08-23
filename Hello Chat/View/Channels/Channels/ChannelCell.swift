@@ -37,7 +37,7 @@ struct ChannelCell: View {
                                 .font(.system(size: 18, weight: .semibold))
                                 .foregroundColor(.black)
                             
-                            Text("\(channel.userCount)")
+                            Text("\(channel.uids.count)")
                                 .font(.system(size: 18))
                                 .foregroundColor(Color(.systemGray2))
                         }

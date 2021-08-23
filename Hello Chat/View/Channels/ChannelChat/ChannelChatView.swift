@@ -46,7 +46,7 @@ struct ChannelChatView: View {
         }
         .showErrorMessage(showAlert: $viewModel.showErrorAlert, message: viewModel.errorMessage)
         .padding(.vertical)
-        .navigationTitle("\(viewModel.channel.name)(\(viewModel.channel.userCount))")
+        .navigationTitle("\(viewModel.channel.name)(\(viewModel.channel.uids.count))")
         .navigationBarItems(trailing: ExitButton)
         .navigationBarTitleDisplayMode(.inline)
     }
