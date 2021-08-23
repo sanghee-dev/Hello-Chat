@@ -36,7 +36,6 @@ struct ChatPartnersView: View {
                 }
             }
         }
-        .modifier(ErrorAlertModifier(showAlert: $viewModel.showErrorAlert,
-                                     message: viewModel.errorMessage))
+        .showErrorMessage(showAlert: $viewModel.showErrorAlert, message: viewModel.errorMessage)
     }
 }

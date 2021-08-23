@@ -58,7 +58,6 @@ struct StatusSelectorView: View {
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("Select Status")
-        .modifier(ErrorAlertModifier(showAlert: $viewModel.showErrorAlert,
-                                             message: viewModel.errorMessage))
+        .showErrorMessage(showAlert: $viewModel.showErrorAlert, message: viewModel.errorMessage)
     }
 }

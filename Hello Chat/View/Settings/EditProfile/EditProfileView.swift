@@ -55,7 +55,6 @@ struct EditProfileView: View {
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("Edit Profile")
-        .modifier(ErrorAlertModifier(showAlert: $viewModel.showErrorAlert,
-                                             message: viewModel.errorMessage))
+        .showErrorMessage(showAlert: $viewModel.showErrorAlert, message: viewModel.errorMessage)
     }
 }

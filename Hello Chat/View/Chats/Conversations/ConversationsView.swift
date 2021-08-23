@@ -37,8 +37,7 @@ struct ConversationsView: View {
                 })
         }
         .onAppear{ viewModel.fetchRecentMessages() }
-        .modifier(ErrorAlertModifier(showAlert: $viewModel.showErrorAlert,
-                                     message: viewModel.errorMessage))
+        .showErrorMessage(showAlert: $viewModel.showErrorAlert, message: viewModel.errorMessage)
     }
 }
 

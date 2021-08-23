@@ -69,8 +69,7 @@ struct LoginView: View {
             }
         }
         .padding(.top, -56)
-        .modifier(ErrorAlertModifier(showAlert: $viewModel.showErrorAlert,
-                                     message: viewModel.errorMessage))
+        .showErrorMessage(showAlert: $viewModel.showErrorAlert, message: viewModel.errorMessage)
     }
 }
 

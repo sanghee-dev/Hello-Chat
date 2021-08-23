@@ -27,8 +27,7 @@ struct ChannelsView: View {
                     SelectGroupMembersView(show: $showCreateGroupView)
                 })
         }
-        .modifier(ErrorAlertModifier(showAlert: $viewModel.showErrorAlert,
-                                             message: viewModel.errorMessage))
+        .showErrorMessage(showAlert: $viewModel.showErrorAlert, message: viewModel.errorMessage)
     }
 }
 

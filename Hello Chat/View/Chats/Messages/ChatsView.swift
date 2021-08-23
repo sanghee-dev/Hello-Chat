@@ -48,8 +48,7 @@ struct ChatsView: View {
         .navigationTitle(chatPartner.username)
         .navigationBarTitleDisplayMode(.inline)
         .padding(.vertical)
-        .modifier(ErrorAlertModifier(showAlert: $viewModel.showErrorAlert,
-                                     message: viewModel.errorMessage))
+        .showErrorMessage(showAlert: $viewModel.showErrorAlert, message: viewModel.errorMessage)
     }
     
     func sendMessage() {

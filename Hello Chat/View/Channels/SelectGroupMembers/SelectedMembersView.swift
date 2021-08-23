@@ -47,8 +47,7 @@ struct SelectedMembersView: View {
         }
         .animation(.spring())
         .padding()
-        .modifier(ErrorAlertModifier(showAlert: $viewModel.showErrorAlert,
-                                             message: viewModel.errorMessage))
+        .showErrorMessage(showAlert: $viewModel.showErrorAlert, message: viewModel.errorMessage)
     }
 }
 
