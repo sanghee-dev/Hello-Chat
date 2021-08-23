@@ -34,7 +34,7 @@ struct ErrorAlertModifier: ViewModifier {
 
 extension String {
     var isSingleEmoji: Bool {
-        if unicodeScalars.count > 2 {
+        if unicodeScalars.count > 1 {
             return false
         }
         

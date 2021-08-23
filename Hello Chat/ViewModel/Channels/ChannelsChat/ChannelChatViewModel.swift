@@ -83,7 +83,8 @@ class ChannelChatViewModel: ObservableObject {
                                    "toId": channelId,
                                    "read": false,
                                    "text": messageText,
-                                   "profileImageUrl": currentUser.profileImageUrl ]
+                                   "profileImageUrl": currentUser.profileImageUrl,
+                                   "keepTalking": messages.last?.fromId == currentUid]
         
         COLLECTION_CHANNELS.document(channelId)
             .collection("messages").document().setData(data)

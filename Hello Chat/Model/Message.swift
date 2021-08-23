@@ -17,4 +17,5 @@ struct Message: Identifiable, Decodable {
     let read: Bool
     let text: String
     let profileImageUrl: String
+    let keepTalking: Bool
 }

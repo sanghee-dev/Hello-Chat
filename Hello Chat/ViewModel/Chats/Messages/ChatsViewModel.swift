@@ -76,7 +76,8 @@ class ChatsViewModel: ObservableObject {
                                    "toId": chatPartnerId,
                                    "read": false,
                                    "text": messageText,
-                                   "profileImageUrl": AuthViewModel.shared.currentUser?.profileImageUrl ?? ""]
+                                   "profileImageUrl": AuthViewModel.shared.currentUser?.profileImageUrl ?? "",
+                                   "keepTalking": messages.last?.fromId == currentUserId]
         
         currentUserRef.setData(data)
         chatPartnerRef.document(messageId).setData(data)
