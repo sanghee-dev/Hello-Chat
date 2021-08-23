@@ -17,11 +17,7 @@ class ChatsViewModel: ObservableObject {
         self.chatPartner = chatPartner
         fetchMessages()
     }
-    
-    func showErrorMessage(_ errorMessage: String) {
-        self.showErrorAlert = true
-        self.errorMessage = errorMessage
-    }
+
     
     func fetchMessages() {
         guard let currentUserId = AuthViewModel.shared.currentUser?.id else { return }
@@ -34,7 +30,8 @@ class ChatsViewModel: ObservableObject {
         
         query.addSnapshotListener { snapshot, error in
             if let (errorMessage) = error?.localizedDescription {
-                self.showErrorMessage(errorMessage)
+                self.showErrorAlert = true
+                self.errorMessage = errorMessage
                 return
             }
             
@@ -45,7 +42,8 @@ class ChatsViewModel: ObservableObject {
         
         query.getDocuments { snapshot, error in
             if let (errorMessage) = error?.localizedDescription {
-                self.showErrorMessage(errorMessage)
+                self.showErrorAlert = true
+                self.errorMessage = errorMessage
                 return
             }
             

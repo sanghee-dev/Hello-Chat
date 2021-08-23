@@ -18,11 +18,6 @@ class ChannelChatViewModel: ObservableObject {
         fetchChannelMessages()
     }
     
-    func showErrorMessage(_ errorMessage: String) {
-        self.showErrorAlert = true
-        self.errorMessage = errorMessage
-    }
-    
     func fetchChannelMessages() {
         guard let channelId = channel.id else { return }
         
@@ -32,7 +27,8 @@ class ChannelChatViewModel: ObservableObject {
         
         query.addSnapshotListener { snapshot, error in
             if let errorMessage = error?.localizedDescription {
-                self.showErrorMessage(errorMessage)
+                self.showErrorAlert = true
+                self.errorMessage = errorMessage
                 return
             }
             
@@ -43,7 +39,8 @@ class ChannelChatViewModel: ObservableObject {
         
         query.getDocuments { snapshot, error in
             if let errorMessage = error?.localizedDescription {
-                self.showErrorMessage(errorMessage)
+                self.showErrorAlert = true
+                self.errorMessage = errorMessage
                 return
             }
             

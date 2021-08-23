@@ -17,17 +17,13 @@ class EditProfileViewModel: ObservableObject {
         self.user = user
     }
     
-    func showErrorMessage(_ errorMessage: String) {
-        self.showErrorAlert = true
-        self.errorMessage = errorMessage
-    }
-    
     func updateProfileImage(_ image: UIImage) {
         guard let uid = user.id else { return }
         let storagePath = Storage.storage().reference(forURL: user.profileImageUrl)
         storagePath.delete { error in
             if let errorMessage = error?.localizedDescription {
-                self.showErrorMessage(errorMessage)
+                self.showErrorAlert = true
+                self.errorMessage = errorMessage
                 return
             }
         }
@@ -36,7 +32,8 @@ class EditProfileViewModel: ObservableObject {
             let data: [String: Any] = [KEY_PROFILE_IMAGE_URL: imageUrl]
             COLLECTION_USERS.document(uid).updateData(data) { error in
                 if let errorMessage = error?.localizedDescription {
-                    self.showErrorMessage(errorMessage)
+                    self.showErrorAlert = true
+                    self.errorMessage = errorMessage
                     return
                 }
                 self.user.profileImageUrl = imageUrl
@@ -50,7 +47,8 @@ class EditProfileViewModel: ObservableObject {
         
         COLLECTION_USERS.document(uid).updateData(data) { error in
             if let errorMessage = error?.localizedDescription {
-                self.showErrorMessage(errorMessage)
+                self.showErrorAlert = true
+                self.errorMessage = errorMessage
                 return
             }
         }
@@ -62,7 +60,8 @@ class EditProfileViewModel: ObservableObject {
         
         COLLECTION_USERS.document(uid).updateData(data) { error in
             if let errorMessage = error?.localizedDescription {
-                self.showErrorMessage(errorMessage)
+                self.showErrorAlert = true
+                self.errorMessage = errorMessage
                 return
             }
             self.user.status = status

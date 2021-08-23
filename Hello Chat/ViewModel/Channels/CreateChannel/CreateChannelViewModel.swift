@@ -17,11 +17,6 @@ class CreateChannelViewModel: ObservableObject {
         self.users = selectableUsers.map({ $0.user })
     }
     
-    func showErrorMessage(_ errorMessage: String) {
-        self.showErrorAlert = true
-        self.errorMessage = errorMessage
-    }
-    
     func createChannel(name: String, image: UIImage?) {
         guard let currentUser = AuthViewModel.shared.currentUser else { return }
         guard let currentUId = currentUser.id else { return }
@@ -38,7 +33,8 @@ class CreateChannelViewModel: ObservableObject {
                 data["imageUrl"] = imageUrl
                 COLLECTION_CHANNELS.document().setData(data) { error in
                     if let errorMessage = error?.localizedDescription {
-                        self.showErrorMessage(errorMessage)
+                        self.showErrorAlert = true
+                        self.errorMessage = errorMessage
                         return
                     }
                     self.didCreateChannel = true
@@ -47,7 +43,8 @@ class CreateChannelViewModel: ObservableObject {
         } else {
             COLLECTION_CHANNELS.document().setData(data) { error in
                 if let errorMessage = error?.localizedDescription {
-                    self.showErrorMessage(errorMessage)
+                    self.showErrorAlert = true
+                    self.errorMessage = errorMessage
                     return
                 }
                 self.didCreateChannel = true

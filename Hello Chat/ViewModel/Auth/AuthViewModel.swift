@@ -24,17 +24,13 @@ class AuthViewModel: NSObject, ObservableObject {
         fetchUser()
     }
     
-    func showErrorMessage(_ errorMessage: String) {
-        self.showErrorAlert = true
-        self.errorMessage = errorMessage
-    }
-    
     func login(withEmail email: String, password: String) {
         self.errorMessage = ""
         
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
             if let (errorMessage) = error?.localizedDescription {
-                self.showErrorMessage(errorMessage)
+                self.showErrorAlert = true
+                self.errorMessage = errorMessage
                 return
             }
                         
@@ -49,7 +45,8 @@ class AuthViewModel: NSObject, ObservableObject {
         
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             if let (errorMessage) = error?.localizedDescription {
-                self.showErrorMessage(errorMessage)
+                self.showErrorAlert = true
+                self.errorMessage = errorMessage
                 return
             }
             
@@ -85,7 +82,8 @@ class AuthViewModel: NSObject, ObservableObject {
         
         COLLECTION_USERS.document(uid).getDocument { snapshot, error in
             if let (errorMessage) = error?.localizedDescription {
-                self.showErrorMessage(errorMessage)
+                self.showErrorAlert = true
+                self.errorMessage = errorMessage
                 return
             }
             
@@ -113,5 +111,4 @@ class AuthViewModel: NSObject, ObservableObject {
         }        
     }
 }
-
 
