@@ -29,7 +29,7 @@ struct ChatsView: View {
                         label: { Image(systemName: "chevron.down").foregroundColor(Color(.systemGray2)) })
                         .id(topID)
                     
-                    VStack(spacing: 16) {
+                    VStack(spacing: 1) {
                         ForEach(viewModel.messages) { message in
                             MessageView(viewModel: MessageViewModel(message),
                                         config: .privateMessage)

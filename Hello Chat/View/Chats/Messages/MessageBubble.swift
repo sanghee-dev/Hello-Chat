@@ -9,11 +9,13 @@ import SwiftUI
 
 struct MessageBubble: Shape {
     var isFromCurrentUser: Bool
+    var isBubble: Bool
     
     func path(in rect: CGRect) -> Path {
         let path = UIBezierPath(roundedRect: rect,
-                                byRoundingCorners: [.topLeft, .topRight, isFromCurrentUser ? .bottomLeft : .bottomRight],
-                                cornerRadii: CGSize(width: 16, height: 16))
+                                byRoundingCorners: isBubble ? [isFromCurrentUser ? .topLeft : .topRight, .bottomLeft, .bottomRight] :
+                                                              [.topLeft, .topRight, .bottomLeft, .bottomRight],
+                                cornerRadii: CGSize(width: 12, height: 12))
         
         return Path(path.cgPath)
     }
