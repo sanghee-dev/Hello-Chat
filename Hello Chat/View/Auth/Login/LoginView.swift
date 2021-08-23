@@ -45,21 +45,18 @@ struct LoginView: View {
                     })
                 }
                 
-                // 에러 메세지 띄우기
-                if let error = viewModel.error {
-                    Text(error.localizedDescription)
-                        .font(.system(size: 14))
-                        .foregroundColor(.red)
-                        .padding(.horizontal, 32)
-                }
-                
                 CapsuleButton(text: "Sign In",
                               disabled: email.count < 5 || password.count < 6,
-                              isAnimating: isIndicatorAnimating && viewModel.error == nil,
+                              isAnimating: isIndicatorAnimating && viewModel.errorMessage == "",
                               action: {
                                     isIndicatorAnimating = true
                                     viewModel.login(withEmail: email, password: password)
                               })
+                    .alert(isPresented: $viewModel.showingErrorAlert) {
+                        Alert(title: Text("Error"),
+                              message: Text(viewModel.errorMessage),
+                              dismissButton: .cancel(Text("OK")))
+                    }
                                 
                 Spacer()
                 

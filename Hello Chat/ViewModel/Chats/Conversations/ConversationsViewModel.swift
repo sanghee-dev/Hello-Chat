@@ -10,6 +10,7 @@ import Firebase
 
 class ConversationsViewModel: ObservableObject {
     @Published var recentMessages = [Message]()
+    @Published var error: Error?
     
     init() {
         fetchRecentMessages()
@@ -23,6 +24,10 @@ class ConversationsViewModel: ObservableObject {
             .order(by: "timestamp", descending: true)
         
         query.getDocuments { snapshot, error in
+            if let error = error {
+                self.error = error
+            }
+            
             guard let documents = snapshot?.documents else { return }
             self.recentMessages = documents.compactMap({ try? $0.data(as: Message.self) })
         }
