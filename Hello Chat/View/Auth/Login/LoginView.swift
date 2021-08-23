@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct LoginView: View {
+    @EnvironmentObject var viewModel: AuthViewModel
     @State private var email = ""
     @State private var password = ""
-    @EnvironmentObject var viewModel: AuthViewModel
-    
     @State private var isIndicatorAnimating = false
 
     var body: some View {

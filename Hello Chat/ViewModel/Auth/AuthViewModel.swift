@@ -45,6 +45,7 @@ class AuthViewModel: NSObject, ObservableObject {
         
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             if let errorMessage = error?.localizedDescription {
+                self.showingErrorAlert = true
                 self.errorMessage = errorMessage
                 return
             }
@@ -58,8 +59,9 @@ class AuthViewModel: NSObject, ObservableObject {
                                        KEY_STATUS: Status.available.rawValue]
             
             COLLECTION_USERS.document(user.uid).setData(data) { error in
-                if let error = error {
-                    print("DEBUG: Failed to set user info with error \(error.localizedDescription)")
+                if let errorMessage = error?.localizedDescription {
+                    self.showingErrorAlert = true
+                    self.errorMessage = errorMessage
                     return
                 }
                 self.didAuthenticateUser = true
@@ -86,19 +88,16 @@ class AuthViewModel: NSObject, ObservableObject {
     
     func uploadProfileImage(_ image: UIImage) {
         guard let uid = tempCurrentUser?.uid else { return }
-        
-        print("DEBUG: \(image)")
 
         ImageUploader.uploadImage(image: image, folderName: FOLDER_PROFILE_IMAGES) { imageUrl in
             let data: [String: Any] = [KEY_PROFILE_IMAGE_URL : imageUrl]
             COLLECTION_USERS.document(uid).updateData(data) { error in
-                if let error = error {
-                    print("DEBUG: Failed to upload user profile with error \(error.localizedDescription)")
+                if let errorMessage = error?.localizedDescription {
+                    self.showingErrorAlert = true
+                    self.errorMessage = errorMessage
                     return
                 }
             }
-            print(imageUrl)
-            print("DEBUG: Successfully update profile")
             
             self.currentUser?.profileImageUrl = imageUrl
             self.userSession = Auth.auth().currentUser

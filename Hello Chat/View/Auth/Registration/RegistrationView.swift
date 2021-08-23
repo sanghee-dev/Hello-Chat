@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct RegistrationView: View {
+    @EnvironmentObject var viewModel: AuthViewModel
+    @Environment(\.presentationMode) var mode
     @State private var email = ""
     @State private var username = ""
     @State private var fullname = ""
     @State private var password = ""
     @State private var isIndicatorAnimating = false
-    @Environment(\.presentationMode) var mode
-    @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
         VStack {
@@ -50,11 +50,16 @@ struct RegistrationView: View {
 
             CapsuleButton(text: "Sign Up",
                           disabled: email.count < 5 || username.count < 2 || fullname.count < 2 || password.count < 6,
-                          isAnimating: isIndicatorAnimating,
+                          isAnimating: isIndicatorAnimating && viewModel.errorMessage == "",
                           action: {
                             isIndicatorAnimating = true
                             viewModel.register(withEmail: email, username: username, fullname: fullname, password: password)
                           })
+                .alert(isPresented: $viewModel.showingErrorAlert) {
+                    Alert(title: Text("Error"),
+                          message: Text(viewModel.errorMessage),
+                          dismissButton: .cancel(Text("OK")))
+                }
             
             Spacer()
             
