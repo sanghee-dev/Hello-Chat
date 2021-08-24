@@ -43,11 +43,12 @@ struct MessageView: View {
                     .font(.system(size: viewModel.message.text.isSingleEmoji ? 24 : 15))
                     .clipShape(MessageBubble(isFromCurrentUser: viewModel.isFromCurrentUser, isBubble: !viewModel.message.keepTalking))
                     .foregroundColor(.black)
-                    .padding(.leading, config == .groupMessage && !viewModel.isFromCurrentUser && viewModel.message.keepTalking ? 40 : 0)
+                    .padding(.leading, !viewModel.isFromCurrentUser && viewModel.message.keepTalking ? 40 : 0)
             }
             
             if !viewModel.isFromCurrentUser { Spacer() }
         }
         .padding(.horizontal)
+        .padding(.top, viewModel.message.keepTalking ? 0: 16)
     }
 }

@@ -29,7 +29,7 @@ struct ChatsView: View {
                         label: { Image(systemName: "chevron.down").foregroundColor(Color(.systemGray2)) })
                         .id(topID)
                     
-                    VStack(spacing: 1) {
+                    VStack(spacing: 8) {
                         ForEach(viewModel.messages) { message in
                             MessageView(viewModel: MessageViewModel(message),
                                         config: .privateMessage)
@@ -39,15 +39,15 @@ struct ChatsView: View {
                         withAnimation { proxy.scrollTo(bottomID) }
                     }
                     
-                    Text("").id(bottomID)
+                    HStack {}.id(bottomID)
                 }
             }
             
             CustomInputView(text: $messageText, action: sendMessage)
         }
+        .padding(.vertical)
         .navigationTitle(chatPartner.username)
         .navigationBarTitleDisplayMode(.inline)
-        .padding(.vertical)
         .showErrorMessage(showAlert: $viewModel.showErrorAlert, message: viewModel.errorMessage)
     }
     

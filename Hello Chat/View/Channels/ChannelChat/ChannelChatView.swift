@@ -28,7 +28,7 @@ struct ChannelChatView: View {
                         label: { Image(systemName: "chevron.down").foregroundColor(Color(.systemGray2)) })
                         .id(topID)
                                         
-                    VStack(spacing: 16) {
+                    VStack(spacing: 8) {
                         ForEach(viewModel.messages) { message in
                             MessageView(viewModel: MessageViewModel(message),
                                         config: .groupMessage)
@@ -38,7 +38,7 @@ struct ChannelChatView: View {
                         withAnimation { proxy.scrollTo(bottomID) }
                     }
                     
-                    Text("").id(bottomID)
+                    HStack {}.id(bottomID)
                 }
             }
             
