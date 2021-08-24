@@ -25,7 +25,7 @@ struct EditProfileView: View {
             
             VStack(spacing: 1) {
                 HStack {
-                    Text("CLICK ON IMAGE OR NAME TO EDIT")
+                    Text("CLICK IMAGE OR WRITE YOUR NAME")
                         .font(.system(size: 14))
                         .padding(.leading)
                         .foregroundColor(Color(.systemGray2))
@@ -56,7 +56,7 @@ struct EditProfileView: View {
                     NavigationLink(
                         destination: StatusSelectorView(viewModel),
                         label: {
-                            EditStatusCell(text: viewModel.user.status.title)
+                            EditStatusCell(viewModel: viewModel)
                         }
                     )
                 }

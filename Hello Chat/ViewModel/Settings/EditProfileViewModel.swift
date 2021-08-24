@@ -12,13 +12,14 @@ class EditProfileViewModel: ObservableObject {
     @Published var user: User
     @Published var showErrorAlert = false
     @Published var errorMessage = ""
+    @Published var selectedStatus: Status?
     
     init(_ user: User) {
         self.user = user
     }
     
     func getButtonLabel(image: UIImage?, username: String) -> String {
-        if (image != nil || username != user.username && username != "") {
+        if (image != nil || username != user.username || selectedStatus != user.status && username != "") {
             return "Done"
         }
         return ""
@@ -30,6 +31,11 @@ class EditProfileViewModel: ObservableObject {
         }
         if (username != "" && username != user.username) {
             updateUsername(username)
+        }
+        if (selectedStatus != user.status) {
+            if let selectedStatus = selectedStatus {
+                updateStatus(selectedStatus)
+            }
         }
     }
         

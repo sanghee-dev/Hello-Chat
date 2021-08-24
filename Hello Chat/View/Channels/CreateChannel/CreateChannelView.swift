@@ -22,33 +22,24 @@ struct CreateChannelView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            HStack(spacing: 24) {
-                Button(action: {
-                    imagePickerPresented.toggle()
-                }, label: {
-                    let image = channelImage == nil ? Image(systemName: "plus.circle") : channelImage ?? Image(systemName: "plus.circle")
-                    image
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 64, height: 64)
-                        .clipShape(Circle())
-                        .foregroundColor(Color(.systemGray3))
-                })
-                .sheet(isPresented: $imagePickerPresented,
-                       onDismiss: loadImage,
-                       content: { ImagePicker(image: $selectedImage) })
-                .padding(.leading, 24)
+            VStack {
+
+                ChannelImageButton
                 
-                VStack(alignment: .leading, spacing: 12) {
-                    TextField("Enter a name for your channel", text: $channelName)
-                        .font(.system(size: 16))
+                HStack(alignment: .top) {
+                    Text("Name:")
+                        .font(.system(size: 18, weight: .semibold))
+                        .foregroundColor(.blue)
                     
-                    Divider()
-                    
-                    Text("Please provide a channel name and icon")
-                        .font(.system(size: 14))
-                        .foregroundColor(Color(.systemGray2))
+                    VStack {
+                        TextField("Write a channel name", text: $channelName)
+                            .font(.system(size: 18))
+
+                        Divider().background(Color(.systemGray4))
+                    }
                 }
+                .frame(width: 240)
+
             }.padding(.top)
             
             Spacer()
@@ -65,14 +56,33 @@ struct CreateChannelView: View {
         channelImage = Image(uiImage: selectedImage)
     }
     
-    var CreateChannelButton: some View {
-        Button(action: {
-            viewModel.createChannel(name: channelName, image: selectedImage)
-        }, label: {
-            Text("Create")
-                .bold()
-                .disabled(channelName.isEmpty)
+    var ChannelImageButton: some View {
+        Button(action: { imagePickerPresented.toggle() }, label: {
+            if let channelImage = channelImage {
+                channelImage
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 240, height: 240)
+                    .clipShape(Circle())
+            } else {
+                Text("Click here!")
+                    .font(.system(size: 18, weight: .semibold))
+                    .frame(width: 240, height: 240)
+                    .clipShape(Circle())
+                    .overlay(Circle().stroke(style: StrokeStyle(lineWidth: 2, dash: [5])))
+            }
         })
+        .padding(.top, 56)
+        .padding(.bottom)
+        .sheet(isPresented: $imagePickerPresented,
+               onDismiss: loadImage,
+               content: { ImagePicker(image: $selectedImage) })
+    }
+    
+    var CreateChannelButton: some View {
+        Button(action: { viewModel.createChannel(name: channelName, image: selectedImage) },
+               label: { Text("Create").bold() })
+        .disabled(channelName.isEmpty)
     }
 }
 

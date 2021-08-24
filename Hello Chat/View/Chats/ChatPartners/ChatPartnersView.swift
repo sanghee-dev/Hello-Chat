@@ -15,7 +15,6 @@ struct ChatPartnersView: View {
     @State private var isEditing = false
     @Binding var user: User?
     
-
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
             ScrollView {

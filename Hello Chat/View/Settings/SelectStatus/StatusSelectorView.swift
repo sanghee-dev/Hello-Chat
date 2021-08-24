@@ -9,6 +9,7 @@ import SwiftUI
 
 struct StatusSelectorView: View {
     @ObservedObject var viewModel: EditProfileViewModel
+    @Environment(\.presentationMode) var mode
     
     init(_ viewModel: EditProfileViewModel) {
         self.viewModel = viewModel
@@ -43,7 +44,8 @@ struct StatusSelectorView: View {
                             
                             ForEach(Status.allCases, id: \.self) { status in
                                 Button(action: {
-                                    viewModel.updateStatus(status)
+                                    viewModel.selectedStatus = status
+                                    mode.wrappedValue.dismiss()
                                 }, label: {
                                     StatusCell(status: status,
                                                isSelected: viewModel.user.status == status)

@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct EditStatusCell: View {
-    let text: String
-    
+    @ObservedObject var viewModel: EditProfileViewModel
+        
     var body: some View {
         VStack {
             HStack {
-                Text(text)
+                Text(viewModel.selectedStatus?.title ?? viewModel.user.status.title)
                 
                 Spacer()
                 
