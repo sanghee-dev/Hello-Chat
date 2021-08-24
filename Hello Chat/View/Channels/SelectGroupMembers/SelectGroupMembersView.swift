@@ -50,7 +50,9 @@ struct SelectGroupMembersView: View {
     var NextButton: some View {
         NavigationLink(
             destination: CreateChannelView(viewModel.selectedUsers, show: $show),
-            label: { Text("Next").bold() })
+            label: { Text("Next").bold() }
+        )
+        .disabled(viewModel.selectedUsers.count == 0)
     }
     
     var CancelButton: some View {
