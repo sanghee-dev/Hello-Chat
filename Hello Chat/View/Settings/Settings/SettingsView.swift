@@ -44,8 +44,8 @@ struct SettingsView: View {
                     ActionSheet(title: Text("Log out"),
                                 message: Text("Are you sure you want to log out?"),
                                 buttons: [
-                                    .destructive( Text("Log out"), action: { AuthViewModel.shared.signOut() } ),
-                                    .cancel( Text("Cancel") ) ])
+                                    .destructive(Text("Log out"), action: { AuthViewModel.shared.signOut() }),
+                                    .cancel(Text("Cancel")) ])
                 }
                 
                 Spacer()

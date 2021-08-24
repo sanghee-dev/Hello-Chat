@@ -11,6 +11,7 @@ struct ChannelChatView: View {
     @ObservedObject var viewModel: ChannelChatViewModel
     @Environment(\.presentationMode) var mode
     @State private var messageText = ""
+    @State private var showSheet = false
     
     @Namespace var topID
     @Namespace var bottomID
@@ -52,12 +53,17 @@ struct ChannelChatView: View {
     }
     
     var ExitButton: some View {
-        Button {
-            viewModel.exitChannel()
-            mode.wrappedValue.dismiss()
-        } label: {
-            Text("Exit")
-        }
+        Button (action: { self.showSheet = true },
+                label: { Text("Exit") })
+            .alert(isPresented: $showSheet) {
+                Alert(title: Text("Exit"),
+                      message: Text("Are you sure you want to exit channel?"),
+                      primaryButton: .destructive(Text("Exit"), action: {
+                        viewModel.exitChannel()
+                        mode.wrappedValue.dismiss()
+                      }),
+                      secondaryButton: .cancel() )
+            }
     }
     
     func sendMessage() {
