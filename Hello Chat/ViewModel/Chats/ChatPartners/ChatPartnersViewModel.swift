@@ -31,5 +31,14 @@ class ChatPartnersViewModel: ObservableObject {
                 .filter({ $0.id != AuthViewModel.shared.currentUser?.id })
         }
     }
+    
+    func filteredUsers(_ query: String) -> [User] {
+        let lowercasedQuery = query.lowercased()
+        
+        return users.filter({
+            $0.fullname.lowercased().contains(lowercasedQuery) ||
+            $0.username.lowercased().contains(lowercasedQuery)
+        })
+    }
 }
 

@@ -22,15 +22,18 @@ struct ChatPartnersView: View {
                     .onTapGesture { isEditing.toggle() }
                     .padding()
                 
-                VStack(spacing: 1) {
-                    ForEach(viewModel.users) { user in
-                        Button(action: {
-                            showConversationView.toggle()
-                            self.user = user
-                            mode.wrappedValue.dismiss()
-                        }, label: {
-                            ChatPartnerCell(user: user)
-                        })
+                ScrollView {
+                    VStack(spacing: 1) {
+                        ForEach(searchText.isEmpty ? viewModel.users : viewModel.filteredUsers(searchText)
+                        ) { user in
+                            Button(action: {
+                                showConversationView.toggle()
+                                self.user = user
+                                mode.wrappedValue.dismiss()
+                            }, label: {
+                                ChatPartnerCell(user: user)
+                            })
+                        }
                     }
                 }
             }

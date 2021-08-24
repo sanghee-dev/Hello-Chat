@@ -17,7 +17,7 @@ struct ProfilePhotoSelectorView: View {
     var body: some View {
         VStack {
             IntroParagraph(title1: profileImage == nil ?
-                           "Hello. \(viewModel.tempCurrentUsername)!" :
+                           "Hello, \(viewModel.tempCurrentUsername)!" :
                            "Great!",
                            title2: profileImage == nil ?
                             "Select your profile image" :
