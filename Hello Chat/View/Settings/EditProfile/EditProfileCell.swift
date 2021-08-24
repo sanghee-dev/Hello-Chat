@@ -33,11 +33,11 @@ struct EditProfileCell: View {
                             .frame(width: 200, height: 200)
                             .clipShape(Circle())
                     }
-                }.sheet(isPresented: $showImagePicker, onDismiss: loadImage) { ImagePicker(image: $selectedImage) }
+                }.sheet(isPresented: $showImagePicker, onDismiss: loadImage) { ImagePicker(image: $selectedImage) }                
             }.padding(32)
         }
     }
-    
+
     func loadImage() {
         guard let selectedImage = selectedImage else { return }
         profileImage = Image(uiImage: selectedImage)

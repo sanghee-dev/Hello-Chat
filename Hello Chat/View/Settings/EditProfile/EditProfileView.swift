@@ -24,7 +24,17 @@ struct EditProfileView: View {
             Color(.systemGroupedBackground).ignoresSafeArea()
             
             VStack(spacing: 1) {
-                VStack(spacing: 1) {
+                HStack {
+                    Text("CLICK ON IMAGE OR NAME TO EDIT")
+                        .font(.system(size: 14))
+                        .padding(.leading)
+                        .foregroundColor(Color(.systemGray2))
+                    
+                    Spacer()
+                }
+                .padding(.top, 32)
+                
+                VStack {
                     EditProfileCell(viewModel: viewModel,
                                     showImagePicker: $showImagePicker,
                                     selectedImage: $selectedImage)
@@ -33,13 +43,15 @@ struct EditProfileView: View {
                     
                     EditUsernameCell(viewModel: viewModel,
                                      username: $username)
-                }.background(Color.white)
+                }
+                .background(Color.white)
+                .padding(.top)
                 
-                VStack(alignment: .leading, spacing: 1) {
-                    Text("Status")
-                        .padding(.top, 44)
-                        .padding([.leading, .bottom])
-                        .foregroundColor(Color(.systemGray))
+                VStack(alignment: .leading) {
+                    Text("STATUS")
+                        .font(.system(size: 14))
+                        .padding(.leading)
+                        .foregroundColor(Color(.systemGray2))
                     
                     NavigationLink(
                         destination: StatusSelectorView(viewModel),
@@ -48,6 +60,7 @@ struct EditProfileView: View {
                         }
                     )
                 }
+                .padding(.top)
                 
                 Spacer()
             }
