@@ -18,8 +18,8 @@ struct SelectableUserCellViewModel {
         return selectableUser.user.username
     }
     
-    var fullname: String {
-        return selectableUser.user.fullname
+    var statusTitle: String {
+        return selectableUser.user.status.title
     }
     
     var buttonSystemName: String {

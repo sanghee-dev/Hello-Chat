@@ -26,7 +26,7 @@ struct SelectableUserCell: View {
                         .bold()
                         .foregroundColor(.black)
                     
-                    Text(viewModel.fullname)
+                    Text(viewModel.statusTitle)
                         .foregroundColor(Color(.systemGray))
                 }
                 
