@@ -29,8 +29,7 @@ struct SettingsCell: View {
                 
                 Spacer()
                 
-                Image(systemName: "chevron.forward")
-                .foregroundColor(Color(.systemGray4))
+                Image(systemName: "chevron.forward").foregroundColor(Color(.systemGray4))
             }
             .padding([.top, .horizontal])
             

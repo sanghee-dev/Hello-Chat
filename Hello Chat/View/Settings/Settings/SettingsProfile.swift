@@ -22,7 +22,6 @@ struct SettingsProfile: View {
                 .scaledToFill()
                 .frame(width: 56, height: 56)
                 .clipShape(Circle())
-                .padding(.leading)
             
             VStack(alignment: .leading, spacing: 4) {
                 Text(viewModel.user.username)
@@ -35,7 +34,10 @@ struct SettingsProfile: View {
             }
             
             Spacer()
+            
+            Image(systemName: "chevron.forward").foregroundColor(Color(.systemGray4))
         }
+        .padding(.horizontal)
         .frame(height: 80)
         .background(Color.white)
     }
