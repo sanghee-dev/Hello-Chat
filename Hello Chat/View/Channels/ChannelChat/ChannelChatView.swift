@@ -54,7 +54,7 @@ struct ChannelChatView: View {
     
     var ExitButton: some View {
         Button (action: { self.showSheet = true },
-                label: { Text("Exit") })
+                label: { Text("Edit").foregroundColor(Color(.systemGray)) })
             .alert(isPresented: $showSheet) {
                 Alert(title: Text("Exit"),
                       message: Text("Are you sure you want to exit channel?"),
