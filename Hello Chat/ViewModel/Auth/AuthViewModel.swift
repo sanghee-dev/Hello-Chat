@@ -16,13 +16,28 @@ class AuthViewModel: NSObject, ObservableObject {
     var tempCurrentUsername = ""
     @Published var showErrorAlert = false
     @Published var errorMessage = ""
-    
+
     static let shared = AuthViewModel()
     
     override init() {
         super.init()
         userSession = Auth.auth().currentUser
         fetchUser()
+    }
+    
+    func fetchUser() {
+        guard let uid = userSession?.uid else { return }
+        
+        COLLECTION_USERS.document(uid).getDocument { snapshot, error in
+            if let (errorMessage) = error?.localizedDescription {
+                self.showErrorAlert = true
+                self.errorMessage = errorMessage
+                return
+            }
+            
+            guard let user = try? snapshot?.data(as: User.self) else { return }
+            self.currentUser = user
+        }
     }
     
     func login(withEmail email: String, password: String) {
@@ -71,29 +86,6 @@ class AuthViewModel: NSObject, ObservableObject {
         }
     }
     
-    func signOut() {
-        self.didAuthenticateUser = false
-        self.currentUser = nil
-        self.userSession = nil
-        self.tempCurrentUser = nil
-        try? Auth.auth().signOut()
-    }
-    
-    func fetchUser() {
-        guard let uid = userSession?.uid else { return }
-        
-        COLLECTION_USERS.document(uid).getDocument { snapshot, error in
-            if let (errorMessage) = error?.localizedDescription {
-                self.showErrorAlert = true
-                self.errorMessage = errorMessage
-                return
-            }
-            
-            guard let user = try? snapshot?.data(as: User.self) else { return }
-            self.currentUser = user
-        }
-    }
-    
     func uploadProfileImage(_ image: UIImage) {
         guard let uid = tempCurrentUser?.uid else { return }
 
@@ -110,7 +102,34 @@ class AuthViewModel: NSObject, ObservableObject {
             self.currentUser?.profileImageUrl = imageUrl
             self.userSession = Auth.auth().currentUser
             self.fetchUser()
-        }        
+        }
+    }
+    
+    func signOut() {
+        self.didAuthenticateUser = false
+        self.currentUser = nil
+        self.userSession = nil
+        self.tempCurrentUser = nil
+        try? Auth.auth().signOut()
+    }
+    
+    func forgotPassword(withEmail email: String) {
+        if email == "" {
+            self.showErrorAlert = true
+            self.errorMessage = "Please enter your email and proceed"
+            return
+        }
+        
+        Auth.auth().sendPasswordReset(withEmail: email) { error in
+            if let errorMessage = error?.localizedDescription {
+                self.showErrorAlert = true
+                self.errorMessage = errorMessage
+                return
+            }
+            
+            self.showErrorAlert = true
+            self.errorMessage = "Check your email and reset password"
+        }
     }
 }
 

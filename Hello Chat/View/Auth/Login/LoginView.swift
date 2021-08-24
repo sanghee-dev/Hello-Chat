@@ -28,20 +28,12 @@ struct LoginView: View {
                                     placeholder: "Password",
                                     isSecureField: true,
                                     text: $password)
-                }
-                .padding([.top, .leading, .trailing], 32)
+                }.padding([.top, .leading, .trailing], 32)
                 
                 HStack {
                     Spacer()
                     
-                    Button(action: { print("Forgot Password?") }, label: {
-                            Text("Forgot Password?")
-                                .font(.system(size: 14, weight: .semibold))
-                                .foregroundColor(.blue)
-                                .padding(.top)
-                                .padding(.bottom, 16)
-                                .padding(.trailing, 32)
-                    })
+                    forgotPasswordButton
                 }
                 
                 CapsuleButton(text: "Sign In",
@@ -51,7 +43,6 @@ struct LoginView: View {
                                     isIndicatorAnimating = true
                                     viewModel.login(withEmail: email, password: password)
                               })
-                                
                 Spacer()
                 
                 NavigationLink(
@@ -59,17 +50,28 @@ struct LoginView: View {
                         .navigationBarBackButtonHidden(true),
                     label: {
                         HStack {
-                            Text("Don't have an account?")
-                                .font(.system(size: 14))
-                            Text("Sign Up")
-                                .font(.system(size: 14, weight: .semibold))
+                            Text("Don't have an account?").font(.system(size: 14))
+                            Text("Sign Up").font(.system(size: 14, weight: .semibold))
                         }
-                    })
-                    .padding(.bottom, 32)
+                    }).padding(.bottom, 32)
             }
         }
         .padding(.top, -56)
         .showErrorMessage(showAlert: $viewModel.showErrorAlert, message: viewModel.errorMessage)
+    }
+    
+    var forgotPasswordButton: some View {
+        Button(
+            action: {
+                viewModel.forgotPassword(withEmail: email)
+            }, label: {
+                Text("Forgot Password?")
+                    .font(.system(size: 14, weight: .semibold))
+                    .foregroundColor(.blue)
+                    .padding(.top)
+                    .padding(.bottom, 16)
+                    .padding(.trailing, 32)
+            })
     }
 }
 
